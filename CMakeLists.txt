@@ -17,4 +17,4 @@ set(FT_CFLAGS
         -g3 -gdwarf-3)
 
 add_subdirectory(c01)
-
+add_subdirectory(c02)
