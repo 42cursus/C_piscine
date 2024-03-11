@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 
-void	ft_swap(char **argv, unsigned int j)
+static void	ft_swap(char **argv, unsigned int j)
 {
 	char	*temp;
 
@@ -22,7 +22,7 @@ void	ft_swap(char **argv, unsigned int j)
 	argv[j + 1] = temp;
 }
 
-int	ft_strcmp(char *s1, char *s2)
+static int	ft_strcmp(char *s1, char *s2)
 {
 	while (*s1 == *s2++)
 		if (*s1++ == 0)
@@ -30,7 +30,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return (*(unsigned char *)s1 - *(unsigned char *)--s2);
 }
 
-void	ft_sort_arg_tab(char **tab, int size)
+static void	ft_sort_arg_tab(char **tab, int size)
 {
 	int		i;
 	int		j;
@@ -56,7 +56,7 @@ void	ft_sort_arg_tab(char **tab, int size)
 	}
 }
 
-int	ft_strlen(char *str)
+static int	ft_strlen(char *str)
 {
 	const char	*ostr = str;
 
