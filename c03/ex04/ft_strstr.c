@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelov <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:21:54 by abelov            #+#    #+#             */
 /*   Updated: 2023/10/17 20:56:01 by abelov           ###   ########.fr       */
@@ -13,7 +13,7 @@
 
 static const char	g_ascii_zero_character = '\0';
 
-int	ft_strlen(char *str)
+static inline int	ft_strlen(char *str)
 {
 	char *const	ostr = str;
 
@@ -22,7 +22,7 @@ int	ft_strlen(char *str)
 	return (str - ostr);
 }
 
-/*
+/**
  * The ft_strstr() function finds the first occurrence of the substring needle
  * in the string haystack. The terminating null bytes ('\0') are not compared.
  * Returns a pointer to the beginning of the located substring, or NULL

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelov <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 21:28:53 by abelov            #+#    #+#             */
 /*   Updated: 2023/10/17 21:30:21 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 int	ft_strlen(char *str)
 {
 	char *const	ostr = str;

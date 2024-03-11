@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelov <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:27:58 by abelov            #+#    #+#             */
 /*   Updated: 2023/10/17 20:56:58 by abelov           ###   ########.fr       */
@@ -13,8 +13,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "ft_strcmp.c"
+
 #define DEST_ARRAY_SIZE (255)
+
+int	ft_strcmp(char *s1, char *s2);
 
 int	main(int argc, char *argv[])
 {

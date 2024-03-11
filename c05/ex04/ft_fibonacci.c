@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelov <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 23:09:05 by abelov            #+#    #+#             */
 /*   Updated: 2023/10/19 18:46:46 by abelov           ###   ########.fr       */

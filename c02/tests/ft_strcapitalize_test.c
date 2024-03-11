@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcapitalize_test.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelov <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 20:40:49 by abelov            #+#    #+#             */
 /*   Updated: 2024/03/10 22:33:39 by abelov           ###   ########.fr       */

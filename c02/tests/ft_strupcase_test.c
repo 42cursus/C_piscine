@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strupcase_test.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelov <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:57:28 by abelov            #+#    #+#             */
 /*   Updated: 2024/03/10 22:34:24 by abelov           ###   ########.fr       */

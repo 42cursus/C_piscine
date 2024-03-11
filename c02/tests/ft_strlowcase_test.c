@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlowcase_test.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelov <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 20:35:04 by abelov            #+#    #+#             */
 /*   Updated: 2024/03/10 22:35:00 by abelov           ###   ########.fr       */

@@ -19,6 +19,7 @@ set(FT_CFLAGS
 add_subdirectory(c01)
 add_subdirectory(c02)
 add_subdirectory(c03)
+add_subdirectory(c04)
 add_subdirectory(c05)
 add_subdirectory(c06)
 add_subdirectory(c07)

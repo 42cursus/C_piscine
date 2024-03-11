@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelov <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:48:14 by abelov            #+#    #+#             */
 /*   Updated: 2023/10/17 21:01:38 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static const char	g_ascii_zero_character = '\0';
-
-/*
+/**
  * The  ft_strncat() function  appends at most n bytes from src string to
  * the dest string, overwriting the terminating null byte ('\0') at the end
  * of dest, and then adds a terminating null byte. The strings may not overlap,
@@ -33,6 +31,6 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 		dest++;
 	while (*src && (i++ < nb))
 		*dest++ = *src++;
-	*dest = g_ascii_zero_character;
+	*dest = '\0';
 	return (save_pointer);
 }

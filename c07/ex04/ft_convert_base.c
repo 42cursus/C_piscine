@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelov <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 21:53:19 by abelov            #+#    #+#             */
 /*   Updated: 2023/10/26 21:53:35 by abelov           ###   ########.fr       */
@@ -26,7 +26,7 @@ static inline int	ft_strlen(char *str)
 	return (str - ostr);
 }
 
-/*
+/**
  * The ft_strcat() function  appends  the src string to the dest string,
  * overwriting the terminating null byte ('\0') at the end of dest,
  * and then adds a terminating null byte. The strings may not overlap,

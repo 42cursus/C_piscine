@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_int_tab_test.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelov <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:46:32 by abelov            #+#    #+#             */
 /*   Updated: 2023/10/09 20:28:20 by abelov           ###   ########.fr       */

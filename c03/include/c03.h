@@ -13,4 +13,7 @@
 #ifndef C03_H
 #define C03_H
 
+int	ft_strcmp(char *s1, char *s2);
+
+
 #endif //C03_H
