@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 23:38:58 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/11 23:38:59 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/11 23:14:34 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/11 23:14:36 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sysexits.h>
-#include "c04_test.h"
-
-int	main(int argc, char **argv)
+int ft_atoi_base(char *str, char *base)
 {
-	ft_atoi_test(argc, argv);
-	return (EX_OK)
+	return (0);
 }

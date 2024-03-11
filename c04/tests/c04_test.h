@@ -13,5 +13,6 @@
 #ifndef C04_TEST_H
 # define C04_TEST_H
 
+int	ft_atoi_test(int argc, char **argv);
 
 #endif //C04_TEST_H

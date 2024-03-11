@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 #include <stddef.h>
 
-static const char	g_ascii_zero_character = '\0';
-
 static inline int	ft_strlen(char *str)
 {
 	char *const	ostr = str;
@@ -40,7 +38,7 @@ char	*ft_strstr(char *str, char *to_find)
 		s = str;
 		to_find = save;
 		while (*to_find == *s++)
-			if (*to_find++ == g_ascii_zero_character)
+			if (*to_find++ == '\0')
 				return (str);
 		str++;
 	}

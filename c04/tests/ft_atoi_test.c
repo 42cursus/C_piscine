@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 22:24:32 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/18 13:49:19 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/18 13:49:47 by abelov            #+#    #+#             */
+/*   Updated: 2023/10/18 14:29:57 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
-//#define DEST_ARRAY_SIZE (255)
+
+/*
+ * https://stackoverflow.com/questions
+ * /25848815/why-enough-is-enough-storing-an-int-in-a-char-array
+ */
 #define ENOUGH ((CHAR_BIT * sizeof(int) - 1) / 3 + 2)
 
-void ft_putnbr(int);
+int	ft_atoi(char *);
 
-int	main(int argc, char **argv)
+int	ft_atoi_test(int argc, char **argv)
 {
 	char	buf[ENOUGH];
 	char	*str = "";
@@ -37,10 +41,11 @@ int	main(int argc, char **argv)
 
 	nb = atoi(str);
 	sprintf(buf, "%d", nb);
-
 	printf("s: \"%s\"\n", buf);
 
-	ft_putnbr(nb);
+	nb = ft_atoi(str);
+	sprintf(buf, "%d", nb);
+	printf("ft: \"%s\"\n", buf);
 
 	return (EXIT_SUCCESS);
 }

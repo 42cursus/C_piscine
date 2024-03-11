@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 23:38:58 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/11 23:38:59 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/11 23:12:16 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/11 23:12:18 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sysexits.h>
-#include "c04_test.h"
-
-int	main(int argc, char **argv)
+void ft_putnbr_base(int nbr, char *base)
 {
-	ft_atoi_test(argc, argv);
-	return (EX_OK)
+	;
 }
