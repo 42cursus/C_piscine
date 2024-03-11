@@ -1,37 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelov <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 22:31:52 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/23 15:48:11 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/11 22:11:41 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/11 22:11:42 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <limits.h>
-#include "libft.h"
 
-typedef struct s_pos
-{
-	int	min;
-	int	max;
-}	t_pos;
-
-void	test1(t_pos	pos);
-
-int	main(void)
-{
-	char		*str;
-	const t_pos	pos = {.min = INT_MIN, . max = INT_MAX};
-	const char	*strs[3] = {"one", "", "three"};
-
-	str = ft_strjoin(3, strs, ",");
-	printf(" \"%s\"\n", str);
-	test1(pos);
-	return (0);
-}
+#include "c07_tests.h"
 
 void	test1(t_pos	pos)
 {

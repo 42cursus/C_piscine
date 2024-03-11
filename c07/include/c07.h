@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef C07_H
+# define C07_H
 # include <stdlib.h>
 # include <string.h>
 
@@ -23,4 +23,4 @@ int				ft_strlen(char *str);
 char			*ft_strcpy(char *dest, char *src);
 char			*ft_strdup(char *src);
 char			**ft_split(char *str, char *charset);
-#endif //LIBFT_H
+#endif //C07_H

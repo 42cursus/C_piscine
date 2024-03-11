@@ -27,9 +27,9 @@ file(GLOB FTLIB_SOURCES "ex*/*.c")
 
 
 #Generate the shared library from the sources
-add_library(ft1 STATIC ${FTLIB_HEADERS} ${FTLIB_SOURCES})
-target_include_directories(ft1 PRIVATE include)
-target_compile_options(ft1 PRIVATE ${FT_CFLAGS})
+add_library(c07_lib STATIC ${FTLIB_HEADERS} ${FTLIB_SOURCES})
+target_include_directories(c07_lib PRIVATE include)
+target_compile_options(c07_lib PRIVATE ${FT_CFLAGS})
 
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 #set(CMAKE_SHARED_LINKER_FLAGS "-static-libgcc -static-libstdc++ -static")
@@ -40,8 +40,8 @@ set(TARGET_HEADERS
 set(TARGET_SOURCES
         "")
 
-file(GLOB TARGET_HEADERS "src/*.h")
-file(GLOB TARGET_SOURCES "src/*.c")
+file(GLOB TARGET_HEADERS "tests/*.h")
+file(GLOB TARGET_SOURCES "tests/*.c")
 
 set(TARGET_CFLAGS
         -c -w
@@ -59,6 +59,4 @@ add_executable(${TARGET_NAME} ${TARGET_HEADERS} ${TARGET_SOURCES})
 target_include_directories(${TARGET_NAME} PRIVATE include src)
 target_compile_options(${TARGET_NAME} PRIVATE ${TARGET__CFLAGS})
 target_link_options(${TARGET_NAME} PRIVATE ${DMP_LINK_FLAGS})
-target_link_libraries(${TARGET_NAME} bsd rt ft1 Threads::Threads)
-
-
+target_link_libraries(${TARGET_NAME} bsd rt c07_lib Threads::Threads)
