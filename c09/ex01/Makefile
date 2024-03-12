@@ -10,13 +10,20 @@
 #                                                                              #
 # **************************************************************************** #
 
+#https://www.gnu.org/software/make/manual/html_node/Empty-Recipes.html
+#https://www.gnu.org/software/make/manual/html_node/Last-Resort.html
+#https://www.gnu.org/software/make/manual/html_node/Special-Targets.html
+#https://www.gnu.org/software/make/manual/html_node/Goals.html
+#https://www.gnu.org/software/make/manual/html_node/Special-Variables.html
+
 NAME			:= libft.a
-CC := cc
+CC				:= cc
 INCLUDE_FLAGS	:= -I. -I/usr/include
 LIBRARY_FLAGS	:= -lbsd
 OPTIMIZE_FLAGS	:= -O0
 DEBUG_FLAGS		:= -g3 -gdwarf-3
-CFLAGS = -Wall -Wextra -Werror $(OPTIMIZE_FLAGS)
+MANDATORY_FLAGS	:= -Wall -Wextra -Werror
+CFLAGS			= $(MANDATORY_FLAGS) $(DEBUG_FLAGS) $(OPTIMIZE_FLAGS)
 
 CTAGS			:= ctags
 LIB_COMMAND		:= ar rcs
@@ -45,5 +52,16 @@ fclean: clean
 		$(RM) -fr $(NAME)
 
 re: fclean all
+
+.DEFAULT_GOAL	:= re
+$(warning default goal is $(.DEFAULT_GOAL))
+
+.DEFAULT:
+	@echo Goal $@ is not found!
+
+# define an empty recipe for target
+# useful is to prevent a target from getting implicit recipes
+# (from implicit rules or the .DEFAULT special target;
+target: ;
 
 .PHONY: all clean flean re $(BUILD_DIR)
