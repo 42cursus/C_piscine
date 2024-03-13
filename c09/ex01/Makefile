@@ -29,17 +29,24 @@ CTAGS			:= ctags
 LIB_COMMAND		:= ar rcs
 RM				:= /bin/rm
 
+BUILD_DIR		= build
+SRC_DIR			= srcs
+#OBJ_DIR			= $(BUILD_DIR)/obj
+OBJ_DIR			= $(SRC_DIR)
+
 SRC_FILES 		:= ft_putchar.c \
 					ft_putstr.c \
 					ft_strcmp.c \
 					ft_strlen.c \
 					ft_swap.c
-SRCS			= $(SRC_FILES:%.c=srcs/%.c)
-OBJS			= $(SRCS:%.c=%.o)
+SRCS			= $(SRC_FILES:%.c=$(SRC_DIR)/%.c)
+OBJS			= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+$(info ********** $(OBJS) ************)
 
 all: $(NAME)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(DEBUG_FLAGS) $(INCLUDE_FLAGS) -c $^ -o $@
 
 $(NAME): $(OBJS)
@@ -49,12 +56,12 @@ clean:
 		$(RM) -f $(OBJS)
 
 fclean: clean
-		$(RM) -fr $(NAME)
+		$(RM) -fr $(NAME) $(BUILD_DIR)
 
 re: fclean all
 
 .DEFAULT_GOAL	:= re
-$(warning default goal is $(.DEFAULT_GOAL))
+$(info ********** default goal is: "$(.DEFAULT_GOAL)" ************)
 
 .DEFAULT:
 	@echo Goal $@ is not found!
@@ -64,4 +71,4 @@ $(warning default goal is $(.DEFAULT_GOAL))
 # (from implicit rules or the .DEFAULT special target;
 target: ;
 
-.PHONY: all clean flean re $(BUILD_DIR)
+.PHONY: all clean flean re
