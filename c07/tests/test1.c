@@ -22,7 +22,7 @@ void	test1(t_pos	pos)
 
 	i = 0;
 	array = ft_range(pos.min, pos.max);
-	size = ft_range_ary_size(pos.min, pos.max);
+	size = ft_range_array_size(pos.min, pos.max);
 	while (i < 5 && array)
 		printf("%d,", array[i++]);
 	printf("\n\"%d\"\n", size);

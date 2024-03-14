@@ -69,7 +69,7 @@ static inline int	ft_strlen_all(char **strs, size_t size)
 	return (counter);
 }
 
-/*
+/**
  * Concatenates all the strings pointed by strs separated by sep.
  * size is the number of strings in strs.
  * if size is 0, returns an empty string that you can free().

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include <stdlib.h>
 
-static int	ft_range_ary_size(int start, int end)
+static int	ft_range_array_size(int start, int end)
 {
 	long	size;
 
@@ -31,7 +31,7 @@ static int	*ft_range(int min, int max)
 
 	i = 0;
 	ary = NULL;
-	ary_size = ft_range_ary_size(min, max);
+	ary_size = ft_range_array_size(min, max);
 	if (ary_size <= 0)
 		return (NULL);
 	ary = (int *)malloc (sizeof(int) * ary_size - 1);
