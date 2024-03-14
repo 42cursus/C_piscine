@@ -34,7 +34,7 @@ void	ft_rev_int_tab2(int *tab, int size)
 {
 	int	i;
 	int	tmp;
-	int half_size;
+	int	half_size;
 
 	half_size = size / 2;
 	i = 0;
