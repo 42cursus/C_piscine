@@ -25,12 +25,13 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	char *const		save_pointer = dest;
 	unsigned int	i;
+	const char		null_byte = '\0';
 
 	i = 0;
 	while (*dest)
 		dest++;
 	while (*src && (i++ < nb))
 		*dest++ = *src++;
-	*dest = '\0';
+	*dest = null_byte;
 	return (save_pointer);
 }

@@ -12,8 +12,6 @@
 
 #include <stdlib.h>
 
-static const char	g_ascii_zero_character = '\0';
-
 /*
  * The ft_strcat() function  appends  the src string to the dest string,
  * overwriting the terminating null byte ('\0') at the end of dest,
@@ -25,12 +23,13 @@ static const char	g_ascii_zero_character = '\0';
 char	*ft_strcat(char *dest, char *src)
 {
 	char *const	save = dest;
+	const char	null_byte = '\0';
 
 	while (*dest)
 		dest++;
 	while (*src)
 		*dest++ = *src++;
-	*dest = g_ascii_zero_character;
+	*dest = null_byte;
 	return (save);
 }
 
@@ -47,13 +46,14 @@ static inline char	*ft_empty_string(int length)
 {
 	char			*new;
 	unsigned char	*ptr;
+	const char		null_byte = '\0';
 
 	new = (char *)malloc(sizeof(char) * length + 1);
 	if (!new)
 		return (NULL);
 	ptr = (unsigned char *)new;
 	while (length-- >= 0)
-		*ptr++ = '\0';
+		*ptr++ = null_byte;
 	return (new);
 }
 

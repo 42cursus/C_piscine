@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#define INT_TRUE (1)
-#define INT_FALSE (0)
+#include <stdbool.h>
 
 int	char_is_num(char c)
 {
@@ -19,9 +18,9 @@ int	char_is_num(char c)
 	const char	ascii_zero = 0 + '0';
 	const char	ascii_nine = 9 + '0';
 
-	result = INT_FALSE;
+	result = false;
 	if ((c >= ascii_zero) && (c <= ascii_nine))
-		result = INT_TRUE;
+		result = true;
 	return (result);
 }
 
@@ -31,7 +30,7 @@ int	ft_str_is_numeric(char *str)
 
 	res = 1;
 	while (*str && res)
-		if (INT_TRUE != char_is_num(*str++))
-			res = 0;
+		if (!char_is_num(*str++))
+			res = false;
 	return (res);
 }

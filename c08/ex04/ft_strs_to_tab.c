@@ -31,10 +31,11 @@ static inline int	ft_strlen(char *str)
 char	*ft_strcpy(char *dest, char *src)
 {
 	char *const	save = dest;
+	const char	null_byte = '\0';
 
 	while (*src)
 		*dest++ = *src++;
-	*dest = '\0';
+	*dest = null_byte;
 	return (save);
 }
 

@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static const char	g_ascii_zero_character = '\0';
-
 /**
  * Function  copies the string pointed to by src, including the terminating
  * null byte ('\0'), to the buffer  pointed  to  by  dest.
@@ -26,9 +24,10 @@ static const char	g_ascii_zero_character = '\0';
 char	*ft_strcpy(char *dest, char *src)
 {
 	char *const	save = dest;
+	const char	null_byte = '\0';
 
 	while (*src)
 		*dest++ = *src++;
-	*dest = g_ascii_zero_character;
+	*dest = null_byte;
 	return (save);
 }

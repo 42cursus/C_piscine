@@ -12,8 +12,6 @@
 
 #include <stdlib.h>
 
-static const char	g_ascii_zero_character = '\0';
-
 char	*ft_strncat(char *dest, char *src, unsigned int nb);
 int		ft_atoi_base(char *str, char *base);
 
@@ -37,12 +35,13 @@ static inline int	ft_strlen(char *str)
 char	*ft_strcat(char *dest, char *src)
 {
 	char *const	save = dest;
+	const char	null_byte = '\0';
 
 	while (*dest)
 		dest++;
 	while (*src)
 		*dest++ = *src++;
-	*dest = g_ascii_zero_character;
+	*dest = null_byte;
 	return (save);
 }
 

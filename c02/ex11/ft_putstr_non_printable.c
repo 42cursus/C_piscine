@@ -9,43 +9,45 @@
 /*   Updated: 2023/10/14 19:43:49 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
-static const char	g_ascii_zero = '0';
-static const char	g_ascii_slash = '\\';
-static const char	g_ascii_space = '\x20';
-static const char	g_ascii_del_char = '\x7f';
-static const int	g_hex_radix = 16;
-static const char	*g_hex_base = "0123456789abcdef";
-
-void	ft_putchar(char c)
+static void	ft_putchar(char c)
 {
 	write(STDOUT_FILENO, &c, 1);
 }
 
 int	is_printable(char c)
 {
-	return ((c >= g_ascii_space) && (c != g_ascii_del_char));
+	const char	ascii_space = '\x20';
+	const char	ascii_del_char = '\x7f';
+
+	return ((c >= ascii_space) && (c != ascii_del_char));
 }
 
-/*
+/**
  * Static functions in C are functions that are restricted
  * to the same file in which they are defined.
  */
 static void	ft_print_hex(char non_printable_char)
 {
-	int	np;
+	int			np;
+	const int	hex_radix = 16;
+	const char	*hex_base = "0123456789abcdef";
+	const char	ascii_zero = '0';
+	const char	ascii_slash = '\\';
 
+	ft_putchar(ascii_slash);
 	np = (unsigned char) non_printable_char;
-	if (np > g_hex_radix)
+	if (np >= hex_radix)
 	{
-		ft_putchar(g_hex_base[np / g_hex_radix]);
-		ft_putchar(g_hex_base[np % g_hex_radix]);
+		ft_putchar(hex_base[np / hex_radix]);
+		ft_putchar(hex_base[np % hex_radix]);
 	}
 	else
 	{
-		ft_putchar(g_ascii_zero);
-		ft_putchar(g_hex_base[np]);
+		ft_putchar(ascii_zero);
+		ft_putchar(hex_base[np]);
 	}
 }
 
@@ -61,10 +63,7 @@ void	ft_putstr_non_printable(char *str)
 		if (is_printable(*str))
 			ft_putchar(*str);
 		else
-		{
-			ft_putchar(g_ascii_slash);
 			ft_print_hex(*str);
-		}
 		str++;
 	}
 }

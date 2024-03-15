@@ -25,5 +25,6 @@ int	ft_strlcpy_test(int argc, char **argv);
 int	ft_strlowcase_test(void);
 int	ft_strncpy_test(int argc, char **argv);
 int	ft_strupcase_test(void);
+int	ft_print_memory_test(void);
 
 #endif //C02_TEST_H

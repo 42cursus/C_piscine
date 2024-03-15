@@ -21,11 +21,12 @@
 char	*ft_strcat(char *dest, char *src)
 {
 	char *const	save = dest;
+	const char	null_byte = '\0';
 
 	while (*dest)
 		dest++;
 	while (*src)
 		*dest++ = *src++;
-	*dest = '\0';
+	*dest = null_byte;
 	return (save);
 }

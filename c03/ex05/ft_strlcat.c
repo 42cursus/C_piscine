@@ -29,12 +29,13 @@ static inline int	ft_strlen(char *str)
 static unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	const char	*save = src;
+	const char	null_byte = '\0';
 
 	if (size > 0)
 	{
 		while (size-- > 1 && *src)
 			*dest++ = *src++;
-		*dest = '\0';
+		*dest = null_byte;
 	}
 	while (*src)
 		src++;

@@ -13,8 +13,6 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-static const char	g_ascii_zero_character = '\0';
-
 static int	ft_strlen(char *str)
 {
 	const char	*ostr = str;
@@ -27,10 +25,11 @@ static int	ft_strlen(char *str)
 char	*ft_strcpy(char *dest, char *src)
 {
 	char *const	save = dest;
+	const char	null_byte = '\0';
 
 	while (*src)
 		*dest++ = *src++;
-	*dest = g_ascii_zero_character;
+	*dest = null_byte;
 	return (save);
 }
 

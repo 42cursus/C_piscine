@@ -9,8 +9,8 @@
 /*   Updated: 2023/10/12 21:23:20 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#define INT_TRUE (1)
-#define INT_FALSE (0)
+
+#include <stdbool.h>
 
 static int	char_is_uppercase(char c)
 {
@@ -18,9 +18,9 @@ static int	char_is_uppercase(char c)
 	const char	ascii_upper_a = 'A';
 	const char	ascii_upper_z = 'Z';
 
-	result = INT_FALSE;
+	result = false;
 	if ((c >= ascii_upper_a) && (c <= ascii_upper_z))
-		result = INT_TRUE;
+		result = true;
 	return (result);
 }
 
@@ -40,7 +40,7 @@ char	*ft_strlowcase(char *str)
 	while (*str)
 	{
 		c = str++;
-		if (INT_TRUE == char_is_uppercase(*c))
+		if (char_is_uppercase(*c))
 			*c += ascii_delta;
 	}
 	return (save);

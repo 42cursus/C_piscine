@@ -9,18 +9,18 @@
 /*   Updated: 2023/10/12 21:23:32 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#define INT_TRUE (1)
-#define INT_FALSE (0)
+
+#include <stdbool.h>
 
 int	char_is_lower(char c)
 {
-	int		result;
-	char	ascii_lower_a = 'a';
-	char	ascii_lower_z = 'z';
+	int			result;
+	const char	ascii_lower_a = 'a';
+	const char	ascii_lower_z = 'z';
 
-	result = INT_FALSE;
+	result = false;
 	if ((c >= ascii_lower_a) && (c <= ascii_lower_z))
-		result = INT_TRUE;
+		result = true;
 	return (result);
 }
 
@@ -39,7 +39,7 @@ char	*ft_strupcase(char *str)
 	while (*str)
 	{
 		c = str++;
-		if (INT_TRUE == char_is_lower(*c))
+		if (char_is_lower(*c))
 			*c -= ascii_delta;
 	}
 	return (save);

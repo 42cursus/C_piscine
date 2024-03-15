@@ -18,16 +18,41 @@
  * `const char*` is a mutable pointer to an immutable character/string.
  * You cannot change the contents of the location(s) this pointer points to.
  */
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strncpy2(char *dest, char *src, unsigned int n)
 {
 	const char		*s = src;
 	char *const		save_pointer = dest;
 	unsigned int	i;
+	const char		null_byte = '\0';
 
 	i = 0;
 	while (*s && (i++ < n))
 		*dest++ = *s++;
 	while (i++ < n)
-		*dest++ = '\0';
+		*dest++ = null_byte;
 	return (save_pointer);
+}
+
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{
+	char		*d;
+	const char	*s;
+
+	if (n != 0)
+	{
+		d = dest;
+		s = src;
+		while (n != 0)
+		{
+			if (*s == 0)
+			{
+				while (n-- != 0)
+					*d++ = 0;
+				break ;
+			}
+			*d++ = *s++;
+			n--;
+		}
+	}
+	return (dest);
 }

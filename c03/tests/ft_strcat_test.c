@@ -7,11 +7,12 @@
 int main(void)
 {
 #define LIM 4000000
-    char p[LIM + 1];    /* +1 for terminating null byte */
-    time_t base;
+    char		p[LIM + 1];    /* +1 for terminating null byte */
+    time_t		base;
+	const char	null_byte = '\0';
 
     base = time(NULL);
-    p[0] = '\0';
+    p[0] = null_byte;
 
     for (int j = 0; j < LIM; j++) {
         if ((j % 10000) == 0)

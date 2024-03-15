@@ -9,13 +9,6 @@
 /*   Updated: 2023/10/13 19:55:18 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-static const char	g_ascii_delta = 0x20;
-static const char	g_ascii_zero = 0 + '0';
-static const char	g_ascii_nine = 9 + '0';
-static const char	g_ascii_upper_a = 'A';
-static const char	g_ascii_upper_z = 'Z';
-static const char	g_ascii_lower_a = 'a';
-static const char	g_ascii_lower_z = 'z';
 
 /**
  * We can simply return the condition and it will be automatically converted
@@ -24,18 +17,27 @@ static const char	g_ascii_lower_z = 'z';
  */
 int	is_uppercase(char c)
 {
-	return ((c >= g_ascii_upper_a) && (c <= g_ascii_upper_z));
+	const char	ascii_upper_a = 'A';
+	const char	ascii_upper_z = 'Z';
+
+	return ((c >= ascii_upper_a) && (c <= ascii_upper_z));
 }
 
 int	is_lowercase(char c)
 {
-	return ((c >= g_ascii_lower_a) && (c <= g_ascii_lower_z));
+	const char	ascii_lower_a = 'a';
+	const char	ascii_lower_z = 'z';
+
+	return ((c >= ascii_lower_a) && (c <= ascii_lower_z));
 }
 
 int	is_alphanum(char c)
 {
+	const char	ascii_zero = 0 + '0';
+	const char	ascii_nine = 9 + '0';
+
 	return (is_lowercase(c) || is_uppercase(c)
-		|| ((c >= g_ascii_zero) && (c <= g_ascii_nine)));
+		|| ((c >= ascii_zero) && (c <= ascii_nine)));
 }
 
 /**
@@ -46,20 +48,21 @@ int	is_alphanum(char c)
 char	*ft_strcapitalize(char *str)
 {
 	char *const	save = str;
+	const char	ascii_delta = 0x20;
 	char		*c;
 	char		p;
 
 	c = str++;
 	if (is_lowercase(*c))
-		*c -= g_ascii_delta;
+		*c -= ascii_delta;
 	while (*str)
 	{
 		p = *c;
 		c = str++;
 		if (is_alphanum(p) && is_uppercase(*c))
-			*c += g_ascii_delta;
+			*c += ascii_delta;
 		else if (!is_alphanum(p) && is_lowercase(*c))
-			*c -= g_ascii_delta;
+			*c -= ascii_delta;
 	}
 	return (save);
 }

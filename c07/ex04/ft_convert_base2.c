@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static const char	g_ascii_zero_character = '\0';
-
 int	is_base_valid(char *base)
 {
 	int	i;
@@ -54,10 +52,11 @@ int	check_and_skip(char *str, int *i)
 
 int	get_num(char c, char *base)
 {
-	int	n;
+	int			n;
+	const char	null_byte = '\0';
 
 	n = 0;
-	while (base[n] != '\0')
+	while (base[n] != null_byte)
 	{
 		if (c == base[n])
 			return (n);
@@ -81,13 +80,14 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	char *const		save_pointer = dest;
 	unsigned int	i;
+	const char		null_byte = '\0';
 
 	i = 0;
 	while (*dest)
 		dest++;
 	while (*src && (i++ < nb))
 		*dest++ = *src++;
-	*dest = g_ascii_zero_character;
+	*dest = null_byte;
 	return (save_pointer);
 }
 

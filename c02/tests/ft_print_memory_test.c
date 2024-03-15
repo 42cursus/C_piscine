@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_print_memory_test.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 17:46:24 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/12 20:05:19 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/14 20:44:23 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/14 20:44:24 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
 
-int	char_is_uppercase(char c)
+void	*ft_print_memory(void *addr, unsigned int size);
+
+int	ft_print_memory_test(void)
 {
-	int			result;
-	const char	g_ascii_upper_a = 'A';
-	const char	g_ascii_upper_z = 'Z';
+	char src[0xFF + 10];
+	int	i;
 
-	result = false;
-	if ((c >= g_ascii_upper_a) && (c <= g_ascii_upper_z))
-		result = true;
-	return (result);
-}
+	i = 0;
+	while (i <= 0xFF)
+	{
+		src[i] = i;
+		i++;
+	}
+	src[i] = 0;
 
-int	ft_str_is_uppercase(char *str)
-{
-	int	res;
+	i = 0;
+	while (i < 30)
+	{
+		ft_print_memory((void *)src, i);
+		i++;
+	}
 
-	res = 1;
-	while (*str && res)
-		if (!char_is_uppercase(*str++))
-			res = false;
-	return (res);
+	ft_print_memory((void *)src, 0x101);
 }

@@ -21,7 +21,8 @@
  */
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	result;
+	int			result;
+	const char	null_byte = '\0';
 
 	result = 0;
 	while (n-- > 0)
@@ -31,7 +32,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 			result = *(unsigned char *)s1 - *(unsigned char *)s2;
 			break ;
 		}
-		if (*s1++ == '\0')
+		if (*s1++ == null_byte)
 			break ;
 		s2++;
 	}

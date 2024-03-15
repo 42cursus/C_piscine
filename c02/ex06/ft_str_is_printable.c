@@ -9,19 +9,18 @@
 /*   Updated: 2023/10/12 20:22:20 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#define INT_TRUE (1)
-#define INT_FALSE (0)
 
-static const char	g_ascii_space = '\x20';
-static const char	g_ascii_del_char = '\x7f';
+#include <stdbool.h>
 
 int	char_is_printable(char c)
 {
-	int	result;
+	int			result;
+	const char	g_ascii_space = '\x20';
+	const char	g_ascii_del_char = '\x7f';
 
-	result = INT_FALSE;
+	result = false;
 	if ((c >= g_ascii_space) && (c != g_ascii_del_char))
-		result = INT_TRUE;
+		result = true;
 	return (result);
 }
 
@@ -30,13 +29,8 @@ int	ft_str_is_printable(char *str)
 	int	res;
 
 	res = 1;
-	while (*str)
-	{
-		if (INT_TRUE != char_is_printable(*str++))
-		{
-			res = 0;
-			break ;
-		}
-	}
+	while (*str && res)
+		if (!char_is_printable(*str++))
+			res = false;
 	return (res);
 }

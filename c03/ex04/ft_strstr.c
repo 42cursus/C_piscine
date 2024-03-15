@@ -30,6 +30,7 @@ char	*ft_strstr(char *str, char *to_find)
 {
 	char *const	save = to_find;
 	char		*s;
+	const char	null_byte = '\0';
 
 	if (!ft_strlen(to_find))
 		return (str);
@@ -38,7 +39,7 @@ char	*ft_strstr(char *str, char *to_find)
 		s = str;
 		to_find = save;
 		while (*to_find == *s++)
-			if (*to_find++ == '\0')
+			if (*to_find++ == null_byte)
 				return (str);
 		str++;
 	}

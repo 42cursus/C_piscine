@@ -26,5 +26,6 @@ char	*ft_strlowcase(char *str);
 char	*ft_strcapitalize(char *str);
 size_t	ft_strlcpy(char *dest, char *src, unsigned int size);
 void	ft_putstr_non_printable(char *str);
+void	*ft_print_memory(void *addr, unsigned int size);
 
 #endif //C02_H

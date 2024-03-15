@@ -9,19 +9,18 @@
 /*   Updated: 2023/10/12 20:21:28 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#define INT_TRUE (1)
-#define INT_FALSE (0)
 
-static const char	g_ascii_lower_a = 'a';
-static const char	g_ascii_lower_z = 'z';
+#include <stdbool.h>
 
 static int	char_is_lower(char c)
 {
-	int	result;
+	int			result;
+	const char	ascii_lower_a = 'a';
+	const char	ascii_lower_z = 'z';
 
-	result = INT_FALSE;
-	if ((c >= g_ascii_lower_a) && (c <= g_ascii_lower_z))
-		result = INT_TRUE;
+	result = false;
+	if ((c >= ascii_lower_a) && (c <= ascii_lower_z))
+		result = true;
 	return (result);
 }
 
@@ -31,7 +30,7 @@ int	ft_str_is_lowercase(char *str)
 
 	res = 1;
 	while (*str && res)
-		if (INT_TRUE != char_is_lower(*str++))
-			res = 0;
+		if (!char_is_lower(*str++))
+			res = false;
 	return (res);
 }
