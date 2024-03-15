@@ -28,18 +28,19 @@ static inline int	ft_strlen(char *str)
  */
 char	*ft_strstr(char *str, char *to_find)
 {
-	char *const	save = to_find;
 	char		*s;
-	const char	null_byte = '\0';
+	char *const	save = to_find;
 
-	if (!ft_strlen(to_find))
+	if (!str)
+		return (NULL);
+	if (!to_find || !*to_find)
 		return (str);
 	while (*str)
 	{
 		s = str;
 		to_find = save;
-		while (*to_find == *s++)
-			if (*to_find++ == null_byte)
+		while (*to_find++ == *s++)
+			if (!*to_find)
 				return (str);
 		str++;
 	}

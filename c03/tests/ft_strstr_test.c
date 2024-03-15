@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strstr_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:47:44 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/20 20:46:53 by abelov           ###   ########.fr       */
+/*   Updated: 2024/03/15 15:02:27 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,17 @@
 
 char *ft_strstr(char *str, char *to_find);
 
-int main(void) {
+int ft_strstr_test(void)
+{
 
-	char *str = "";
+	char *str = "2212";
 	char *tf = "1";
 	char *p;
 
 	p = ft_strstr(str, tf);
-	
+
 	printf(" s: \"%s\",\n tf: \"%s\",\n"
-		   " sp: \"%p\",\n p: \"%p\"", str, tf, str, p);
+		   " sp: \"%p\",\n p: \"%lu\"", str, tf, str, p - str);
 
 	return (0);
 }

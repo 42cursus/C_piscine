@@ -12,5 +12,12 @@
 
 #ifndef C03_TEST_H
 # define C03_TEST_H
+#include "c03.h"
+
+int	ft_strstr_test(void);
+int ft_strcat_test(void);
+int	ft_strcmp_test(int argc, char *argv[]);
+void ft_strlcat_test1(char *dest, char *src, unsigned int n);
+int	ft_strncmp_test(int argc, char *argv[]);
 
 #endif //C03_TEST_H

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:27:58 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/17 20:56:58 by abelov           ###   ########.fr       */
+/*   Updated: 2024/03/15 15:09:03 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int	ft_strcmp(char *s1, char *s2);
 
-int	main(int argc, char *argv[])
+int	ft_strcmp_test(int argc, char *argv[])
 {
 	char	buf[DEST_ARRAY_SIZE];
 	char	*str1 = "ABC";

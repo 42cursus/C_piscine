@@ -16,8 +16,9 @@ char *ft_strncat(char *dest, char *src, unsigned int nb);
 
 int	ft_strncat_test(void)
 {
-	char src[] = " world!";
-	char dest[14] = "Hello";
+	char	src[] = " world!";
+	char	dest[14] = "Hello";
+
 	printf("RES: %s\n", ft_strncat(dest, src, 200));
 	printf("DEST: %s\n", dest);
 	return (0);

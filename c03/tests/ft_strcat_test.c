@@ -1,10 +1,21 @@
-#include "ft_strcat.c"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcat_test.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/15 15:01:40 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/15 15:01:41 by abelov           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdint.h>
 #include <string.h>
 #include <time.h>
 #include <stdio.h>
 
-int main(void)
+int ft_strcat_test(void)
 {
 #define LIM 4000000
     char		p[LIM + 1];    /* +1 for terminating null byte */

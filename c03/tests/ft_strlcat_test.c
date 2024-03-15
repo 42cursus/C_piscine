@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat_test.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/15 15:09:23 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/15 15:10:19 by abelov           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 // cc ft_strlcpy.c -lbsd
 #include <stdio.h>
 #include <bsd/string.h>
@@ -16,7 +28,8 @@
 
 unsigned int ft_strlcat(char *dest, char *src, unsigned int size);
 
-void ft_strlcat_test(char *dest, char *src, unsigned int n) {
+void ft_strlcat_test1(char *dest, char *src, unsigned int n)
+{
   char dest_a[MAX_MEMORY];
   char dest_b[MAX_MEMORY];
   char  src_a[MAX_MEMORY];
@@ -68,18 +81,19 @@ void ft_print_title(char *title) {
   printf("--------------------------------------------------\n");
 }
 
-int main(void) {
+int ft_strlcat_test(void)
+{
   char dest_0[MAX_MEMORY] = STR_EMPTY;
   char  src_0[MAX_MEMORY] = STR_EMPTY;
 
   ft_print_title("Test 0_0");
-  ft_strlcat_test(dest_0, src_0, 0);
+	ft_strlcat_test1(dest_0, src_0, 0);
   ft_print_title("Test 0_1");
-  ft_strlcat_test(dest_0, src_0, 5);
+	ft_strlcat_test1(dest_0, src_0, 5);
   ft_print_title("Test 0_2");
-  ft_strlcat_test(dest_0, src_0, 10);
+	ft_strlcat_test1(dest_0, src_0, 10);
   ft_print_title("Test 0_3");
-  ft_strlcat_test(dest_0, src_0, MAX_MEMORY);
+	ft_strlcat_test1(dest_0, src_0, MAX_MEMORY);
 //  ft_print_title("Test 0_4");
 //  ft_strncpy_test(dest_0, src_0, MAX_MEMORY + 1000);
 
@@ -87,13 +101,13 @@ int main(void) {
   char  src_1[MAX_MEMORY] = STR_MEDIUM;
 
   ft_print_title("Test 1_0");
-  ft_strlcat_test(dest_1, src_1, 0);
+	ft_strlcat_test1(dest_1, src_1, 0);
   ft_print_title("Test 1_1");
-  ft_strlcat_test(dest_1, src_1, 5);
+	ft_strlcat_test1(dest_1, src_1, 5);
   ft_print_title("Test 1_2");
-  ft_strlcat_test(dest_1, src_1, 10);
+	ft_strlcat_test1(dest_1, src_1, 10);
   ft_print_title("Test 1_3");
-  ft_strlcat_test(dest_1, src_1, MAX_MEMORY);
+	ft_strlcat_test1(dest_1, src_1, MAX_MEMORY);
 //  ft_print_title("Test 1_4");
 //  ft_strncpy_test(dest_1, src_1, MAX_MEMORY + 1000);
 
@@ -101,13 +115,13 @@ int main(void) {
   char  src_2[MAX_MEMORY] = STR_EMPTY;
 
   ft_print_title("Test 2_0");
-  ft_strlcat_test(dest_2, src_2, 0);
+	ft_strlcat_test1(dest_2, src_2, 0);
   ft_print_title("Test 2_1");
-  ft_strlcat_test(dest_2, src_2, 5);
+	ft_strlcat_test1(dest_2, src_2, 5);
   ft_print_title("Test 2_2");
-  ft_strlcat_test(dest_2, src_2, 10);
+	ft_strlcat_test1(dest_2, src_2, 10);
   ft_print_title("Test 2_3");
-  ft_strlcat_test(dest_2, src_2, MAX_MEMORY);
+	ft_strlcat_test1(dest_2, src_2, MAX_MEMORY);
 //  ft_print_title("Test 2_4");
 //  ft_strncpy_test(dest_2, src_2, MAX_MEMORY + 1000);
 
@@ -115,13 +129,13 @@ int main(void) {
   char  src_3[MAX_MEMORY] = STR_MEDIUM;
 
   ft_print_title("Test 3_0");
-  ft_strlcat_test(dest_3, src_3, 0);
+	ft_strlcat_test1(dest_3, src_3, 0);
   ft_print_title("Test 3_1");
-  ft_strlcat_test(dest_3, src_3, 5);
+	ft_strlcat_test1(dest_3, src_3, 5);
   ft_print_title("Test 3_2");
-  ft_strlcat_test(dest_3, src_3, 10);
+	ft_strlcat_test1(dest_3, src_3, 10);
   ft_print_title("Test 3_3");
-  ft_strlcat_test(dest_3, src_3, MAX_MEMORY);
+	ft_strlcat_test1(dest_3, src_3, MAX_MEMORY);
 //  ft_print_title("Test 3_4");
 //  ft_strncpy_test(dest_3, src_3, MAX_MEMORY + 1000);
 

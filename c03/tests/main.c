@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "c03_test.h"
 
 char *ft_strncat(char *dest, char *src, unsigned int nb);
 
@@ -20,5 +21,8 @@ int	main(void)
 	char dest[14] = "Hello";
 	printf("RES: %s\n", ft_strncat(dest, src, 200));
 	printf("DEST: %s\n", dest);
+
+	ft_strstr_test();
+//	ft_strlcat_test();
 	return (0);
 }
