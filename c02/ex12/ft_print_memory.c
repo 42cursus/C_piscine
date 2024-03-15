@@ -51,15 +51,15 @@ char	*ft_ultoa_buf_base(unsigned long abs,
 	const char		*hex_base = "0123456789abcdef";
 	size_t const	radix = 16;
 
-	ptr = buf + length - 1;
-	while (abs >= radix && --length)
+	ptr = buf + --length;
+	while (abs >= radix && length--)
 	{
 		c = hex_base[(abs % radix)];
 		*ptr-- = c;
 		abs /= radix;
 	}
 	*ptr-- = hex_base[abs];
-	while (--length)
+	while (length--)
 		*ptr-- = pad;
 	return (buf);
 }
