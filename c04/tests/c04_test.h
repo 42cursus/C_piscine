@@ -12,7 +12,16 @@
 
 #ifndef C04_TEST_H
 # define C04_TEST_H
+# include "c04.h"
+# include <stdio.h>
+# include <unistd.h>
+# include <limits.h>
 
+void ft_print_title(char *title);
+int	ft_putstr_test(int argc, char **argv);
+int	ft_putnbr_test(int argc, char **argv);
 int	ft_atoi_test(int argc, char **argv);
+int	ft_putnbr_base_test(void);
+int	ft_atoi_base_test(void);
 
 #endif //C04_TEST_H

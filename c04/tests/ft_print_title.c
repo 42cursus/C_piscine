@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_title.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 23:38:58 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/11 23:38:59 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/07 01:23:02 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/07 01:23:05 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sysexits.h>
 #include "c04_test.h"
 
-int	main(void)
+#define RED   "\033[0;31m"
+#define GREEN "\033[0;32m"
+#define CYAN  "\033[36m"
+#define RESET "\e[0m"
+
+void ft_print_title(char *title)
 {
-//	int argc = 3;
-//	char **argv = (char*[3]){ "./main", "str1", "str2" };
-//	ft_putstr_test(argc, argv);
-//	argv = (char*[3]){ "./main", "122", "str2" };
-//	ft_putnbr_test(argc, argv);
-//	ft_atoi_test(argc, argv);
-//	ft_putnbr_base_test();
-	ft_atoi_base_test();
-	return (EX_OK);
+	printf("--------------------------------------------------\n");
+	printf("> %s%s%s\n", CYAN, title, RESET);
+	printf("--------------------------------------------------\n");
+	fflush(stdout);
 }

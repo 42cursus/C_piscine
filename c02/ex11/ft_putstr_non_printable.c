@@ -12,17 +12,9 @@
 
 #include <unistd.h>
 
-static void	ft_putchar(char c)
+static inline void	ft_putchar(char c)
 {
 	write(STDOUT_FILENO, &c, 1);
-}
-
-int	is_printable(char c)
-{
-	const char	ascii_space = '\x20';
-	const char	ascii_del_char = '\x7f';
-
-	return ((c >= ascii_space) && (c != ascii_del_char));
 }
 
 /**
@@ -58,9 +50,12 @@ static void	ft_print_hex(char non_printable_char)
  */
 void	ft_putstr_non_printable(char *str)
 {
+	const char asciiSpace = '\x20';
+	const char asciiDelChar = '\x7f';
+
 	while (*str)
 	{
-		if (is_printable(*str))
+		if (((*str >= asciiSpace) && (*str != asciiDelChar)))
 			ft_putchar(*str);
 		else
 			ft_print_hex(*str);

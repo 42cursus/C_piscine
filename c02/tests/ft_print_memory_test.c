@@ -30,10 +30,6 @@ int	ft_print_memory_test(void)
 
 	i = 0;
 	while (i < 30)
-	{
-		ft_print_memory((void *)src, i);
-		i++;
-	}
-
+		ft_print_memory((void *) src, i++);
 	ft_print_memory((void *)src, 0x101);
 }

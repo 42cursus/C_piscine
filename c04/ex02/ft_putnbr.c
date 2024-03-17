@@ -13,26 +13,29 @@
 #include <unistd.h>
 #include <limits.h>
 
-void	ft_putchar(char c)
-{
-	write(STDOUT_FILENO, &c, 1);
-}
-
+/**
+ * In this example: `&(char){r + ascii_zero}`,
+ * we create a compound literal `(char){r + ascii_zero}` which creates
+ * an anonymous char variable and `&` is used to get its address.
+ * Then we use this address to pass it as an argument to a `write` function.
+ */
 void	ft_putnbr(int nb)
 {
+	char			c;
 	unsigned int	r;
 	const int		ascii_zero = '0';
-	const int		decimal_radix = 10;
+	const size_t	decimal_radix = 10;
 	int const		mask = nb >> (sizeof(int) * CHAR_BIT - 1);
 
 	r = (nb + mask) ^ mask;
 	if (nb < 0)
-		ft_putchar('-');
+		write(STDOUT_FILENO, "-", 1);
 	if (r >= decimal_radix)
 	{
 		ft_putnbr(r / decimal_radix);
-		ft_putchar((r % decimal_radix) + ascii_zero);
+		c = (r % decimal_radix) + ascii_zero;
+		write(STDOUT_FILENO, &c, 1);
 	}
 	if (r < decimal_radix)
-		ft_putchar(r + ascii_zero);
+		write(STDOUT_FILENO, &(char){r + ascii_zero}, 1);
 }

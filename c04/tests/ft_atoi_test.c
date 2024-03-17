@@ -14,8 +14,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
+#include "c04_test.h"
 
-/*
+/**
  * https://stackoverflow.com/questions
  * /25848815/why-enough-is-enough-storing-an-int-in-a-char-array
  */
@@ -29,6 +30,7 @@ int	ft_atoi_test(int argc, char **argv)
 	char	*str = "";
 	int nb;
 
+	ft_print_title("ft_atoi_test");
 	if ((argc - 1) < 1)
 	{
 		fprintf(stderr, "Usage: %s <str1>\n", argv[0]);
