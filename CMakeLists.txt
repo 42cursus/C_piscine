@@ -16,6 +16,7 @@ set(FT_CFLAGS
         -fno-asynchronous-unwind-tables
         -g3 -gdwarf-3)
 
+add_subdirectory(c00)
 add_subdirectory(c01)
 add_subdirectory(c02)
 add_subdirectory(c03)
