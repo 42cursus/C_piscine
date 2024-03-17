@@ -22,5 +22,6 @@ int	ft_iterative_power_test(int argc, char **argv);
 int	ft_recursive_factorial_test(int argc, char **argv);
 int	ft_recursive_power_test(int argc, char **argv);
 int	ft_sqrt_test(int argc, char **argv);
+int	ft_ten_queens_puzzle_test(void);
 
 #endif //C05_TEST_H

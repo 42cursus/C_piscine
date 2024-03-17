@@ -9,9 +9,10 @@
 /*   Updated: 2023/10/19 21:52:19 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stdbool.h>
 
-/*
+/**
  * https://en.m.wikipedia.org/wiki/Primality_test
  */
 static int	ft_is_prime(int nb)
