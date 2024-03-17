@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   c08.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 22:49:42 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/26 22:49:50 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/17 01:16:43 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/17 01:16:44 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#ifndef C08_H
+# define C08_H
+# include "ft_stock_str.h"
 
-void	ft_putchar(char c);
-void	ft_swap(int *a, int *b);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
+t_stock_str	*ft_strs_to_tab(int ac, char **av);
+void		ft_show_tab(struct s_stock_str *par);
 
-#endif //FT_H
+#endif //C08_H

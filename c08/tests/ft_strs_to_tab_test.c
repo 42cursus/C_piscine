@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_strs_to_tab_test.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 22:49:42 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/26 22:49:50 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/17 01:28:40 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/17 01:28:43 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#include "c08_tests.h"
 
-void	ft_putchar(char c);
-void	ft_swap(int *a, int *b);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
+int	ft_strs_to_tab_test(void)
+{
+	t_stock_str	*stock_str;
 
-#endif //FT_H
+	stock_str = ft_strs_to_tab(10, NULL);
+	ft_show_tab(stock_str);
+	return (0);
+}

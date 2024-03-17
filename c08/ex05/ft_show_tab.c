@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 22:49:42 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/26 22:49:50 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/17 01:34:43 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/17 01:34:45 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#ifdef C_PICINE_TEST
+# include "ft_stock_str.h"
+#endif
 
-void	ft_putchar(char c);
-void	ft_swap(int *a, int *b);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
-
-#endif //FT_H
+/**
+ * function that displays the content of the array created by 'ft_strs_to_tab'
+ */
+void	ft_show_tab(struct s_stock_str *par)
+{
+	(void) par;
+}

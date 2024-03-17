@@ -12,12 +12,9 @@
 
 #include <stdlib.h>
 
-typedef struct s_stock_str
-{
-	int		size;
-	char	*str;
-	char	*copy;
-}				t_stock_str;
+#ifdef C_PICINE_TEST
+# include "ft_stock_str.h"
+#endif
 
 static inline int	ft_strlen(char *str)
 {
