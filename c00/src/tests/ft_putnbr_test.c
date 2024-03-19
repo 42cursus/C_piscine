@@ -15,7 +15,8 @@
 int	ft_putnbr_test(void)
 {
 	ft_print_title("ft_putnbr_test");
-	printf("\n");
+	ft_putnbr(42);
+	write(STDOUT_FILENO, "\n", 1);
 	fflush(stdout);
 	return (0);
 }

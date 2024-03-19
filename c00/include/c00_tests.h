@@ -14,6 +14,7 @@
 # define C00_TESTS_H
 # include "c00.h"
 # include <stdio.h>
+# include <unistd.h>
 
 # define RED   "\033[0;31m"
 # define GREEN "\033[0;32m"

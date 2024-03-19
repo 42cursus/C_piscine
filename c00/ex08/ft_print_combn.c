@@ -13,6 +13,8 @@
 #include <unistd.h>
 #include <limits.h>
 
+typedef unsigned int	t_uint;
+
 /**
  * In this example: `&(char){r + ascii_zero}`,
  * we create a "compound literal" `(char){r + ascii_zero}` which creates
@@ -21,10 +23,9 @@
  */
 static void	ft_putnbr(int nb)
 {
-	char			c;
-	unsigned int	r;
-	const int		ascii_zero = '0';
-	const size_t	decimal_radix = 10;
+	t_uint			r;
+	const char		*base = "0123456789";
+	const t_uint	decimal_radix = 10;
 	int const		mask = nb >> (sizeof(int) * CHAR_BIT - 1);
 
 	r = (nb + mask) ^ mask;
@@ -33,14 +34,27 @@ static void	ft_putnbr(int nb)
 	if (r >= decimal_radix)
 	{
 		ft_putnbr(r / decimal_radix);
-		c = (r % decimal_radix) + ascii_zero;
-		write(STDOUT_FILENO, &c, 1);
+		write(STDOUT_FILENO, &base[(r % decimal_radix)], 1);
 	}
 	if (r < decimal_radix)
-		write(STDOUT_FILENO, &(char){r + ascii_zero}, 1);
+		write(STDOUT_FILENO, &base[r], 1);
 }
 
 void	ft_print_combn(int n)
 {
+	int 		i;
+	const int	min = 0;
+	const int	max = 10;
+	int			int_array[11];
+
+	i = min - 1;
+	while (i++ < max + 1)
+		int_array[i] = i;
+	i = -1;
+	while (i++ < n + 1)
+	{
+		
+	}
+
 	ft_putnbr(n);
 }

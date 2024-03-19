@@ -15,7 +15,7 @@
 int	ft_print_comb_test(void)
 {
 	ft_print_title("ft_print_comb_test");
-	ft_print_comb2();
+	ft_print_comb();
 	printf("\n");
 	fflush(stdout);
 	return (0);

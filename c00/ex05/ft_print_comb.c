@@ -17,22 +17,28 @@ static const int	g_max_hundred = 7;
 static const int	g_max_tens = 8;
 static const int	g_max_units = 9;
 
-void	printout(int i, int j, int k)
-{
-	char				buf[6];
-	int					num_to_print;
+typedef struct s_int_triplet {
+	int	i;
+	int	j;
+	int	k;
+}	t_int_triplet;
 
-	buf[0] = i + '0';
-	buf[1] = j + '0';
-	buf[2] = k + '0';
-	buf[3] = ',';
-	buf[4] = ' ';
-	buf[5] = '\0';
-	if (i == g_max_hundred && j == g_max_tens && k == g_max_units)
-		num_to_print = 3;
-	else
-		num_to_print = 5;
-	write(STDOUT_FILENO, &buf, num_to_print);
+/**
+ * how-to-access-members-of-a-struct-according-to-a-variable-integer-in-c:
+ * https://stackoverflow.com/questions/887852/
+ */
+static void	printout(t_int_triplet triplet)
+{
+	int			i;
+	const char	*base = "0123456789";
+
+	i = -1;
+	while (i++ < 2)
+		write(STDOUT_FILENO, &base[*((int *)&triplet + i)], 1);
+	if (triplet.i == g_max_hundred
+		&& triplet.j == g_max_tens && triplet.k == g_max_units)
+		return ;
+	write(STDOUT_FILENO, ", ", 2);
 }
 
 void	ft_print_comb(void)
@@ -41,15 +47,15 @@ void	ft_print_comb(void)
 	int	j;
 	int	k;
 
-	i = g_min_hundred;
-	while (i <= g_max_hundred)
+	i = g_min_hundred - 1;
+	while (i++ <= g_max_hundred)
 	{
-		j = i + 1;
-		while (j <= g_max_tens)
+		j = i;
+		while (j++ <= g_max_tens)
 		{
-			k = j + 1;
-			while (k <= g_max_units)
-				printout(i++, j++, k++);
+			k = j;
+			while (k++ < g_max_units)
+				printout((t_int_triplet){i, j, k});
 		}
 	}
 }
