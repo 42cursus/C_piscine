@@ -9,3 +9,12 @@
 /*   Updated: 2024/03/10 22:42:40 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int	ft_strlen(char *str)
+{
+	char *const	ostr = str;
+
+	while (*str)
+		str++;
+	return (str - ostr);
+}

@@ -9,3 +9,10 @@
 /*   Updated: 2024/03/10 22:42:05 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(STDOUT_FILENO, &c, 1);
+}
