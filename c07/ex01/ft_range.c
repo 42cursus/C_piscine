@@ -14,14 +14,9 @@
 
 int	ft_range_array_size(int start, int end)
 {
-	long	size;
-
-	size = 0;
 	if (start >= end)
 		return (-1);
-	else
-		size = (end - start);
-	return (size);
+	return (end - start);
 }
 
 int	*ft_range(int min, int max)
