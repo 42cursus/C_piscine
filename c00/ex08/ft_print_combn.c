@@ -11,50 +11,91 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <limits.h>
+#include <stdbool.h>
 
-typedef unsigned int	t_uint;
+#define ARRAY_SIZE 10
 
 /**
- * In this example: `&(char){r + ascii_zero}`,
- * we create a "compound literal" `(char){r + ascii_zero}` which creates
- * an "anonymous variable" of type char and `&` is used to get its address.
- * Then we use this address to pass it as an argument to a `write` function.
+ * Compares two equal-sized integer int_arrays
  */
-static void	ft_putnbr(int nb)
+static bool	ft_arrcmp(const int *curr, const int *max_val, int int_array_size)
 {
-	t_uint			r;
-	const char		*base = "0123456789";
-	const t_uint	decimal_radix = 10;
-	int const		mask = nb >> (sizeof(int) * CHAR_BIT - 1);
+	int	i;
 
-	r = (nb + mask) ^ mask;
-	if (nb < 0)
-		write(STDOUT_FILENO, "-", 1);
-	if (r >= decimal_radix)
-	{
-		ft_putnbr(r / decimal_radix);
-		write(STDOUT_FILENO, &base[(r % decimal_radix)], 1);
-	}
-	if (r < decimal_radix)
-		write(STDOUT_FILENO, &base[r], 1);
+	i = -1;
+	while (++i < int_array_size)
+		if (curr[i] != max_val[i])
+			return (false);
+	return (true);
 }
 
-void	ft_print_combn(int n)
+/**
+ * how-to-access-members-of-a-struct-according-to-a-variable-integer-in-c:
+ * https://stackoverflow.com/questions/887852/
+ */
+static void	printout(const int *int_array, const int *max, int int_array_size)
 {
-	int 		i;
-	const int	min = 0;
-	const int	max = 10;
-	int			int_array[11];
+	int			i;
+	char		buf[ARRAY_SIZE];
+	const char	*base = "0123456789";
 
-	i = min - 1;
-	while (i++ < max + 1)
-		int_array[i] = i;
 	i = -1;
-	while (i++ < n + 1)
-	{
-		
-	}
+	while (i++ < (int_array_size - 1))
+		buf[i] = base[int_array[i]];
+	write(STDOUT_FILENO, buf, int_array_size);
+	if (!ft_arrcmp(int_array, max, int_array_size))
+		write(STDOUT_FILENO, ", ", 2);
+}
 
-	ft_putnbr(n);
+int	increment(int *int_array, const int *max_val, int int_array_size)
+{
+	int	i;
+	int	n;
+
+	n = int_array_size;
+	while (--n)
+	{
+		if (int_array[n] == max_val[n])
+		{
+			if (int_array[n - 1] != max_val[n - 1])
+			{
+				i = n - 1;
+				int_array[i]++;
+				while (++i < int_array_size)
+					int_array[i] = int_array[i - 1] + 1;
+				return (true);
+			}
+			int_array[n] = int_array[n - 1] + 1;
+		}
+	}
+	return (false);
+}
+
+/**
+ * 6.5.2.5 Compound literals
+ * https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf
+ */
+void	ft_print_combn(const int n)
+{
+	int	i;
+	int	n1;
+	int	int_array[ARRAY_SIZE];
+	int	max_val[ARRAY_SIZE];
+
+	i = 9;
+	n1 = n;
+	while (n1--)
+	{
+		int_array[n1] = n1;
+		max_val[n1] = i--;
+	}
+	i = n - 1;
+	printout(int_array, max_val, n);
+	while (!ft_arrcmp(int_array, max_val, n))
+	{
+		while ((int_array[i] < max_val[i]) && ++int_array[i])
+			printout(int_array, max_val, n);
+		if (increment(int_array, &max_val[0], n))
+			printout(int_array, max_val, n);
+	}
 }

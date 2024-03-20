@@ -11,51 +11,52 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdbool.h>
 
-static const int	g_min_hundred = 0;
-static const int	g_max_hundred = 7;
-static const int	g_max_tens = 8;
-static const int	g_max_units = 9;
+#define ARRAY_SIZE 3
 
-typedef struct s_int_triplet {
+static bool	ft_arrcmp(const int *curr, const int *max, int array_size)
+{
 	int	i;
-	int	j;
-	int	k;
-}	t_int_triplet;
+
+	i = -1;
+	while (i++ < (array_size - 1))
+		if (curr[i] != max[i])
+			return (false);
+	return (true);
+}
 
 /**
  * how-to-access-members-of-a-struct-according-to-a-variable-integer-in-c:
  * https://stackoverflow.com/questions/887852/
  */
-static void	printout(t_int_triplet triplet)
+static void	printout(const int *curr, const int *max)
 {
 	int			i;
 	const char	*base = "0123456789";
 
 	i = -1;
 	while (i++ < 2)
-		write(STDOUT_FILENO, &base[*((int *)&triplet + i)], 1);
-	if (triplet.i == g_max_hundred
-		&& triplet.j == g_max_tens && triplet.k == g_max_units)
-		return ;
-	write(STDOUT_FILENO, ", ", 2);
+		write(STDOUT_FILENO, &base[curr[i]], 1);
+	if (!ft_arrcmp(curr, max, ARRAY_SIZE))
+		write(STDOUT_FILENO, ", ", 2);
 }
 
 void	ft_print_comb(void)
 {
-	int	i;
-	int	j;
-	int	k;
+	int			*curr;
+	int const	*max = (int []){7, 8, 9};
 
-	i = g_min_hundred - 1;
-	while (i++ <= g_max_hundred)
+	curr = (int [ARRAY_SIZE]){0};
+	curr[0] = -1;
+	while (curr[0]++ < max[0])
 	{
-		j = i;
-		while (j++ <= g_max_tens)
+		curr[1] = curr[0];
+		while (curr[1]++ < max[1])
 		{
-			k = j;
-			while (k++ < g_max_units)
-				printout((t_int_triplet){i, j, k});
+			curr[2] = curr[1];
+			while (curr[2]++ < max[2])
+				printout(curr, max);
 		}
 	}
 }

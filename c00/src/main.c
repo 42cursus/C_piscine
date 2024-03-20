@@ -15,14 +15,14 @@
 
 int	main(void)
 {
-	ft_putchar_test();
-	ft_print_alphabet_test();
-	ft_print_reverse_alphabet_test();
-	ft_print_numbers_test();
-	ft_is_negative_test();
-	ft_print_comb_test();
-	ft_print_comb2_test();
-	ft_putnbr_test();
+//	ft_putchar_test();
+//	ft_print_alphabet_test();
+//	ft_print_reverse_alphabet_test();
+//	ft_print_numbers_test();
+//	ft_is_negative_test();
+//	ft_print_comb_test();
+//	ft_print_comb2_test();
+//	ft_putnbr_test();
 	ft_print_combn_test();
 	return (EX_OK);
 }
