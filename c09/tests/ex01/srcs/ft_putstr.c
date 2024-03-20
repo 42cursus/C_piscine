@@ -11,3 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft.h"
+
+void	ft_putstr(char *str)
+{
+	write(STDOUT_FILENO, str, ft_strlen(str));
+}

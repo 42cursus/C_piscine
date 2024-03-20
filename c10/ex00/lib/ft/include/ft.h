@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 22:42:19 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/10 22:42:20 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/26 22:49:42 by abelov            #+#    #+#             */
+/*   Updated: 2023/10/26 22:49:50 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_H
+# define FT_H
+# include <unistd.h>
 
-static int	ft_strlen(char *str)
-{
-	char *const	ostr = str;
+void	ft_putchar(char c);
+void	ft_swap(int *a, int *b);
+void	ft_putstr(char *str);
+int		ft_strlen(char *str);
+int		ft_strcmp(char *s1, char *s2);
 
-	while (*str)
-		str++;
-	return (str - ostr);
-}
-
-void	ft_putstr(char *str)
-{
-	write(STDOUT_FILENO, str, ft_strlen(str));
-}
+#endif //FT_H

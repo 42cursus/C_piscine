@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 22:42:19 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/10 22:42:20 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/20 14:59:28 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/20 14:59:29 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <sysexits.h>
+#include "ft.h"
 
-static int	ft_strlen(char *str)
+int	main(int argc, char **argv)
 {
-	char *const	ostr = str;
+	char	*str;
+	int		argg;
 
-	while (*str)
-		str++;
-	return (str - ostr);
-}
-
-void	ft_putstr(char *str)
-{
-	write(STDOUT_FILENO, str, ft_strlen(str));
+	if (argc < 1)
+		return (EX_NOINPUT);
+	argg = 1;
+	while (argg < argc)
+	{
+		str = argv[argg++];
+		write(STDOUT_FILENO, str, ft_strlen(str));
+		ft_putchar('\n');
+	}
+	return (EX_OK);
 }
