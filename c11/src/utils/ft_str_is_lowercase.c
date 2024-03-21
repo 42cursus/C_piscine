@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 16:30:44 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/08 17:28:49 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/12 17:37:47 by abelov            #+#    #+#             */
+/*   Updated: 2023/10/12 20:21:28 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdbool.h>
 
-int	ft_strlen(char *str)
+static int	char_is_lower(char c)
 {
-	char *const	ostr = str;
+	int			result;
+	const char	ascii_lower_a = 'a';
+	const char	ascii_lower_z = 'z';
 
-	while (*str)
-		str++;
-	return (str - ostr);
+	result = false;
+	if ((c >= ascii_lower_a) && (c <= ascii_lower_z))
+		result = true;
+	return (result);
 }
 
-void	ft_putstr(char *str)
+int	ft_str_is_lowercase(char *str)
 {
-	if (!str)
-		return ;
-	write(STDOUT_FILENO, str, ft_strlen(str));
+	int	res;
+
+	res = 1;
+	while (*str && res)
+		if (!char_is_lower(*str++))
+			res = false;
+	return (res);
 }

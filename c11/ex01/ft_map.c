@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 21:44:39 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/20 23:01:42 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/20 22:33:02 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/20 22:33:03 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_range_array_size(int start, int end)
+/**
+ * Function ft_map applies a function on all elements of the given ints array
+ * (in order) and returns a array of all the return values.
+ */
+int	*ft_map(int *tab, int length, int (*f)(int))
 {
-	if (start >= end)
-		return (-1);
-	return (end - start);
-}
-
-int	*ft_range(int min, int max)
-{
-	int	*int_array;
+	int	*new_array;
 	int	i;
-	int	ary_size;
 
-	i = 0;
-	int_array = NULL;
-	ary_size = ft_range_array_size(min, max);
-	if (ary_size <= 0)
+	i = -1;
+	new_array = (int *)malloc (sizeof(int) * length);
+	if (!new_array || !length || !tab)
 		return (NULL);
-	int_array = (int *)malloc (sizeof(int) * ary_size - 1);
-	if (!int_array)
-		return (NULL);
-	while (min < max)
-		int_array[i++] = min++;
-	return (int_array);
+	while (++i < length)
+		new_array[i] = f(tab[i]);
+	return (new_array);
 }

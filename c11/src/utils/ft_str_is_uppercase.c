@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 16:30:44 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/08 17:28:49 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/12 17:46:24 by abelov            #+#    #+#             */
+/*   Updated: 2023/10/12 20:05:19 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdbool.h>
 
-int	ft_strlen(char *str)
+int	char_is_uppercase(char c)
 {
-	char *const	ostr = str;
+	int			result;
+	const char	g_ascii_upper_a = 'A';
+	const char	g_ascii_upper_z = 'Z';
 
-	while (*str)
-		str++;
-	return (str - ostr);
+	result = false;
+	if ((c >= g_ascii_upper_a) && (c <= g_ascii_upper_z))
+		result = true;
+	return (result);
 }
 
-void	ft_putstr(char *str)
+int	ft_str_is_uppercase(char *str)
 {
-	if (!str)
-		return ;
-	write(STDOUT_FILENO, str, ft_strlen(str));
+	int	res;
+
+	res = 1;
+	while (*str && res)
+		if (!char_is_uppercase(*str++))
+			res = false;
+	return (res);
 }

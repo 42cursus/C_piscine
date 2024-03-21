@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 16:30:44 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/08 17:28:49 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/20 22:16:26 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/20 22:16:27 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <sysexits.h>
+#include "c11_tests.h"
 
-int	ft_strlen(char *str)
+int	main(void)
 {
-	char *const	ostr = str;
-
-	while (*str)
-		str++;
-	return (str - ostr);
-}
-
-void	ft_putstr(char *str)
-{
-	if (!str)
-		return ;
-	write(STDOUT_FILENO, str, ft_strlen(str));
+	ft_foreach_test();
+	ft_map_test();
+	ft_any_test();
+	ft_count_if_test();
+	return (EX_OK);
 }

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abelov <abelov@student.42london.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/17 02:13:54 by abelov            #+#    #+#              #
-#    Updated: 2024/03/17 02:13:55 by abelov           ###   ########.fr        #
+#    Created: 2024/03/17 02:13:47 by abelov            #+#    #+#              #
+#    Updated: 2024/03/17 02:13:48 by abelov           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-narrowing")
 
 cmake_policy(SET CMP0048 NEW) # PROJECT_VERSION
 
-project(C00 VERSION 0.1.0 LANGUAGES C CXX ASM)
+project(C11 VERSION 0.1.0 LANGUAGES C CXX ASM)
 
 include_directories(include)
 
@@ -36,6 +36,8 @@ target_compile_options(${TARGET_LIB_NAME} PRIVATE ${FT_CFLAGS})
 set(TEST_TARGET_NAME "${PROJECT_NAME}_test")
 file(GLOB TEST_TARGET_HEADERS "tests/*.h")
 file(GLOB TEST_TARGET_SOURCES "src/tests/*.c")
+file(GLOB UTILS_TARGET_SOURCES "src/utils/*.c")
+list (APPEND TEST_TARGET_SOURCES ${UTILS_TARGET_SOURCES})
 
 set(TEST_TARGET_CFLAGS
         -c -w

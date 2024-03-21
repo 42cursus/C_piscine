@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 16:30:44 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/08 17:28:49 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/10 22:42:38 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/10 22:42:40 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int	ft_strlen(char *str)
 {
@@ -19,11 +17,4 @@ int	ft_strlen(char *str)
 	while (*str)
 		str++;
 	return (str - ostr);
-}
-
-void	ft_putstr(char *str)
-{
-	if (!str)
-		return ;
-	write(STDOUT_FILENO, str, ft_strlen(str));
 }

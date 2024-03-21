@@ -11,15 +11,7 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-int	ft_strlen(char *str)
-{
-	char *const	ostr = str;
-
-	while (*str)
-		str++;
-	return (str - ostr);
-}
+#include "c11_tests.h"
 
 void	ft_putstr(char *str)
 {

@@ -1,29 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 16:30:44 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/08 17:28:49 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/20 12:37:04 by abelov            #+#    #+#             */
+/*   Updated: 2023/10/23 15:47:45 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include <stddef.h>
 
-int	ft_strlen(char *str)
+static int	ft_strlen(char *str)
 {
-	char *const	ostr = str;
+	const char	*ostr = str;
 
 	while (*str)
 		str++;
 	return (str - ostr);
 }
 
-void	ft_putstr(char *str)
+char	*ft_strcpy(char *dest, char *src)
 {
-	if (!str)
-		return ;
-	write(STDOUT_FILENO, str, ft_strlen(str));
+	char *const	save = dest;
+	const char	null_byte = '\0';
+
+	while (*src)
+		*dest++ = *src++;
+	*dest = null_byte;
+	return (save);
+}
+
+char	*ft_strdup(char *src)
+{
+	char	*new;
+
+	new = malloc(sizeof(char) * ft_strlen(src) + 1);
+	if (!new)
+		return (NULL);
+	return (ft_strcpy(new, src));
 }

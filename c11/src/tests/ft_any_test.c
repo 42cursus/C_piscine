@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_any_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 16:30:44 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/08 17:28:49 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/20 23:10:28 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/20 23:10:28 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "c11_tests.h"
 
-int	ft_strlen(char *str)
+int	ft_any_test(void)
 {
-	char *const	ostr = str;
+	char	**tab;
+	int		length;
+	int		i;
 
-	while (*str)
-		str++;
-	return (str - ostr);
-}
-
-void	ft_putstr(char *str)
-{
-	if (!str)
-		return ;
-	write(STDOUT_FILENO, str, ft_strlen(str));
+	i = 0;
+	ft_print_title("ft_any_test");
+	length = 3;
+	tab = ft_split("hey ho !", ' ');
+	while (i < length - 1)
+		printf("%s, ", tab[i++]);
+	printf("%s\n", tab[i]);
+	ft_any(tab, &ft_str_is_alpha);
+	printf("\n");
+	fflush(stdout);
+	return (0);
 }

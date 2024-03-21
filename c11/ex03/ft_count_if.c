@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 16:30:44 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/08 17:28:49 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/20 23:51:48 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/20 23:51:49 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	ft_strlen(char *str)
+/**
+ * Function t_count_if returns the number of elements of the array
+ * that return does not return 0 when passed to the function `f`
+ */
+int	ft_count_if(char **tab, int length, int (*f)(char *))
 {
-	char *const	ostr = str;
+	int	res;
+	int	i;
 
-	while (*str)
-		str++;
-	return (str - ostr);
-}
-
-void	ft_putstr(char *str)
-{
-	if (!str)
-		return ;
-	write(STDOUT_FILENO, str, ft_strlen(str));
+	i = 0;
+	res = 0;
+	if (!tab || !length)
+		return (res);
+	while (i < length)
+		if (f(tab[i++]))
+			res++;
+	return (res);
 }

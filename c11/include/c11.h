@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   c11.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 16:30:44 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/08 17:28:49 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/20 22:13:55 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/20 22:13:56 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef C11_H
+# define C11_H
 
-int	ft_strlen(char *str)
-{
-	char *const	ostr = str;
+void	ft_foreach(int *tab, int length, void (*f)(int));
+int		*ft_map(int *tab, int length, int (*f)(int));
+int		ft_any(char **tab, int (*f)(char *));
+int		ft_count_if(char **tab, int length, int (*f)(char *));
 
-	while (*str)
-		str++;
-	return (str - ostr);
-}
-
-void	ft_putstr(char *str)
-{
-	if (!str)
-		return ;
-	write(STDOUT_FILENO, str, ft_strlen(str));
-}
+#endif //C11_H
