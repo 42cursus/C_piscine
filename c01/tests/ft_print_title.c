@@ -15,6 +15,6 @@
 void ft_print_title(char *title)
 {
 	printf("--------------------------------------------------\n");
-	printf("> %s%s%s\n", CYAN, title, RESET);
+	printf("> %s%s%s\n", FT_CYAN, title, FT_RESET);
 	printf("--------------------------------------------------\n");
 }

@@ -12,15 +12,15 @@
 
 #include "c04_test.h"
 
-#define RED   "\033[0;31m"
-#define GREEN "\033[0;32m"
-#define CYAN  "\033[36m"
-#define RESET "\e[0m"
+#define FT_RED   "\033[0;31m"
+#define FT_GREEN "\033[0;32m"
+#define FT_CYAN  "\033[36m"
+#define FT_RESET "\e[0m"
 
 void ft_print_title(char *title)
 {
 	printf("--------------------------------------------------\n");
-	printf("> %s%s%s\n", CYAN, title, RESET);
+	printf("> %s%s%s\n", FT_CYAN, title, FT_RESET);
 	printf("--------------------------------------------------\n");
 	fflush(stdout);
 }

@@ -47,10 +47,7 @@ LIST		= $(foreach x,$(NLIST), ex$(word $(x),$(ILIST))/$(word $(x),$(SRCS)))
 TESTS		= $(SRCS:%.c=$(TESTS_DIR)/%_test.c)
 TEST		= $(SRCS:%.c=%_test)
 
-all: $(LIST) $(TESTS)
-
-some:
-	@echo $(TEST)
+all: $(LIST)
 
 # For `$(@D)` and `$(@D)` explanations see:
 #	https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html
@@ -67,6 +64,7 @@ some:
 #    -c <command>: Executes the command after the first file has been read.
 $(LIST):
 	@mkdir -pv $(@D)
+	@cp -vf include/ft_list.h  $(@D)/
 	@echo creating $(@F)
 	@touch $@
 	@vim $@ -esnN -c ':Stdheader' -c 'wq'
@@ -77,4 +75,4 @@ $(TESTS):
 	@touch $@
 	@vim $@ -esnN -c ':Stdheader' -c 'wq'
 
-.PHONY: all some
+.PHONY: all $(LIST)

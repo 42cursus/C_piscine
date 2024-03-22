@@ -14,7 +14,18 @@
 
 int	ft_list_push_front_test(void)
 {
+	t_list	*l;
+
 	ft_print_title("ft_list_push_front_test");
+	l =  NULL;
+	ft_list_push_front(&l, (void*)1);
+	/* 1 */ check(l->data == (void*)1);
+	/* 2 */ check(l->next == 0);
+
+	ft_list_push_front(&l, (void*)2);
+	/* 3 */ check(l->data == (void*)2);
+	/* 4 */ check(((t_list *)l->next)->data == (void*)1);
+	/* 5 */ check(((t_list *)l->next)->next == 0);
 	printf("\n");
 	fflush(stdout);
 	return (0);

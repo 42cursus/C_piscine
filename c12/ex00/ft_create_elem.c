@@ -6,18 +6,26 @@
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 00:23:54 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/21 00:23:55 by abelov           ###   ########.fr       */
+/*   Updated: 2024/03/22 18:22:05 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#ifndef DONT_USE_FT_LIST
-# include "ft_list.h"
-#endif
+#include "ft_list.h"
 
+/**
+ * Allocates (with malloc(3)) and returns a new list node.
+ * The member variable 'data' is initialized with the value of the parameter
+ * 'data'. The variable 'next' is initialized to NULL.
+ */
 t_list	*ft_create_elem(void *data)
 {
-	if (!data)
+	t_list	*elem;
+
+	elem = (t_list *)malloc(sizeof(*elem));
+	if (!elem)
 		return (NULL);
-	return (NULL);
+	elem->data = data;
+	elem->next = NULL;
+	return (elem);
 }

@@ -14,7 +14,12 @@
 
 int	ft_create_elem_test(void)
 {
+	t_list *l;
+
 	ft_print_title("ft_create_elem_test");
+	l = ft_create_elem((void *)42);
+	/* 1 */ check(l->data == (void *)42);
+	/* 2 */ check(l->next == 0);
 	printf("\n");
 	fflush(stdout);
 	return (0);

@@ -13,10 +13,10 @@
 #include <stdio.h>
 #include <string.h>
 
-#define RED   "\033[0;31m"
-#define GREEN "\033[0;32m"
-#define CYAN  "\033[36m"
-#define RESET "\e[0m"
+#define FT_RED   "\033[0;31m"
+#define FT_GREEN "\033[0;32m"
+#define FT_CYAN  "\033[36m"
+#define FT_RESET "\e[0m"
 
 #define MAX_MEMORY 128
 

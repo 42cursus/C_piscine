@@ -14,10 +14,10 @@
 #include <stdio.h>
 #include <bsd/string.h>
 
-#define RED   "\033[0;31m"
-#define GREEN "\033[0;32m"
-#define CYAN  "\033[36m"
-#define RESET "\e[0m"
+#define FT_RED   "\033[0;31m"
+#define FT_GREEN "\033[0;32m"
+#define FT_CYAN  "\033[36m"
+#define FT_RESET "\e[0m"
 
 #define MAX_MEMORY 128
 
@@ -51,25 +51,25 @@ void ft_strlcat_test1(char *dest, char *src, unsigned int n)
   unsigned int return_b = ft_strlcat(dest_b, src_b, n);
 
   if (strcmp(src_a, src) == strcmp(src_b, src)) {
-    printf("_ src arg not override                        : %sOK%s\n", GREEN, RESET);
+    printf("_ src arg not override                        : %sOK%s\n", FT_GREEN, FT_RESET);
   } else {
-    printf("_ src arg not override                        : %sKO%s\n", RED,   RESET);
+    printf("_ src arg not override                        : %sKO%s\n", FT_RED, FT_RESET);
     printf("> expected : %s\n", src_a);
     printf("> given    : %s\n", src_b);
   }
     printf("--------------------------------------------------\n");
   if (return_a == return_b) {
-    printf("_ return value is correct                     : %sOK%s\n", GREEN, RESET);
+    printf("_ return value is correct                     : %sOK%s\n", FT_GREEN, FT_RESET);
   } else {
-    printf("_ return value is correct                     : %sKO%s\n", RED,   RESET);
+    printf("_ return value is correct                     : %sKO%s\n", FT_RED, FT_RESET);
     printf("> expected : %u\n", return_a);
     printf("> given    : %u\n", return_b);
   }
   printf("--------------------------------------------------\n");
   if (strcmp(dest_a, dest_b) == 0) {
-    printf("_ correct dest arg override                   : %sOK%s\n", GREEN, RESET);
+    printf("_ correct dest arg override                   : %sOK%s\n", FT_GREEN, FT_RESET);
   } else {
-    printf("_ correct dest arg override                   : %sKO%s\n", RED,   RESET);
+    printf("_ correct dest arg override                   : %sKO%s\n", FT_RED, FT_RESET);
     printf("> expected : %s\n", dest_a);
     printf("> given    : %s\n", dest_b);
   }
@@ -77,7 +77,7 @@ void ft_strlcat_test1(char *dest, char *src, unsigned int n)
 
 void ft_print_title(char *title) {
   printf("--------------------------------------------------\n");
-  printf("> %s%s%s\n", CYAN, title, RESET);
+  printf("> %s%s%s\n", FT_CYAN, title, FT_RESET);
   printf("--------------------------------------------------\n");
 }
 

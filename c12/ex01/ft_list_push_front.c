@@ -6,12 +6,19 @@
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 00:39:51 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/21 00:39:51 by abelov           ###   ########.fr       */
+/*   Updated: 2024/03/22 18:22:05 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DONT_USE_FT_LIST
-# include "ft_list.h"
-#endif
+#include "ft_list.h"
 
-void	ft_list_push_front(t_list **begin_list, void *data);
+void	ft_list_push_front(t_list **begin_list, void *data)
+{
+	t_list	*new;
+
+	new = ft_create_elem(data);
+	if (!begin_list || !new)
+		return ;
+	new->next = *begin_list;
+	*begin_list = new;
+}

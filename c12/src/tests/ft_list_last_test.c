@@ -14,7 +14,16 @@
 
 int	ft_list_last_test(void)
 {
+	t_list	*l;
+
 	ft_print_title("ft_list_last_test");
+	l =  NULL;
+	/* 1 */ check(ft_list_last(l) == 0);
+	ft_list_push_back(&l, (void *)1);
+	/* 2 */ check(ft_list_last(l)->data == (void *)1);
+	ft_list_push_back(&l, (void *)2);
+	/* 3 */ check(ft_list_last(l)->data == (void *)2);
+	/* 4 */ check(ft_list_last(l)->next == 0);
 	printf("\n");
 	fflush(stdout);
 	return (0);
