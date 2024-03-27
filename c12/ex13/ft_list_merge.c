@@ -10,4 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_list.h"
 
+static t_list	*ft_list_last(t_list *list)
+{
+	while (list)
+	{
+		if (!list->next)
+			return (list);
+		list = list->next;
+	}
+	return (list);
+}
+
+void	ft_list_merge(t_list **list1, t_list *list2)
+{
+	t_list	*last;
+
+	if (!list1)
+		return ;
+	if (*list1)
+	{
+		last = ft_list_last(*list1);
+		last->next = list2;
+	}
+	else
+		*list1 = list2;
+}

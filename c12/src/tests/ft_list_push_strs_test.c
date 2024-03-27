@@ -16,20 +16,19 @@ int	ft_list_push_strs_test(void)
 {
 	char	**tab;
 	int		length;
-	int		i;
-	t_list	*l;
+	t_list	*list;
+	t_uint	tab_size;
 
-	i = 0;
 	ft_print_title("ft_list_push_strs_test");
-	l =  NULL;
-	length = 3;
+	list = NULL;
 	tab = ft_split("hey ho !", ' ');
-	l = ft_list_push_strs(length, tab);
-	while (l->next) {
-		printf("%s, ", (char *) l->data);
-		l = l->next;
-	}
-	printf("%s\n", tab[i]);
+	tab_size = ft_get_tab_size(tab);
+	length = FT_SIGNED(tab_size);
+	list = ft_list_push_strs(length, tab);
+	check(tab[--length] == (char *)list->data);
+	check(tab[--length] == (char *)ft_list_get_next(list)->data);
+	while (length--)
+		check(tab[length] == ft_list_get_next(NULL)->data);
 	printf("\n");
 	fflush(stdout);
 	return (0);

@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_append.c                                   :+:      :+:    :+:   */
+/*   ft_str_get_tab_size.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 16:54:53 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/22 16:54:53 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/26 22:16:45 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/26 22:16:46 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c12_tests.h"
 
-/**
- * Adds the node 'new' at the end of the list.
- */
-void	ft_list_append(t_list **list, t_list *new)
+t_uint	ft_get_tab_size(void **tab)
 {
-	t_list	*last;
+	t_uint	size;
 
-	if (!list)
-		return ;
-	if (*list)
-	{
-		last = ft_list_last(*list);
-		last->next = new;
-	}
-	else
-		*list = new;
+	size = 0;
+	while (*tab && ++size)
+		tab++;
+	return (size);
 }

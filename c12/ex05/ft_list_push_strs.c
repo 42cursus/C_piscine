@@ -13,15 +13,15 @@
 #include <stddef.h>
 #include "ft_list.h"
 
-static void	ft_list_push_front(t_list **begin_list, void *data)
+static void	ft_list_push_front(t_list **list, void *data)
 {
 	t_list	*new;
 
 	new = ft_create_elem(data);
-	if (!begin_list || !new)
+	if (!list || !new)
 		return ;
-	new->next = *begin_list;
-	*begin_list = new;
+	new->next = *list;
+	*list = new;
 }
 
 /**
@@ -30,13 +30,10 @@ static void	ft_list_push_front(t_list **begin_list, void *data)
  */
 t_list	*ft_list_push_strs(int size, char **strs)
 {
-	int	i;
-	t_list	*l;
+	t_list	*list;
 
-	l = NULL;
-	i = 0;
+	list = NULL;
 	while (size--)
-		ft_list_push_front(&l, (void *) strs[i++]);
-	return (l);
+		ft_list_push_front(&list, (void *) *strs++);
+	return (list);
 }
-

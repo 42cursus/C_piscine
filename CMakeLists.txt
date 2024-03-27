@@ -11,10 +11,13 @@
 # **************************************************************************** #
 
 cmake_minimum_required(VERSION 3.8.2)
+
+#set(CMAKE_C_COMPILER /usr/bin/clang)
+
 project(c_piscine LANGUAGES C CXX ASM)
 
-set(CMAKE_CXX_STANDARD 98)
-set(CMAKE_C_STANDARD 99)
+#set(CMAKE_CXX_STANDARD 98)
+#set(CMAKE_C_STANDARD 99)
 
 set(FT_CFLAGS
         -Wall -Wextra -Werror

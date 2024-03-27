@@ -19,4 +19,3 @@ int	ft_list_find_test(void)
 	fflush(stdout);
 	return (0);
 }
-

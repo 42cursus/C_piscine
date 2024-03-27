@@ -19,4 +19,3 @@ int	ft_sorted_list_insert_test(void)
 	fflush(stdout);
 	return (0);
 }
-

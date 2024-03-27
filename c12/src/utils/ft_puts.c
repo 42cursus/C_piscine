@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_append.c                                   :+:      :+:    :+:   */
+/*   ft_puts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 16:54:53 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/22 16:54:53 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/08 16:30:44 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/26 23:15:29 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "c12_tests.h"
 
-/**
- * Adds the node 'new' at the end of the list.
- */
-void	ft_list_append(t_list **list, t_list *new)
+void	ft_puts(char *str)
 {
-	t_list	*last;
-
-	if (!list)
+	if (!str)
 		return ;
-	if (*list)
-	{
-		last = ft_list_last(*list);
-		last->next = new;
-	}
-	else
-		*list = new;
+	write(STDOUT_FILENO, str, ft_strlen(str));
+	write(STDOUT_FILENO, "\n", 1);
 }

@@ -14,14 +14,14 @@
 #include <signal.h>
 #include "c12_tests.h"
 
-void sigsegv(int signal)
+void	sigsegv(int signal)
 {
 	(void)signal;
 	printf("> %s%s%s\n", FT_CYAN, ".SIGSEGV", FT_RESET);
 	exit(EXIT_SUCCESS);
 }
 
-void check(bool succes)
+void	check(bool succes)
 {
 	if (succes)
 		printf("> %s%s%s\n", FT_GREEN, ".OK ", FT_RESET);
@@ -32,7 +32,6 @@ void check(bool succes)
 int	main(void)
 {
 	signal(SIGSEGV, sigsegv);
-
 	ft_create_elem_test();
 	ft_list_push_front_test();
 	ft_list_size_test();

@@ -10,4 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_list.h"
 
+void	ft_list_sort(t_list **list, int (*cmp)())
+{
+	if (!list)
+		return ;
+	(void )cmp;
+}

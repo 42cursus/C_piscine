@@ -12,16 +12,16 @@
 
 #include "ft_list.h"
 
-int		ft_list_size(t_list *begin_list)
+int	ft_list_size(t_list *list)
 {
 	int	size;
 
-	if (!begin_list)
+	if (!list)
 		return (0);
 	size = 1;
-	while (begin_list->next)
+	while (list->next)
 	{
-		begin_list = begin_list->next;
+		list = list->next;
 		size++;
 	}
 	return (size);

@@ -17,12 +17,12 @@ int	ft_list_size_test(void)
 	t_list	*l;
 
 	ft_print_title("ft_list_size_test");
-	l =  NULL;
-	/* 1 */ check(ft_list_size(l) == 0);
-	ft_list_push_front(&l, (void*)1);
-	/* 2 */ check(ft_list_size(l) == 1);
-	ft_list_push_front(&l, (void*)2);
-	/* 3 */ check(ft_list_size(l) == 2);
+	l = NULL;
+	check(ft_list_size(l) == 0);
+	ft_list_push_front(&l, (void *)1);
+	check(ft_list_size(l) == 1);
+	ft_list_push_front(&l, (void *)2);
+	check(ft_list_size(l) == 2);
 	printf("\n");
 	fflush(stdout);
 	return (0);

@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_append.c                                   :+:      :+:    :+:   */
+/*   ft_list_has_next.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 16:54:53 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/22 16:54:53 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/26 22:14:41 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/26 22:14:42 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c12_tests.h"
 
-/**
- * Adds the node 'new' at the end of the list.
- */
-void	ft_list_append(t_list **list, t_list *new)
+int	ft_list_has_next(t_list	*list)
 {
-	t_list	*last;
+	int	ret_val;
 
-	if (!list)
-		return ;
-	if (*list)
-	{
-		last = ft_list_last(*list);
-		last->next = new;
-	}
-	else
-		*list = new;
+	ret_val = 0;
+	if (list && list->next)
+		ret_val = 1;
+	return (ret_val);
 }

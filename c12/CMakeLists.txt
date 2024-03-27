@@ -12,10 +12,14 @@
 
 cmake_minimum_required(VERSION 3.8.2)
 
+cmake_policy(SET CMP0128 NEW) # CMAKE_C_EXTENSIONS_DEFAULT
+message(STATUS "CMAKE_C_EXTENSIONS_DEFAULT: ${CMAKE_C_EXTENSIONS_DEFAULT}")
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-narrowing")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-narrowing")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-narrowing -Wno-pedantic")
 
 cmake_policy(SET CMP0048 NEW) # PROJECT_VERSION
+
 
 project(C12 VERSION 0.1.0 LANGUAGES C CXX ASM)
 

@@ -12,13 +12,13 @@
 
 #include "ft_list.h"
 
-t_list *ft_list_last(t_list *begin_list)
+t_list	*ft_list_last(t_list *list)
 {
-	while (begin_list)
+	while (list)
 	{
-		if (!begin_list->next)
-			return (begin_list);
-		begin_list = begin_list->next;
+		if (!list->next)
+			return (list);
+		list = list->next;
 	}
-	return (begin_list);
+	return (list);
 }

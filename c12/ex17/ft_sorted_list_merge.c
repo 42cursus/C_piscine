@@ -10,4 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_list.h"
 
+void	ft_sorted_list_merge(t_list **list1, t_list *list2,
+								int (*cmp)(t_list *, void *))
+{
+	(void )list1;
+	(void )list2;
+	(void )cmp;
+}

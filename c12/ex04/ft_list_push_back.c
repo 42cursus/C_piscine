@@ -12,30 +12,30 @@
 
 #include "ft_list.h"
 
-static	t_list *ft_list_last(t_list *begin_list)
+static t_list	*ft_list_last(t_list *list)
 {
-	while (begin_list)
+	while (list)
 	{
-		if (!begin_list->next)
-			return (begin_list);
-		begin_list = begin_list->next;
+		if (!list->next)
+			return (list);
+		list = list->next;
 	}
-	return (begin_list);
+	return (list);
 }
 
-void	ft_list_push_back(t_list **begin_list, void *data)
+void	ft_list_push_back(t_list **list, void *data)
 {
 	t_list	*last;
 	t_list	*new;
 
 	new = ft_create_elem(data);
-	if (!begin_list || !new)
+	if (!list || !new)
 		return ;
-	if (*begin_list)
+	if (*list)
 	{
-		last = ft_list_last(*begin_list);
+		last = ft_list_last(*list);
 		last->next = new;
 	}
 	else
-		*begin_list = new;
+		*list = new;
 }
