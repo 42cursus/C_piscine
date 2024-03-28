@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sorted_list_insert.c                            :+:      :+:    :+:   */
+/*   ft_print_title.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 20:08:47 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/22 18:22:06 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/27 22:47:51 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/27 22:47:52 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "c12_tests.h"
 
-void	ft_sorted_list_insert(t_list **list, void *data,
-								int (*cmp)(void *, void *))
+void	ft_print_title(char *title)
 {
-	(void )list;
-	(void )data;
-	(void )cmp;
+	printf("--------------------------------------------------\n");
+	printf("> %s%s%s\n", FT_CYAN, title, FT_RESET);
+	printf("--------------------------------------------------\n");
 }

@@ -23,7 +23,7 @@ int	ft_list_at_test(void)
 	ft_print_title("ft_list_at_test");
 	tab = ft_split("alpha beta gamma delta", ' ');
 	tab_size = ft_get_tab_size(tab);
-	length = FT_SIGNED(tab_size);
+	length = ft_signed_int(tab_size);
 	list = ft_list_push_strs(length, tab);
 	ft_list_reverse(&list);
 	i = -1;

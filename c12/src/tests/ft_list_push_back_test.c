@@ -25,18 +25,16 @@ int	ft_list_push_back_test(void)
 	check(l->next == 0);
 	ft_list_push_back(&l, (void *)2);
 	check(l->data == (void *)1);
-	check(((t_list *)(l->next))->data == (void *)2);
-	check(((t_list *)(l->next))->next == 0);
+	check(l->next->data == (void *)2);
+	check(l->next->next == 0);
 	ft_list_push_back(&l2, (void *)3);
 	ft_list_push_back(&l2, (void *)4);
 	ft_list_append(&l, l2);
 	check(l->data == (void *)1);
-	check(((t_list *)(l->next))->data == (void *)2);
-	check(((t_list *)(((t_list *)(l->next))->next))->data == (void *)3);
-	check(((t_list *)((t_list *)
-				(((t_list *)(l->next))->next))->next)->data == (void *)4);
-	check(((t_list *)((t_list *)(((t_list *)
-						(l->next))->next))->next)->next == 0);
+	check(l->next->data == (void *)2);
+	check(l->next->next->data == (void *)3);
+	check(l->next->next->next->data == (void *)4);
+	check(l->next->next->next->next == 0);
 	(printf("\n") && fflush(stdout));
 	return (0);
 }

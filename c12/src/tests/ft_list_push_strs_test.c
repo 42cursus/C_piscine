@@ -23,7 +23,7 @@ int	ft_list_push_strs_test(void)
 	list = NULL;
 	tab = ft_split("hey ho !", ' ');
 	tab_size = ft_get_tab_size(tab);
-	length = FT_SIGNED(tab_size);
+	length = ft_signed_int(tab_size);
 	list = ft_list_push_strs(length, tab);
 	check(tab[--length] == (char *)list->data);
 	check(tab[--length] == (char *)ft_list_get_next(list)->data);

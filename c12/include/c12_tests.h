@@ -6,7 +6,7 @@
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 00:27:01 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/21 00:27:01 by abelov           ###   ########.fr       */
+/*   Updated: 2024/03/27 15:37:31 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <limits.h>
 
 # ifndef T_UINT
-# define T_UINT
+#  define T_UINT
 /**
  * When an expression contains operands of different built-in types,
  * and no explicit casts are present, the compiler uses built-in standard
@@ -33,19 +33,10 @@
 typedef unsigned int	t_uint;
 # endif
 
-# define FT_SIGNED(Value) (Value <= INT_MAX) ? ((int)Value) : (INT_MAX)
-
 # define FT_RED   "\033[0;31m"
 # define FT_GREEN "\033[0;32m"
 # define FT_CYAN  "\033[36m"
 # define FT_RESET "\e[0m"
-
-static void	ft_print_title(char *title)
-{
-	printf("--------------------------------------------------\n");
-	printf("> %s%s%s\n", FT_CYAN, title, FT_RESET);
-	printf("--------------------------------------------------\n");
-}
 
 /* ---------- TESTS -------------------- */
 
@@ -68,6 +59,30 @@ int		ft_list_reverse_fun_test(void);
 int		ft_sorted_list_insert_test(void);
 int		ft_sorted_list_merge_test(void);
 
+typedef void			(*t_apply_fun)(void *);
+typedef int				(*t_cmp_fun)(void *, void *);
+typedef int				(*t_test_fun)(void);
+static t_test_fun		g_tests[] = {
+	ft_create_elem_test,
+	ft_list_push_front_test,
+	ft_list_size_test,
+	ft_list_last_test,
+	ft_list_push_back_test,
+	ft_list_push_strs_test,
+	ft_list_clear_test,
+	ft_list_at_test,
+	ft_list_reverse_test,
+	ft_list_foreach_test,
+	ft_list_foreach_if_test,
+	ft_list_find_test,
+	ft_list_remove_if_test,
+	ft_list_merge_test,
+	ft_list_sort_test,
+	ft_list_reverse_fun_test,
+	ft_sorted_list_insert_test,
+	ft_sorted_list_merge_test
+};
+
 /* ---------- UTILS -------------------- */
 
 int		ft_list_has_next(t_list	*list);
@@ -78,7 +93,6 @@ void	ft_puts(char *str);
 void	ft_putnbr(int nb);
 void	ft_putstr(char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
-
 t_uint	ft_get_tab_size(void **tab);
 void	ft_bzero(void *s, size_t n);
 char	**ft_split(char const *s, char c);
@@ -90,12 +104,17 @@ int		ft_str_is_numeric(char *str);
 int		ft_str_is_lowercase(char *str);
 int		ft_str_is_uppercase(char *str);
 int		ft_str_is_printable(char *str);
+char	*ft_strupcase(char *str);
+char	*ft_strlowcase(char *str);
+int		ft_tolower(int c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_signed_int(t_uint value);
 
 void	check(bool succes);
+void	ft_print_title(char *title);
 
 #endif //C12_TESTS_H

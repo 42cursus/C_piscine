@@ -29,26 +29,25 @@ void	check(bool succes)
 		printf("> %s%s%s\n", FT_RED, ".KO ", FT_RESET);
 }
 
+/**
+ * The actual arguments to this function are "pointers to
+ * pointers to char", but strcmp(3) arguments are "pointers
+ * to char", hence the following cast plus dereference
+ */
+static int	cmpstringp(const void *p1, const void *p2)
+{
+	return (ft_strcmp(*(char *const *) p1, *(char *const *) p2));
+}
+
 int	main(void)
 {
+	int			i;
+	int const	tests[] = {11, 10};
+
 	signal(SIGSEGV, sigsegv);
-	ft_create_elem_test();
-	ft_list_push_front_test();
-	ft_list_size_test();
-	ft_list_last_test();
-	ft_list_push_back_test();
-	ft_list_push_strs_test();
-	ft_list_clear_test();
-	ft_list_at_test();
-	ft_list_reverse_test();
-	ft_list_foreach_test();
-	ft_list_foreach_if_test();
-	ft_list_find_test();
-	ft_list_remove_if_test();
-	ft_list_merge_test();
-	ft_list_sort_test();
-	ft_list_reverse_fun_test();
-	ft_sorted_list_insert_test();
-	ft_sorted_list_merge_test();
+	i = sizeof(tests) / sizeof(tests[0]);
+	i = sizeof(g_tests) / sizeof(g_tests[0]);
+	while (i--)
+		g_tests[i]();
 	return (EX_OK);
 }

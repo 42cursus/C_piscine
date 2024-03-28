@@ -18,14 +18,16 @@
  * using cmp, makes cmp return 0.
  */
 void	ft_list_remove_if(t_list **list, void *data_ref,
-							int (*cmp)(t_list *, void *),
+							int (*cmp)(void *, void *),
 							void (*del_fun)(void *))
 {
+	t_list	*prev;
 	t_list	*current;
 	t_list	*next;
 
 	if (!list || !del_fun)
 		return ;
+	prev = *list;
 	current = *list;
 	while (current)
 	{
@@ -33,8 +35,14 @@ void	ft_list_remove_if(t_list **list, void *data_ref,
 		if (!(*cmp)(current->data, data_ref))
 		{
 			del_fun(current->data);
+			if (prev == *list)
+				*list = next;
+			else
+				prev->next = next;
 			free(current);
+			current = next;
 		}
+		prev = current;
 		current = next;
 	}
 }

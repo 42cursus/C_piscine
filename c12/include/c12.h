@@ -24,17 +24,17 @@ t_list	*ft_list_at(t_list *list, unsigned int nbr);
 void	ft_list_reverse(t_list **list);
 void	ft_list_foreach(t_list *list, void (*f)(void *));
 void	ft_list_foreach_if(t_list *list, void (*f)(void *), void *data_ref,
-			int (*cmp)(t_list *, void *));
+			int (*cmp)(void *, void *));
 t_list	*ft_list_find(t_list *list, void *data_ref,
-			int (*cmp)(t_list *, void *));
+			int (*cmp)(void *, void *));
 void	ft_list_remove_if(t_list **list, void *data_ref,
-			int (*cmp)(t_list *, void *), void (*del_fun)(void *));
+			int (*cmp)(void *, void *), void (*del_fun)(void *));
 void	ft_list_merge(t_list **list1, t_list *list2);
-void	ft_list_sort(t_list **list, int (*cmp)(t_list *, void *));
+void	ft_list_sort(t_list **list, int (*cmp)(void *, void *));
 void	ft_list_reverse_fun(t_list *list);
 void	ft_sorted_list_insert(t_list **list, void *data,
-			int (*cmp)(t_list *, void *));
+			int (*cmp)(void *, void *));
 void	ft_sorted_list_merge(t_list **list1, t_list *list2,
-			int (*cmp)(t_list *, void *));
+			int (*cmp)(void *, void *));
 
 #endif //C12_H

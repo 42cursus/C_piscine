@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sorted_list_insert.c                            :+:      :+:    :+:   */
+/*   ft_signed_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 20:08:47 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/22 18:22:06 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/27 22:49:35 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/27 22:49:36 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "c12_tests.h"
 
-void	ft_sorted_list_insert(t_list **list, void *data,
-								int (*cmp)(void *, void *))
+int	ft_signed_int(t_uint value)
 {
-	(void )list;
-	(void )data;
-	(void )cmp;
+	if (value <= INT_MAX)
+		return ((int)value);
+	else
+		return (0);
 }

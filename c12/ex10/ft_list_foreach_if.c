@@ -14,24 +14,23 @@
 
 /**
  * Iterates the list 'list' and applies the function 'f' on the content
- * of each node.
- * Only applies the function on the content when cmp with data_ref, returns 0
+ * of each node, which content cmp with data_ref, returns 0
  *
  * Parameters:
  * 		list: The address of a pointer to a node.
  * 		f: The address of the function used to iterate on the list.
  */
 void	ft_list_foreach_if(t_list *list, void (*f)(void *), void *data_ref,
-							int (*cmp)(t_list *, void *))
+							int (*cmp)(void *, void *))
 {
 	if (!list || !f)
 		return ;
 	while (list->next)
 	{
-		if ((*cmp)(list->data, data_ref))
+		if (!cmp(list->data, data_ref))
 			f(list->data);
 		list = list->next;
 	}
-	if ((*cmp)(list->data, data_ref))
+	if (!cmp(list->data, data_ref))
 		f(list->data);
 }
