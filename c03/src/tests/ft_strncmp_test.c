@@ -10,15 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "c03_tests.h"
 
 #define DEST_ARRAY_SIZE (255)
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n);
-
-int	ft_strncmp_test(int argc, char *argv[])
+int	ft_strncmp_test(void)
 {
 	char	buf[DEST_ARRAY_SIZE];
 	char	*str1 = "ABC";
@@ -26,18 +22,7 @@ int	ft_strncmp_test(int argc, char *argv[])
 	int		len = 0;
 	int		res = 0;
 
-
-	if ((argc - 1) < 3)
-	{
-		fprintf(stderr, "Usage: %s <str1> <str2> <len>\n", argv[0]);
-		exit(EXIT_FAILURE);
-	}
-	else if ((argc - 1) >= 3)
-	{
-		str1 = argv[1];
-		str2 = argv[2];
-		len = atoi(argv[3]);
-	}
+	ft_print_title("ft_strncmp_test");
 
 	memset(buf, 0, sizeof(buf));
 

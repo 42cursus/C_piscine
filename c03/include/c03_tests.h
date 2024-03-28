@@ -1,17 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c03.h                                              :+:      :+:    :+:   */
+/*   c03_tests.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 22:05:15 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/10 22:05:16 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/11 23:21:21 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/28 03:28:19 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef C03_H
-# define C03_H
+#ifndef C03_TESTS_H
+# define C03_TESTS_H
+# include "c03.h"
+# include <stdio.h>
+# include <string.h>
+# include <unistd.h>
+# include <stdbool.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <time.h>
 
 # ifndef T_UINT
 #  define T_UINT
@@ -27,11 +35,27 @@
 typedef unsigned int	t_uint;
 # endif
 
-int		ft_strcmp(char *s1, char *s2);
-int		ft_strncmp(char *s1, char *s2, unsigned int n);
-char	*ft_strcat(char *dest, char *src);
-char	*ft_strncat(char *dest, char *src, unsigned int nb);
-char	*ft_strstr(char *str, char *to_find);
-t_uint	ft_strlcat(char *dest, char *src, unsigned int size);
+# define FT_RED   "\033[0;31m"
+# define FT_GREEN "\033[0;32m"
+# define FT_CYAN  "\033[36m"
+# define FT_RESET "\e[0m"
 
-#endif //C03_H
+
+/* ---------- TESTS -------------------- */
+
+int		ft_strcmp_test(void);
+int		ft_strncmp_test(void);
+int 	ft_strcat_test(void);
+int 	ft_strncat_test(void);
+int		ft_strstr_test(void);
+int 	ft_strlcat_test(void);
+
+/* ---------- UTILS -------------------- */
+
+void	*ft_memset(void *s, int c, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	ft_bzero(void *s, size_t n);
+void	check(bool succes);
+void	ft_print_title(char *title);
+
+#endif //C03_TESTS_H

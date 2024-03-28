@@ -10,39 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "c03_tests.h"
 
-#define DEST_ARRAY_SIZE (255)
+#define DEST_ARRAY_SIZE (256)
 
 int	ft_strcmp(char *s1, char *s2);
 
-int	ft_strcmp_test(int argc, char *argv[])
+int	ft_strcmp_test(void)
 {
 	char	buf[DEST_ARRAY_SIZE];
 	char	*str1 = "ABC";
 	char	*str2 = "ABD";
 	unsigned char	res;
 
-	if ((argc - 1) < 2)
-	{
-		fprintf(stderr, "Usage: %s <str1> <str2> [<len>]\n", argv[0]);
-		exit(EXIT_FAILURE);
-	}
-	else if ((argc - 1) >= 2)
-	{
-		str1 = argv[1];
-		str2 = argv[2];
-	}
-
-	memset(buf, 0, sizeof(buf));
-
+	ft_print_title("ft_strcmp_test");
+	ft_memset(buf, 0, sizeof(buf));
 	res = strcmp(str1, str2);
 	printf("s1: \"%s\", s2: \"%s\",\n libc: %u\n", str1, str2, res);
 	res = ft_strcmp(str1, str2);
 	printf("s1: \"%s\", s2: \"%s\",\n ft: %u\n", str1, str2, res);
 	printf("======\n");
-
 	return (0);
 }

@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_title.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 18:41:50 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/17 18:41:54 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/27 22:47:51 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/27 22:47:52 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "c03_test.h"
+#include "c03_tests.h"
 
-char *ft_strncat(char *dest, char *src, unsigned int nb);
-
-int	main(void)
+void	ft_print_title(char *title)
 {
-	char src[] = " world!";
-	char dest[14] = "Hello";
-	printf("RES: %s\n", ft_strncat(dest, src, 200));
-	printf("DEST: %s\n", dest);
-
-	ft_strstr_test();
-//	ft_strlcat_test();
-	return (0);
+	printf("--------------------------------------------------\n");
+	printf("> %s%s%s\n", FT_CYAN, title, FT_RESET);
+	printf("--------------------------------------------------\n");
 }
