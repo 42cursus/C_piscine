@@ -87,7 +87,7 @@ static char	**ft_get_words(char *s, char c, size_t words_count)
 /**
  * Allocates (with malloc(3)) and returns an array of strings obtained by
  * splitting 's' using the character 'c' as a delimiter.
- * The array must end with a NULL pointer.
+ * The array ends with a NULL pointer.
  */
 char	**ft_split(char const *s, char c)
 {

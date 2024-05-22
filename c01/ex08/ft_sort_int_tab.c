@@ -12,39 +12,42 @@
 
 #include <stdbool.h>
 
-static void	ft_swap(int *a, int *b)
+/**
+ * difference-between-always-inline-and-inline:
+ * 	https://stackoverflow.com/questions/20995309/
+ * how-do-move-elimination-slots-work-in-intel-cpu:
+ * 	https://stackoverflow.com/questions/75204302/
+ * See also:
+ * 	https://en.wikipedia.org/wiki/XOR_swap_algorithm
+ * 	https://chipsandcheese.com/2021/12/21/gracemont-revenge-of-the-atom-cores/
+ */
+static inline int	ft_swap(int *a, int *b)
 {
 	int	temp;
 
 	temp = *b;
 	*b = *a;
 	*a = temp;
+	return (true);
 }
 
 /**
  * Bubble sort
  */
-void	ft_sort_int_tab(int *tab, int size)
+void	ft_sort_int_tab(int *array, int size)
 {
-	int		i;
-	int		j;
-	bool	swapped;
+	int	i;
+	int	j;
+	int	swapped;
 
-	i = 0;
-	while (i < size - 1)
+	i = -1;
+	while (++i < size - 1)
 	{
 		swapped = false;
-		j = 0;
-		while (j < size - i - 1)
-		{
-			if (tab[j] > tab[j + 1])
-			{
-				ft_swap(&tab[j], &tab[j + 1]);
-				swapped = true;
-			}
-			j++;
-		}
-		i++;
+		j = -1;
+		while (++j < size - i - 1)
+			if (array[j] > array[j + 1])
+				swapped = ft_swap(&array[j], &array[j + 1]);
 		if (!swapped)
 			break ;
 	}

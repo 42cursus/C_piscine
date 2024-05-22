@@ -25,8 +25,11 @@ int	ft_any_test(void)
 	while (i < length - 1)
 		printf("%s, ", tab[i++]);
 	printf("%s\n", tab[i]);
-	ft_any(tab, &ft_str_is_alpha);
-	printf("\n");
+	i = ft_any(tab, &ft_str_is_alpha);
+	if (!i)
+		printf("There are no non-alphabetical words\n");
+	else
+		printf("There are some non-alphabetical words\n");
 	fflush(stdout);
 	return (0);
 }
