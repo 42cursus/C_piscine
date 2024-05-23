@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_tab_size.c                                  :+:      :+:    :+:   */
+/*   ft_print_int_tab.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 22:16:45 by abelov            #+#    #+#             */
-/*   Updated: 2024/05/23 05:21:37 by abelov           ###   ########.fr       */
+/*   Created: 2024/05/23 18:19:55 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/23 18:19:56 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "c11_tests.h"
+#include "c12_tests.h"
 
-t_uint	ft_get_tab_size(void **tab)
+void ft_print_int_tab(int tab[], t_uint size, char *eol)
 {
-	t_uint	*const size = (t_uint[]){0};
+	int *const pos = (int[]){0};
 
-	while (*tab && ++(*size))
-		tab++;
-	return (*size);
+	ft_putstr("[");
+	while (*pos < size) {
+		ft_putnbr(tab[(*pos)++]);
+		if (*pos != size)
+			ft_putstr(", ");
+	}
+	if (!eol)
+		ft_putstr("]\n");
+	else
+	{
+		ft_putstr("]");
+		ft_putstr(eol);
+	}
 }

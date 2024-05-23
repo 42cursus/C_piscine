@@ -24,24 +24,25 @@ int ft_int_cmp(int x, int y)
 
 int	ft_is_sort_test(void)
 {
-	int	i;
-	int	*tab;
-	int	length;
+	int		*tab;
+	int		length;
+	char 	*not = "";
 
 	ft_print_title("ft_is_sort_test");
 	length = 5;
 	tab = ft_range(0, length);
+	ft_putstr("The following array: ");
+	ft_print_int_tab(tab, length, " ");
+	if (!ft_is_sort(tab, length, ft_int_cmp))
+		not = "NOT";
+	(ft_putstr("is"), ft_putstr(not), ft_putstr(" sorted\n"));
 	ft_rev_int_tab(tab, length);
-	ft_putstr("the array is: ");
-	i = 0;
-	while (i < length)
-		(ft_putstr("["), ft_putnbr(tab[i++]), ft_putstr("] "));
-	tab = tab;
+	ft_putstr("The following array: ");
+	ft_print_int_tab(tab, length, " ");
+	if (!ft_is_sort(tab, length, ft_int_cmp))
+		not = FT_RED" NOT"FT_RESET;
+	(ft_putstr("is"), ft_putstr(not), ft_putstr(" sorted\n"));
 	ft_putstr("\n");
-	if (ft_is_sort(tab, length, ft_int_cmp))
-		ft_putstr("The array is sorted\n");
-	else
-		ft_putstr("The array is NOT sorted\n");
 	fflush(stdout);
 	free(tab);
 	return (0);

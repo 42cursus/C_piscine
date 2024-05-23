@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_tab_size.c                                  :+:      :+:    :+:   */
+/*   ft_free_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 22:16:45 by abelov            #+#    #+#             */
-/*   Updated: 2024/05/23 05:21:37 by abelov           ###   ########.fr       */
+/*   Created: 2024/05/23 19:41:33 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/23 19:41:34 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c11_tests.h"
 
-t_uint	ft_get_tab_size(void **tab)
+void	ft_free_tab(void **tab, t_uint size)
 {
-	t_uint	*const size = (t_uint[]){0};
-
-	while (*tab && ++(*size))
-		tab++;
-	return (*size);
+	while (size--)
+		free(tab[size]);
+	free(tab);
 }

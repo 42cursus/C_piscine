@@ -48,28 +48,13 @@ void	do_init(t_ops *t)
 	t->functions = functions;
 }
 
-/**
- * __attribute__((__packed__, __aligned__(128)))
- * modifier added to address `stack smashing`
- * As per
- * 	https://en.wikipedia.org/wiki/Flexible_array_member
- * 	and
- * 	https://gcc.gnu.org/onlinedocs/gcc/Zero-Length.html:
- * It's programmer's responsibility to allocate space for funct pointers array.
- * Note that this usually means allocating the struct dynamically, using malloc.
- * Then, programmer can tell it to allocate more memory than sizeof(overall).
- *
- * Another way to address `stack smashing` is to utilize `static modifier`
- * See also:
- * 	How to detect offending code for stack smashing error
- * 	https://stackoverflow.com/questions/13641379/
- */
 int	main(void)
 {
+	int *const i = (int[]){0};
 	t_ops	test;
 
 	do_init(&test);
-	while (test.size--)
-		test.functions[test.size]();
+	while (*i < (int) test.size)
+		test.functions[(*i)++]();
 	return (EX_OK);
 }

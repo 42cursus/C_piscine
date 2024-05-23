@@ -17,20 +17,18 @@ int	ft_sort_string_tab_test(void)
 	char	**tab;
 	char	**otab;
 	int		length;
-	int		i;
 
-	ft_print_title("ft_count_if");
-	otab = ft_split("hey ho !", ' ');
+	ft_print_title("ft_sort_string_tab_test");
+	otab = ft_split("gamma delta beta alpha", ' ');
 	tab = otab;
 	length = (int)ft_get_tab_size(tab);
-	ft_putstr("the array is: ");
-	while (*tab)
-		(ft_putstr("["), ft_putstr(*tab++), ft_putstr("] "));
-	i = ft_count_if(otab, length, &ft_str_is_alpha);
-	printf("\nThere are %d fully alphabetical words\n", i);
+	ft_putstr("the original array is: \n\t");
+	ft_print_str_tab(tab, NULL);
+	ft_sort_string_tab(tab);
+	ft_putstr("the sorted array is: \n\t");
+	ft_print_str_tab(tab, NULL);
+	ft_putstr("\n");
 	fflush(stdout);
-	while (length--)
-		free(otab[length]);
-	free(otab);
+	ft_free_tab(otab,length);
 	return (0);
 }

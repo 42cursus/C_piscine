@@ -10,7 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
+#include <stdbool.h>
 #include "ft_list.h"
+
+static int	ft_list_size(t_list *list)
+{
+	int *const	size = (int [1]){};
+
+	if (!list)
+		return (0);
+	while (list->next)
+	{
+		list = list->next;
+		(*size)++;
+	}
+	return (*size);
+}
 
 /**
  * Swapping two nodes usually takes five operations:
@@ -29,21 +45,25 @@
  * 	Sorting Linked Lists - move nodes or swap data members
  * 		https://stackoverflow.com/questions/37475405/
  */
-static void	ft_list_swap(t_list *parent1, t_list *parent2)
+static int	ft_list_swap(t_list *p1, t_list *p2)
 {
-	t_list *ptr;
-	t_list *first;
-	t_list *second;
+	t_list_swap	swap;
 
-	first = parent1->next;
-	second = parent2->next;
-	parent1->next = second;
-	parent2->next = first;
-
-	ptr = first->next;
-	first->next = second->next;
-	second->next = ptr;
+	swap.el1 = p1->next;
+	swap.el2 = p2->next;
+	p1->next = swap.el2;
+	p2->next = swap.el1;
+	swap.tmp = swap.el1->next;
+	swap.el1->next = swap.el2->next;
+	swap.el2->next = swap.tmp;
+	return (true);
 }
+
+typedef struct s_iterator
+{
+	int	i;
+	int	j;
+}					t_iter;
 
 /**
  * `ft_list_sort` sorts the list's elements by ascending order
@@ -55,7 +75,31 @@ static void	ft_list_swap(t_list *parent1, t_list *parent2)
  */
 void	ft_list_sort(t_list **list, int (*cmp)(void *, void *))
 {
-	if (!list)
+	int				size;
+	int				swapped;
+	t_list *const	head = &(t_list){.next = NULL};
+	t_iter *const	it = &(t_iter){.i = -1, .j = -1};
+	t_list			*curr;
+
+	if (!list || !*list || !(*list)->next)
 		return ;
-	(void )cmp;
+	head->next = *list;
+	size = ft_list_size(*list);
+	while (++(it->i) < size - 1)
+	{
+		swapped = false;
+		it->j = -1;
+		curr = head;
+		while (++(it->j) < size - it->i)
+		{
+			char * str1 = curr->next->data;
+			char * str2 = curr->next->next->data;
+			if (cmp(str1, str2) > 0)
+				swapped = ft_list_swap(curr, curr->next);
+			curr = curr->next;
+		}
+		if (!swapped)
+			break ;
+	}
+	*list = head->next;
 }

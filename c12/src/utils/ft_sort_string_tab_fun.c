@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_advanced_sort_string_tab.c                      :+:      :+:    :+:   */
+/*   ft_sort_string_tab_fun.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 05:53:03 by abelov            #+#    #+#             */
-/*   Updated: 2024/05/22 05:53:04 by abelov           ###   ########.fr       */
+/*   Updated: 2024/05/24 01:43:00 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <stddef.h>
-
-static int ft_string_tab_is_sort(char **tab, int(*f)(char *, char *))
-{
-	if(!tab || !*tab)
-		return (true);
-	if(!f)
-		return (false);
-	while (*++tab)
-		if (f(*(tab - 1), *(tab)) > 0)
-			return (false);
-	return (true);
-}
 
 static int	ft_get_tab_size(char **tab)
 {
@@ -48,7 +36,7 @@ static inline int	ft_swap(char **a, char **b)
 /**
  * Bubble sort
  */
-void ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
+void ft_sort_string_tab_fun(char **tab, int(*cmp)(char *, char *))
 {
 	int		i;
 	int		j;
@@ -56,7 +44,7 @@ void ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
 	int		swapped;
 
 	size = ft_get_tab_size(tab);
-	if (!tab || !*tab || ft_string_tab_is_sort(tab, cmp))
+	if (!tab || !*tab || !*(tab+1))
 		return;
 	i = -1;
 	while (++i < (int)(size - 1))

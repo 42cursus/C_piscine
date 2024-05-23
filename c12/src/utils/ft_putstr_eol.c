@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_tab_size.c                                  :+:      :+:    :+:   */
+/*   ft_putstr_eol.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 22:16:45 by abelov            #+#    #+#             */
-/*   Updated: 2024/05/23 05:21:37 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/08 16:30:44 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/24 19:21:38 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "c11_tests.h"
+#include <unistd.h>
+#include "c12_tests.h"
 
-t_uint	ft_get_tab_size(void **tab)
+void	ft_putstr_eol(char *str, char *eol)
 {
-	t_uint	*const size = (t_uint[]){0};
-
-	while (*tab && ++(*size))
-		tab++;
-	return (*size);
+	if (!str)
+		return ;
+	write(STDOUT_FILENO, str, ft_strlen(str));
+	if (eol)
+		write(STDOUT_FILENO, eol, ft_strlen(eol));
 }

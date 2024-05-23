@@ -20,14 +20,15 @@ int	ft_count_if_test(void)
 	int		i;
 
 	ft_print_title("ft_count_if");
-	otab = ft_split("hey ho !", ' ');
+	otab = ft_split("hey ho Lets go !", ' ');
 	tab = otab;
 	length = (int)ft_get_tab_size(tab);
 	ft_putstr("the array is: ");
-	while (*tab)
-		(ft_putstr("["), ft_putstr(*tab++), ft_putstr("] "));
-	i = ft_count_if(otab, tab - otab, &ft_str_is_alpha);
-	printf("\nThere are %d fully alphabetical words\n", i);
+	ft_print_str_tab(tab, NULL);
+	i = ft_count_if(otab, length, &ft_str_is_alpha);
+	(ft_putstr("There are "), ft_putnbr(i));
+	ft_putstr(" fully alphabetical words\n");
+	ft_putstr("\n");
 	fflush(stdout);
 	while (length--)
 		free(otab[length]);

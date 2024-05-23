@@ -38,6 +38,7 @@ int	ft_list_foreach_test(void)
 	int		length;
 	t_list	*list;
 	t_uint	tab_size;
+	void	(*f)(void *);
 
 	ft_print_title("ft_list_foreach_test");
 	tab = ft_split("alpha beta gamma delta", ' ');
@@ -46,8 +47,11 @@ int	ft_list_foreach_test(void)
 	list = ft_list_push_strs(length, tab);
 	ft_list_reverse(&list);
 	length = 0;
-	ft_list_foreach(list,
-		({void __fun(void *data){check(tab[length++] == data);} __fun;}));
+	f = (void (*)(void *))({
+			void lambda_fun(void *data){check(tab[length++] == data);}
+			lambda_fun;
+	});
+	ft_list_foreach(list, f);
 	printf("\n");
 	fflush(stdout);
 	return (0);

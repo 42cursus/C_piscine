@@ -16,8 +16,15 @@
 typedef struct s_list
 {
 	struct s_list	*next;
-	void			*data;
+	char			*data;
 }					t_list;
+
+typedef struct s_list_swap
+{
+	t_list	*tmp;
+	t_list	*el1;
+	t_list	*el2;
+}		t_list_swap;
 
 t_list	*ft_create_elem(void *data);
 

@@ -11,7 +11,18 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include <stdbool.h>
 #include "ft_list.h"
+
+static int ft_list_swap_data(t_list *left, t_list *right)
+{
+	void	*tmp;
+
+	tmp = left->data;
+	left->data = right->data;
+	right->data = tmp;
+	return (true);
+}
 
 static int	ft_list_size(t_list *list)
 {
@@ -45,15 +56,6 @@ static t_list	*ft_list_at(t_list *list, size_t nbr)
 	return (NULL);
 }
 
-void	ft_list_swap_elem_data(t_list *elem1, t_list *elem2)
-{
-	void	*p;
-
-	p = elem1->data;
-	elem1->data = elem2->data;
-	elem2->data = p;
-}
-
 /**
  * ft_list_reverse_fun:
  * 	reverses the order of the elements of the list.
@@ -62,44 +64,16 @@ void	ft_list_reverse_fun(t_list *list)
 {
 	size_t	i;
 	size_t	size;
-	size_t	half_size;
-	t_list	*elem1;
-	t_list	*elem2;
+	t_list	*middle;
+	t_list	*left;
 
 	i = -1;
+	left = list;
 	size = ft_list_size(list);
-	half_size = size / 2;
-	while (++i < half_size) {
-		elem1 = ft_list_at(list, i);
-		elem2 = ft_list_at(list, size - i - 1);
-		ft_list_swap_elem_data(elem1, elem2);
+	middle = ft_list_at(list, size / 2);
+	while (++i < size / 2)
+	{
+		ft_list_swap_data(left, ft_list_at(middle, size/2 - i - 1));
+		left = left->next;
 	}
 }
-
-//void	ft_rev_int_tab2(int *tab, int size)
-//{
-//	int	i;
-//	int	tmp;
-//	int	half_size;
-//
-//	half_size = size / 2;
-//	i = 0;
-//	while (i < half_size)
-//	{
-//		tmp = tab[i];
-//		tab[i] = tab[size - i - 1];
-//		tab[size - i - 1] = tmp;
-//		i++;
-//	}
-//}
-//
-//void	ft_rev_int_tab(int *tab, int size)
-//{
-//	int	*head;
-//	int	*tail;
-//
-//	head = tab;
-//	tail = tab + size - 1;
-//	while (head <= tail)
-//		ft_swap(head++, tail--);
-//}

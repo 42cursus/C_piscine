@@ -41,10 +41,23 @@ typedef unsigned int	t_uint;
 /* ---------- TESTS -------------------- */
 
 typedef int	(*t_test_fun)(void);
-typedef struct operations
+
+/**
+ * We can use a `flexible array member` as per
+ * 	https://en.wikipedia.org/wiki/Flexible_array_member
+ * 	and
+ * 	https://gcc.gnu.org/onlinedocs/gcc/Zero-Length.html:
+ * However, It's programmer's responsibility to allocate space for this array.
+ * This usually means allocating the struct dynamically, using malloc.
+ *
+ * See also:
+ * 	How to detect offending code for stack smashing error
+ * 	https://stackoverflow.com/questions/13641379/
+ */
+typedef struct s_ops
 {
 	size_t size;
-	t_test_fun *functions;
+	const t_test_fun *functions;
 } t_ops;
 
 int		ft_foreach_test(void);
@@ -57,7 +70,9 @@ int		ft_advanced_sort_string_tab_test(void);
 
 /* ---------- UTILS -------------------- */
 
-
+void	ft_print_int_tab(int tab[], t_uint size, char *eol);
+void	ft_print_str_tab(char **tab, char *eol);
+void	ft_free_tab(void **tab, t_uint size);
 int		*ft_range(int min, int max);
 char	**ft_split(char const *s, char c);
 char	*ft_strdup(char *src);

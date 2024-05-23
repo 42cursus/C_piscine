@@ -62,29 +62,12 @@ int		ft_sorted_list_merge_test(void);
 typedef void			(*t_apply_fun)(void *);
 typedef int				(*t_cmp_fun)(void *, void *);
 typedef int				(*t_test_fun)(void);
-static t_test_fun		g_tests[] = {
-//	ft_create_elem_test,
-//	ft_list_push_front_test,
-//	ft_list_size_test,
-//	ft_list_last_test,
-//	ft_list_push_back_test,
-//	ft_list_push_strs_test,
-//	ft_list_clear_test,
-//	ft_list_at_test,
-//	ft_list_reverse_test,
-//	ft_list_foreach_test,
-//	ft_list_foreach_if_test,
-//	ft_list_find_test,
-//	ft_list_remove_if_test,
-//	ft_list_merge_test,
-	ft_list_sort_test,
-	ft_list_reverse_fun_test,
-	ft_sorted_list_insert_test,
-	ft_sorted_list_merge_test
-};
 
 /* ---------- UTILS -------------------- */
 
+void	ft_free_tab(void **tab, t_uint size);
+void	ft_print_int_tab(int tab[], t_uint size, char *eol);
+void	ft_print_str_tab(char **tab, char *eol);
 int		ft_list_has_next(t_list	*list);
 t_list	*ft_list_get_next(t_list *list);
 void	ft_list_append(t_list **list, t_list *new);
@@ -92,6 +75,7 @@ int		*ft_range(int min, int max);
 void	ft_puts(char *str);
 void	ft_putnbr(int nb);
 void	ft_putstr(char *str);
+void	ft_putstr_eol(char *str, char *eol);
 void	*ft_calloc(size_t nmemb, size_t size);
 t_uint	ft_get_tab_size(void **tab);
 void	ft_bzero(void *s, size_t n);
@@ -113,7 +97,7 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_signed_int(t_uint value);
-
+void	ft_sort_string_tab_fun(char **tab, int(*cmp)(char *, char *));
 void	check(bool succes);
 void	ft_print_title(char *title);
 

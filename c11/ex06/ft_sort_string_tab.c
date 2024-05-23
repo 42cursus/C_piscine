@@ -35,18 +35,18 @@ static int	ft_strcmp(char *s1, char *s2)
 			return (0);
 	return (*(unsigned char *)s1 - *(unsigned char *)--s2);
 }
-//
-//static int ft_string_tab_is_sort(char **tab, int(*f)(char *, char *))
-//{
-//	if(!tab || !*tab)
-//		return (true);
-//	if(!f)
-//		return (false);
-//	while(*++tab)
-//		if(f(*tab - 1, *tab) > 0)
-//			return (false);
-//	return (true);
-//}
+
+static int ft_string_tab_is_sort(char **tab, int(*f)(char *, char *))
+{
+	if(!tab || !*tab)
+		return (true);
+	if(!f)
+		return (false);
+	while(*++tab)
+		if(f(*tab - 1, *tab) > 0)
+			return (false);
+	return (true);
+}
 
 /**
  * difference-between-always-inline-and-inline:
@@ -67,16 +67,6 @@ static inline int	ft_swap(char **a, char **b)
 	return (true);
 }
 
-int	ft_get_tab_size(char **tab)
-{
-	int	size;
-
-	size = 0;
-	while (*tab && ++size)
-		tab++;
-	return (size);
-}
-
 /**
  * Bubble sort
  */
@@ -86,20 +76,27 @@ void ft_sort_string_tab(char **tab)
 	int		j;
 	size_t	size;
 	int		swapped;
+	char	*strs[2] = {"",""};
 
-	size = ft_get_tab_size(tab);
-	if(tab && *tab)
+	size = 0;
+	if (!tab || !*tab || (*(tab + 1) && ft_string_tab_is_sort(tab, ft_strcmp)))
+		return;
+	while (*tab && ++size)
+		tab++;
+	tab -= size;
+	i = -1;
+	while (++i < (int)(size - 1))
 	{
-		i = -1;
-		while (++i < (int)( size - 1))
+		swapped = false;
+		j = -1;
+		while (++j < (int) (size - i - 1))
 		{
-			swapped = false;
-			j = -1;
-			while (++j < (int)(size - i - 1))
-				if (ft_strcmp(*(tab + j), *(tab + j + 1)) < 0)
-					swapped = ft_swap(tab + j, tab + j + 1);
-			if (!swapped)
-				break ;
+			strs[0] = *(tab + j);
+			strs[1] = *(tab + j + 1);
+			if (ft_strcmp(strs[0], strs[1]) > 0)
+				swapped = ft_swap(tab + j, tab + j + 1);
 		}
+		if (!swapped)
+			break ;
 	}
 }

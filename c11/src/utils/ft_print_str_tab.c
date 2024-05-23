@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_tab_size.c                                  :+:      :+:    :+:   */
+/*   ft_print_str_tab.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 22:16:45 by abelov            #+#    #+#             */
-/*   Updated: 2024/05/23 05:21:37 by abelov           ###   ########.fr       */
+/*   Created: 2024/05/23 18:19:55 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/23 18:43:34 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c11_tests.h"
 
-t_uint	ft_get_tab_size(void **tab)
+void ft_print_str_tab(char **tab, char *eol)
 {
-	t_uint	*const size = (t_uint[]){0};
+	int 		size;
+	int *const	pos = (int[]){0};
 
-	while (*tab && ++(*size))
-		tab++;
-	return (*size);
+	size = (int)ft_get_tab_size(tab);
+	ft_putstr("[");
+	while (*pos < size) {
+		ft_putstr("'");
+		ft_putstr(tab[(*pos)++]);
+		if (*pos != size)
+			ft_putstr("', ");
+		else
+			ft_putstr("'");
+	}
+	if (!eol)
+		ft_putstr("]\n");
+	else
+	{
+		ft_putstr("]");
+		ft_putstr(eol);
+	}
 }

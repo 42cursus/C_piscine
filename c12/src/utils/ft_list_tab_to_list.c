@@ -1,22 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_tab_size.c                                  :+:      :+:    :+:   */
+/*   ft_list_tab_to_list.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 22:16:45 by abelov            #+#    #+#             */
-/*   Updated: 2024/05/23 05:21:37 by abelov           ###   ########.fr       */
+/*   Created: 2024/05/24 19:17:49 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/24 19:17:50 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "c11_tests.h"
 
-t_uint	ft_get_tab_size(void **tab)
-{
-	t_uint	*const size = (t_uint[]){0};
-
-	while (*tab && ++(*size))
-		tab++;
-	return (*size);
-}
