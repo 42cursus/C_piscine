@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach_test.c                                  :+:      :+:    :+:   */
+/*   ft_advanced_sort_string_tab.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 22:18:19 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/20 22:18:20 by abelov           ###   ########.fr       */
+/*   Created: 2024/05/22 05:53:03 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/22 05:53:04 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "c11_tests.h"
-
-int	ft_foreach_test(void)
+void	ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
 {
-	int	*tab;
-	int	length;
-
-	ft_print_title("ft_foreach_test");
-	length = 5;
-	tab = ft_range(0, length);
-	ft_foreach(tab, length, &ft_putnbr);
-	printf("\n");
-	fflush(stdout);
-	free(tab);
-	return (0);
+	(void)tab;
+	(void)cmp;
+	return ;
 }

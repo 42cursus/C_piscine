@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach_test.c                                  :+:      :+:    :+:   */
+/*   ft_get_tab_size.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 22:18:19 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/20 22:18:20 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/26 22:16:45 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/23 05:21:37 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "c11_tests.h"
+#include "c12_tests.h"
 
-int	ft_foreach_test(void)
+t_uint	ft_get_tab_size(void **tab)
 {
-	int	*tab;
-	int	length;
+	t_uint	size;
 
-	ft_print_title("ft_foreach_test");
-	length = 5;
-	tab = ft_range(0, length);
-	ft_foreach(tab, length, &ft_putnbr);
-	printf("\n");
-	fflush(stdout);
-	free(tab);
-	return (0);
+	size = 0;
+	while (*tab && ++size)
+		tab++;
+	return (size);
 }

@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach_test.c                                  :+:      :+:    :+:   */
+/*   do-op.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 22:18:19 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/20 22:18:20 by abelov           ###   ########.fr       */
+/*   Created: 2024/05/22 04:24:35 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/22 04:24:36 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "c11_tests.h"
+#ifndef DO_OP_H
+# define DO_OP_H
 
-int	ft_foreach_test(void)
+typedef enum e_op
 {
-	int	*tab;
-	int	length;
+	ft_add = '+',
+	ft_sub = '-',
+	ft_div = '/',
+	ft_mul = '*',
+	ft_mod = '%'
+}			t_op;
 
-	ft_print_title("ft_foreach_test");
-	length = 5;
-	tab = ft_range(0, length);
-	ft_foreach(tab, length, &ft_putnbr);
-	printf("\n");
-	fflush(stdout);
-	free(tab);
-	return (0);
-}
+
+extern t_op g_op_symbols[];
+
+typedef int	(*t_op_fun)(void);
+extern t_op_fun op_funs[];
+
+void	ft_putstr(char *str);
+int		ft_strlen(char *str);
+
+
+
+
+
+#endif //DO_OP_H

@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "c11_tests.h"
 
 int	test_fuction(int i)
@@ -20,16 +21,20 @@ int	test_fuction(int i)
 int	ft_map_test(void)
 {
 	int	*tab;
+	int	*otab;
 	int	length;
 
 	ft_print_title("ft_map_test");
 	length = 3;
-	tab = ft_range(0, length);
+	otab = ft_range(0, length);
+	tab = otab;
 	ft_foreach(tab, length, &ft_putnbr);
 	printf("\n");
 	tab = ft_map(tab, length, &test_fuction);
 	ft_foreach(tab, length, &ft_putnbr);
 	printf("\n");
 	fflush(stdout);
+	free(tab);
+	free(otab);
 	return (0);
 }

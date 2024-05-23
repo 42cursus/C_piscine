@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach_test.c                                  :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 22:18:19 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/20 22:18:20 by abelov           ###   ########.fr       */
+/*   Created: 2023/11/02 17:37:56 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/28 03:33:29 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c11_tests.h"
 
-int	ft_foreach_test(void)
+/**
+ * ft_memset() fills memory with a constant byte,
+ * returns a pointer to the memory area s.
+ */
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int	*tab;
-	int	length;
+	unsigned char	*d;
 
-	ft_print_title("ft_foreach_test");
-	length = 5;
-	tab = ft_range(0, length);
-	ft_foreach(tab, length, &ft_putnbr);
-	printf("\n");
-	fflush(stdout);
-	free(tab);
-	return (0);
+	d = s;
+	while (n-- != 0)
+		*d++ = (unsigned char)c;
+	return (s);
 }

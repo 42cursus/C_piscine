@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach_test.c                                  :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 22:18:19 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/20 22:18:20 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/17 21:31:19 by abelov            #+#    #+#             */
+/*   Updated: 2023/10/18 14:50:28 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "c11_tests.h"
+#include <unistd.h>
+#include "do-op.h"
 
-int	ft_foreach_test(void)
+void	ft_putstr(char *str)
 {
-	int	*tab;
-	int	length;
-
-	ft_print_title("ft_foreach_test");
-	length = 5;
-	tab = ft_range(0, length);
-	ft_foreach(tab, length, &ft_putnbr);
-	printf("\n");
-	fflush(stdout);
-	free(tab);
-	return (0);
+	write(STDOUT_FILENO, str, ft_strlen(str));
 }

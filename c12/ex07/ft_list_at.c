@@ -20,18 +20,16 @@
 t_list	*ft_list_at(t_list *list, unsigned int nbr)
 {
 	t_list	*current;
-	t_list	*next;
 
 	if (!nbr)
 		return (list);
 	if (!list)
 		return (NULL);
 	current = list;
-	while (current->next && nbr)
+	while (nbr && current->next)
 	{
-		next = current->next;
+		current = current->next;
 		nbr--;
-		current = next;
 	}
 	if (!nbr)
 		return (current);

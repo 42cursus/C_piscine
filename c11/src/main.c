@@ -10,14 +10,66 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <signal.h>
 #include <sysexits.h>
+#include <stdlib.h>
 #include "c11_tests.h"
 
+void	sigsegv(int signal)
+{
+	(void)signal;
+	ft_putstr("> "FT_CYAN".SIGSEGV"FT_RESET"\n");
+	exit(EXIT_SUCCESS);
+}
+
+void	check(bool succes)
+{
+	if (succes)
+		ft_putstr("> "FT_GREEN".OK "FT_RESET"\n");
+	else
+		ft_putstr("> "FT_RED".OK "FT_RESET"\n");
+}
+
+void	do_init(t_ops *t)
+{
+	size_t		size;
+	static t_test_fun const functions[] = {
+		ft_foreach_test,
+		ft_map_test,
+		ft_any_test,
+		ft_count_if_test,
+		ft_is_sort_test,
+		ft_sort_string_tab_test,
+		ft_advanced_sort_string_tab_test
+	};
+
+	signal(SIGSEGV, sigsegv);
+	t->size = sizeof(functions) / sizeof(functions[0]);
+	t->functions = functions;
+}
+
+/**
+ * __attribute__((__packed__, __aligned__(128)))
+ * modifier added to address `stack smashing`
+ * As per
+ * 	https://en.wikipedia.org/wiki/Flexible_array_member
+ * 	and
+ * 	https://gcc.gnu.org/onlinedocs/gcc/Zero-Length.html:
+ * It's programmer's responsibility to allocate space for funct pointers array.
+ * Note that this usually means allocating the struct dynamically, using malloc.
+ * Then, programmer can tell it to allocate more memory than sizeof(overall).
+ *
+ * Another way to address `stack smashing` is to utilize `static modifier`
+ * See also:
+ * 	How to detect offending code for stack smashing error
+ * 	https://stackoverflow.com/questions/13641379/
+ */
 int	main(void)
 {
-	ft_foreach_test();
-	ft_map_test();
-	ft_any_test();
-	ft_count_if_test();
+	t_ops	test;
+
+	do_init(&test);
+	while (test.size--)
+		test.functions[test.size]();
 	return (EX_OK);
 }

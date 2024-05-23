@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 22:33:02 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/20 22:33:03 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/17 21:28:53 by abelov            #+#    #+#             */
+/*   Updated: 2023/10/17 21:30:21 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stddef.h>
 
 /**
- * Function ft_map applies a function on all elements of the given ints array
- * (in order) and returns an array of all the return values.
+ * Chopping the ptrdiff_t to int to get the legth is a narrowing conversion
+ * 	from 'long' to signed type 'int' and is implementation-defined.
+ *
+ * See also:
+ * 	…is there a [real life] OS where int is not 4 bytes?
+ * 		https://queue.acm.org/detail.cfm?id=1165766
  */
-int	*ft_map(int *tab, int length, int (*f)(int))
+int	ft_strlen(char *str)
 {
-	int	*new_array;
-	int	i;
+	ptrdiff_t	diff;
+	char *const	head = str;
 
-	i = -1;
-	new_array = (int *)malloc (sizeof(int) * length);
-	if (!new_array || !length || !tab)
-		return (NULL);
-	while (++i < length)
-		new_array[i] = f(tab[i]);
-	return (new_array);
+	while (*str)
+		str++;
+	diff = str - head;
+	return ((int)diff);
 }

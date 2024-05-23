@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach_test.c                                  :+:      :+:    :+:   */
+/*   ft_sort_string_tab_test.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 22:18:19 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/20 22:18:20 by abelov           ###   ########.fr       */
+/*   Created: 2024/05/22 05:56:23 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/22 05:56:23 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c11_tests.h"
 
-int	ft_foreach_test(void)
+int	ft_sort_string_tab_test(void)
 {
-	int	*tab;
-	int	length;
+	char	**tab;
+	char	**otab;
+	int		length;
+	int		i;
 
-	ft_print_title("ft_foreach_test");
-	length = 5;
-	tab = ft_range(0, length);
-	ft_foreach(tab, length, &ft_putnbr);
-	printf("\n");
+	ft_print_title("ft_count_if");
+	otab = ft_split("hey ho !", ' ');
+	tab = otab;
+	length = (int)ft_get_tab_size(tab);
+	ft_putstr("the array is: ");
+	while (*tab)
+		(ft_putstr("["), ft_putstr(*tab++), ft_putstr("] "));
+	i = ft_count_if(otab, length, &ft_str_is_alpha);
+	printf("\nThere are %d fully alphabetical words\n", i);
 	fflush(stdout);
-	free(tab);
+	while (length--)
+		free(otab[length]);
+	free(otab);
 	return (0);
 }

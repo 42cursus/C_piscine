@@ -20,16 +20,20 @@ int	ft_any_test(void)
 
 	i = 0;
 	ft_print_title("ft_any_test");
-	length = 3;
 	tab = ft_split("hey ho !", ' ');
-	while (i < length - 1)
-		printf("%s, ", tab[i++]);
-	printf("%s\n", tab[i]);
-	i = ft_any(tab, &ft_str_is_alpha);
-	if (!i)
+	length = (int)ft_get_tab_size(tab);
+	printf("the array is: ");
+	while (i < length)
+		printf("[%s] ", tab[i++]);
+	fflush(stdout);
+	ft_putstr("\n");
+	if (!ft_any(tab, &ft_str_is_alpha))
 		printf("There are no non-alphabetical words\n");
 	else
 		printf("There are some non-alphabetical words\n");
 	fflush(stdout);
+	while (length--)
+		free(tab[length]);
+	free(tab);
 	return (0);
 }

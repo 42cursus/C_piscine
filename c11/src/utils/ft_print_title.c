@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach_test.c                                  :+:      :+:    :+:   */
+/*   ft_print_title.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 22:18:19 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/20 22:18:20 by abelov           ###   ########.fr       */
+/*   Created: 2024/05/22 05:58:10 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/22 05:58:11 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c11_tests.h"
 
-int	ft_foreach_test(void)
+void	ft_print_title(char *title)
 {
-	int	*tab;
-	int	length;
+	void	(*prnt)(char *str) = ft_putstr;
 
-	ft_print_title("ft_foreach_test");
-	length = 5;
-	tab = ft_range(0, length);
-	ft_foreach(tab, length, &ft_putnbr);
-	printf("\n");
-	fflush(stdout);
-	free(tab);
-	return (0);
+	prnt("--------------------------------------------------\n");
+	(prnt("> "FT_CYAN), prnt(title), prnt(FT_RESET"\n"));
+	prnt("--------------------------------------------------\n");
 }

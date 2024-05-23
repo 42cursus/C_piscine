@@ -17,7 +17,7 @@
 void	sigsegv(int signal)
 {
 	(void)signal;
-	printf("> %s%s%s\n", FT_CYAN, ".SIGSEGV", FT_RESET);
+	ft_putstr("> "FT_CYAN".SIGSEGV"FT_RESET"\n");
 	exit(EXIT_SUCCESS);
 }
 
@@ -41,11 +41,9 @@ static int	cmpstringp(const void *p1, const void *p2)
 
 int	main(void)
 {
-	int			i;
-	int const	tests[] = {11, 10};
+	int	i;
 
 	signal(SIGSEGV, sigsegv);
-	i = sizeof(tests) / sizeof(tests[0]);
 	i = sizeof(g_tests) / sizeof(g_tests[0]);
 	while (i--)
 		g_tests[i]();

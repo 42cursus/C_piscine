@@ -15,7 +15,7 @@
 /**
  * difference-between-always-inline-and-inline:
  * 	https://stackoverflow.com/questions/20995309/
- * how-do-move-elimination-slots-work-in-intel-cpu:
+ * How do `move elimination` slots work in Intel CPU:
  * 	https://stackoverflow.com/questions/75204302/
  * See also:
  * 	https://en.wikipedia.org/wiki/XOR_swap_algorithm
