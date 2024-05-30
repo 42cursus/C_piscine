@@ -31,11 +31,12 @@ char	*ft_strncpy2(char *dest, char *src, unsigned int n)
 		{
 			if (*s == 0)
 			{
-				while (--n != 0)
+				while (n-- != 0)
 					*d++ = 0;
 				break ;
 			}
 			*d++ = *s++;
+			n--;
 		}
 	}
 	return (dest);
