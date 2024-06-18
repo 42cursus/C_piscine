@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/10 22:42:38 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/10 22:42:40 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_strlen(char *str)
 {
-	write(STDOUT_FILENO, &c, 1);
+	char *const	ostr = str;
+
+	while (*str)
+		str++;
+	return (str - ostr);
 }

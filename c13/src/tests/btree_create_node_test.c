@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   btree_create_node_test.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2024/06/18 20:09:26 by abelov            #+#    #+#             */
+/*   Updated: 2024/06/18 20:09:26 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "c13_tests.h"
 
-void	ft_putchar(char c)
+
+int btree_create_node_test(void)
 {
-	write(STDOUT_FILENO, &c, 1);
+	char	*str;
+	t_btree	*node;
+
+	ft_print_title("btree_create_node_test");
+	str = "Wello Horld! I'm a unicron!";
+	node = btree_create_node(str);
+	check(!ft_strcmp(node->item, str));
+	check(node->item == str);
+	return (0);
 }

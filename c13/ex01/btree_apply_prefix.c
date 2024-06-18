@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   btree_apply_prefix.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2024/06/17 22:25:32 by abelov            #+#    #+#             */
+/*   Updated: 2024/06/17 22:25:32 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_btree.h"
 
-void	ft_putchar(char c)
+/**
+ * applies the function given as argument to the item of each node,
+ * using prefix traversal to search the tree.
+ */
+void btree_apply_prefix(t_btree *root, void (*applyf)(void *))
 {
-	write(STDOUT_FILENO, &c, 1);
+	if (!root)
+		return ;
+	if (root->item)
+		applyf(root->item);
+	if (root->left)
+		btree_apply_prefix(root->left, applyf);
+	if (root->right)
+		btree_apply_prefix(root->right, applyf);
 }

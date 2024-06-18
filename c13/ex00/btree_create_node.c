@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   btree_create_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2024/06/17 22:07:10 by abelov            #+#    #+#             */
+/*   Updated: 2024/06/17 22:07:10 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <malloc.h>
+#include "ft_btree.h"
 
-void	ft_putchar(char c)
+t_btree	*btree_create_node(void *item)
 {
-	write(STDOUT_FILENO, &c, 1);
+	t_btree	*new;
+
+	new = (t_btree *)malloc(sizeof(t_btree));
+	if (new)
+	{
+		new->item = item;
+		new->left = NULL;
+		new->right = NULL;
+	}
+	return (new);
 }

@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 22:16:26 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/20 22:16:27 by abelov           ###   ########.fr       */
+/*   Created: 2024/06/17 22:06:37 by abelov            #+#    #+#             */
+/*   Updated: 2024/06/17 22:06:37 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
 #include <sysexits.h>
-#include <stdlib.h>
-#include "c11_tests.h"
+#include <asm-generic/errno.h>
+#include "c13_tests.h"
 
 void	sigsegv(int signal)
 {
@@ -34,13 +34,14 @@ void	do_init(t_ops *t)
 {
 	size_t		size;
 	static t_test_fun const functions[] = {
-		ft_foreach_test,
-		ft_map_test,
-		ft_any_test,
-		ft_count_if_test,
-		ft_is_sort_test,
-		ft_sort_string_tab_test,
-		ft_advanced_sort_string_tab_test
+			btree_create_node_test,
+			btree_apply_prefix_test,
+			btree_apply_infix_test,
+			btree_apply_suffix_test,
+			btree_insert_data_test,
+			btree_search_item_test,
+			btree_level_count_test,
+			btree_apply_by_level_test
 	};
 
 	signal(SIGSEGV, sigsegv);
@@ -50,11 +51,13 @@ void	do_init(t_ops *t)
 
 int	main(void)
 {
-	int *const i = (int[]){0};
-	t_ops	test;
+	int 		error_code;
+	int *const	i = (int[]){0};
+	t_ops		test;
 
+	error_code = 0;
 	do_init(&test);
-	while (*i < (int) test.size)
-		test.functions[(*i)++]();
-	return (EX_OK);
+	while (*i < (int) test.size && !error_code)
+		error_code = test.functions[(*i)++]();
+	return (EUSERS);
 }

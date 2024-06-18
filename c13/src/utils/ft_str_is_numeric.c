@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/10 20:25:27 by abelov            #+#    #+#             */
+/*   Updated: 2023/10/12 20:18:30 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdbool.h>
 
-void	ft_putchar(char c)
+int	char_is_num(char c)
 {
-	write(STDOUT_FILENO, &c, 1);
+	int			result;
+	const char	ascii_zero = 0 + '0';
+	const char	ascii_nine = 9 + '0';
+
+	result = false;
+	if ((c >= ascii_zero) && (c <= ascii_nine))
+		result = true;
+	return (result);
+}
+
+int	ft_str_is_numeric(char *str)
+{
+	int	res;
+
+	res = 1;
+	while (*str && res)
+		if (!char_is_num(*str++))
+			res = false;
+	return (res);
 }

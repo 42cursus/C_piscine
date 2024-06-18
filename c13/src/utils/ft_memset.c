@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2023/11/02 17:37:56 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/28 03:33:29 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "c13_tests.h"
 
-void	ft_putchar(char c)
+/**
+ * ft_memset() fills memory with a constant byte,
+ * returns a pointer to the memory area s.
+ */
+void	*ft_memset(void *s, int c, size_t n)
 {
-	write(STDOUT_FILENO, &c, 1);
+	unsigned char	*d;
+
+	d = s;
+	while (n-- != 0)
+		*d++ = (unsigned char)c;
+	return (s);
 }

@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_empty_string.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2023/12/18 07:10:54 by abelov            #+#    #+#             */
+/*   Updated: 2023/12/18 07:10:55 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "c13_tests.h"
 
-void	ft_putchar(char c)
+char	*ft_empty_string(size_t length)
 {
-	write(STDOUT_FILENO, &c, 1);
+	char			*new;
+	unsigned char	*ptr;
+
+	new = (char *)malloc(sizeof(char) * (++length));
+	if (!new)
+		return (NULL);
+	ptr = (unsigned char *)new;
+	while (length--)
+		*(ptr++) = '\0';
+	return (new);
 }

@@ -46,14 +46,13 @@ static inline char	*ft_empty_string(int length)
 {
 	char			*new;
 	unsigned char	*ptr;
-	const char		null_byte = '\0';
 
-	new = (char *)malloc(sizeof(char) * length + 1);
+	new = (char *)malloc(sizeof(char) * (++length));
 	if (!new)
 		return (NULL);
 	ptr = (unsigned char *)new;
-	while (length-- >= 0)
-		*ptr++ = null_byte;
+	while (length--)
+		*(ptr++) = '\0';
 	return (new);
 }
 

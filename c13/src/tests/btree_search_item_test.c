@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   btree_search_item_test.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2024/06/17 23:05:18 by abelov            #+#    #+#             */
+/*   Updated: 2024/06/17 23:05:18 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "c13_tests.h"
 
-void	ft_putchar(char c)
+int btree_search_item_test(void)
 {
-	write(STDOUT_FILENO, &c, 1);
+	ft_print_title("btree_search_item_test");
+	return (0);
 }

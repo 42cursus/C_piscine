@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_print_title.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2024/05/22 05:58:10 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/22 05:58:11 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "c13_tests.h"
 
-void	ft_putchar(char c)
+void	ft_print_title(char *title)
 {
-	write(STDOUT_FILENO, &c, 1);
+	void	(*prnt)(char *str) = ft_putstr;
+
+	prnt("--------------------------------------------------\n");
+	(prnt("> "FT_CYAN), prnt(title), prnt(FT_RESET"\n"));
+	prnt("--------------------------------------------------\n");
 }

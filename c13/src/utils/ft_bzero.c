@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2023/11/01 17:23:44 by abelov            #+#    #+#             */
+/*   Updated: 2023/11/18 20:28:16 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "c13_tests.h"
 
-void	ft_putchar(char c)
+/**
+ * The bzero() function first appeared in 4.3BSD.
+ * It was deprecated in POSIX.1-2001 and removed in POSIX.1-2008.
+ * Use  memset(3)  in  new  programs.
+ */
+void	ft_bzero(void *s, size_t n)
 {
-	write(STDOUT_FILENO, &c, 1);
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)s;
+	while (n--)
+		*ptr++ = '\0';
 }

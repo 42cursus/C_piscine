@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_btree.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2024/06/17 22:10:12 by abelov            #+#    #+#             */
+/*   Updated: 2024/06/17 22:10:13 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_BTREE_H
+#define FT_BTREE_H
 
-void	ft_putchar(char c)
+typedef struct s_btree	t_btree;
+struct s_btree
 {
-	write(STDOUT_FILENO, &c, 1);
-}
+	t_btree	*left;
+	t_btree	*right;
+	void	*item;
+};
+
+#endif //FT_BTREE_H

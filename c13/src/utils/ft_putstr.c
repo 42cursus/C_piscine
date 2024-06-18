@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/08 16:30:44 by abelov            #+#    #+#             */
+/*   Updated: 2023/10/08 17:28:49 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "c13_tests.h"
 
-void	ft_putchar(char c)
+void	ft_putstr(char *str)
 {
-	write(STDOUT_FILENO, &c, 1);
+	if (!str)
+		return ;
+	write(STDOUT_FILENO, str, ft_strlen(str));
 }

@@ -1,18 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_print_str_tab.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:35:35 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/03 19:39:45 by abelov           ###   ########.fr       */
+/*   Created: 2024/05/23 18:19:55 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/23 18:43:34 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "c13_tests.h"
 
-void	ft_putchar(char c)
+void ft_print_str_tab(char **tab, char *eol)
 {
-	write(STDOUT_FILENO, &c, 1);
+	int 		size;
+	int *const	pos = (int[]){0};
+
+	size = (int)ft_get_tab_size(tab);
+	ft_putstr("[");
+	while (*pos < size) {
+		ft_putstr("'");
+		ft_putstr(tab[(*pos)++]);
+		if (*pos != size)
+			ft_putstr("', ");
+		else
+			ft_putstr("'");
+	}
+	if (!eol)
+		ft_putstr("]\n");
+	else
+	{
+		ft_putstr("]");
+		ft_putstr(eol);
+	}
 }
