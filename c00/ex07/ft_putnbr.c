@@ -20,21 +20,24 @@
  */
 void	ft_putnbr(unsigned int nb)
 {
-	const char	*base = "0123456789";
-	int			stack[20];
-	int			stack_size;
+	unsigned int	stack[20];
+	int				stack_size;
+	const char		*base = "0123456789";
 
 	stack_size = 0;
 	if ((int)nb < 0)
-		nb = ((void) write(STDOUT_FILENO, "-", 1), nb * -1);
-	stack[stack_size++] = (int)nb;
+	{
+		nb *= -1;
+		write(STDOUT_FILENO, "-", 1);
+	}
+	stack[stack_size++] = nb;
 	while (stack_size)
 	{
 		nb = stack[--stack_size];
 		if (nb >= 10)
 		{
-			stack[stack_size++] = (int)(nb % 10);
-			stack[stack_size++] = (int)(nb / 10);
+			stack[stack_size++] = nb % 10;
+			stack[stack_size++] = nb / 10;
 		}
 		else
 			write(STDOUT_FILENO, &base[nb], 1);
