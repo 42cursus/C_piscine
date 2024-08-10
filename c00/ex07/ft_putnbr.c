@@ -11,18 +11,6 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <limits.h>
-
-/**
- * When an expression contains operands of different built-in types,
- * and no explicit casts are present, the compiler uses built-in standard
- * conversions to convert one of the operands so that the types match.
- *
- * See also:
- *	 https://learn.microsoft.com =>
- *	 	=> /en-us/cpp/cpp/type-conversions-and-type-safety-modern-cpp
- */
-typedef unsigned int	t_uint;
 
 /**
  * In this example: `&(char){r + ascii_zero}`,
@@ -30,21 +18,25 @@ typedef unsigned int	t_uint;
  * an "anonymous variable" of type char and `&` is used to get its address.
  * Then we use this address to pass it as an argument to a `write` function.
  */
-void	ft_putnbr(int nb)
+void	ft_putnbr(unsigned int nb)
 {
-	t_uint			r;
-	const char		*base = "0123456789";
-	const t_uint	decimal_radix = 10;
-	int const		mask = nb >> (sizeof(int) * CHAR_BIT - 1);
+	const char	*base = "0123456789";
+	int			stack[20];
+	int			stack_size;
 
-	r = (nb + mask) ^ mask;
-	if (nb < 0)
-		write(STDOUT_FILENO, "-", 1);
-	if (r >= decimal_radix)
+	stack_size = 0;
+	if ((int)nb < 0)
+		nb = ((void) write(STDOUT_FILENO, "-", 1), nb * -1);
+	stack[stack_size++] = (int)nb;
+	while (stack_size)
 	{
-		ft_putnbr(r / decimal_radix);
-		write(STDOUT_FILENO, &base[(r % decimal_radix)], 1);
+		nb = stack[--stack_size];
+		if (nb >= 10)
+		{
+			stack[stack_size++] = (int)(nb % 10);
+			stack[stack_size++] = (int)(nb / 10);
+		}
+		else
+			write(STDOUT_FILENO, &base[nb], 1);
 	}
-	if (r < decimal_radix)
-		write(STDOUT_FILENO, &base[r], 1);
 }
