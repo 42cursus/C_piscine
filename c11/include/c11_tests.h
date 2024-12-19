@@ -70,7 +70,7 @@ int		ft_advanced_sort_string_tab_test(void);
 
 /* ---------- UTILS -------------------- */
 
-void	ft_print_int_tab(int tab[], t_uint size, char *eol);
+void	ft_print_int_tab(int tab[], size_t size, char *eol);
 void	ft_print_str_tab(char **tab, char *eol);
 void	ft_free_tab(void **tab, t_uint size);
 int		*ft_range(int min, int max);

@@ -12,21 +12,20 @@
 
 #include "c11_tests.h"
 
-void ft_print_int_tab(int tab[], t_uint size, char *eol)
+void ft_print_int_tab(int tab[], size_t size, char *eol)
 {
-	int *const pos = (int[]){0};
+	int pos;
 
+	pos = 0;
 	ft_putstr("[");
-	while (*pos < size) {
-		ft_putnbr(tab[(*pos)++]);
-		if (*pos != size)
+	while (pos < size) {
+		ft_putnbr(tab[pos++]);
+		if (pos != size)
 			ft_putstr(", ");
 	}
+	ft_putstr("]");
 	if (!eol)
-		ft_putstr("]\n");
+		ft_putstr("\n");
 	else
-	{
-		ft_putstr("]");
 		ft_putstr(eol);
-	}
 }

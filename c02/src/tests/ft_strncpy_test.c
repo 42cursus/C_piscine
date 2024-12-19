@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "c02.h"
+#include "c02_tests.h"
 
 #define DEST_ARRAY_SIZE (255)
 
@@ -30,6 +31,7 @@ int	ft_strncpy_test(int argc, char **argv)
 	if ((argc - 1) >= 1)
 		str = argv[1];
 
+	ft_print_title("ft_strncpy_test");
 	memset(buf, 0, sizeof(buf));
 	memset(str1, 0, sizeof(str1));
 	res  = strncpy(buf,"", 1);

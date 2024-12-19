@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase_test.c                               :+:      :+:    :+:   */
+/*   ft_str_is_lowercase_test.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 20:35:04 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/10 22:35:00 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/12 16:18:10 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/10 22:31:38 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include <stdio.h>
 #include <string.h>
 #include "c02.h"
+#include "c02_tests.h"
 
-int	ft_strlowcase_test(void)
+int	ft_str_is_lowercase_test(void)
 {
-	char	str1[50];
-	char	str2[50];
-	char	*str;
+	const char	*str;
+	int	r;
 
-	strcpy(str1,"uifhesfuieseufhi");
-	strcpy(str2,str1);
-	str = ft_strlowcase(str2);
-	printf("s: %s, r: %s\n", str1, str2);
+	ft_print_title("ft_str_is_lowercase_test");
+	str = "uifhesfuieseufhi";
+	r = ft_str_is_lowercase(str);
+	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
-	strcpy(str1,"uifha31323FSF13123sFSSufhi");
-	strcpy(str2,str1);
-	str = ft_strlowcase(str2);
-	printf("s: %s, r: %s\n", str1, str2);
+	str = "FEUUISEFuifhesfuieseufhi";
+	r = ft_str_is_lowercase(str);
+	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
-	strcpy(str1,"IUHIAUWDHIUDHIAWDH");
-	strcpy(str2,str1);
-	str = ft_strlowcase(str2);
-	printf("s: %s, r: %s\n", str1, str2);
+	str = "11165465465";
+	r = ft_str_is_lowercase(str);
+	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
-	
+
+	str = "";
+	r = ft_str_is_lowercase(str);
+	printf("s: \"%s\", r: %d\n", str, r);
+	printf("======\n");
+
 	return (0);
 }

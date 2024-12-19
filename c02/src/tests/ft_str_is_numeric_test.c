@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowercase_test.c                         :+:      :+:    :+:   */
+/*   ft_str_is_numeric_test.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:18:10 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/10 22:31:38 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/11 19:29:20 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/10 22:32:01 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdio.h>
 #include <string.h>
 #include "c02.h"
+#include "c02_tests.h"
 
-int	ft_str_is_lowercase_test(void)
+int	ft_str_is_numeric_test(void)
 {
-	char	str[50];
-	const char	str2[] = "";
+	const char	*str;
 	int	r;
 
-	strcpy(str,"uifhesfuieseufhi");
-	r = ft_str_is_lowercase(str);
+	ft_print_title("ft_str_is_numeric_test");
+	str = "Heloooo!!";
+	r = ft_str_is_numeric(str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
-	strcpy(str,"FEUUISEFuifhesfuieseufhi");
-	r = ft_str_is_lowercase(str);
+	str = "11165465465!!";
+	r = ft_str_is_numeric(str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
-	strcpy(str,"11165465465");
-	r = ft_str_is_lowercase(str);
+	str = "";
+	r = ft_str_is_numeric(str);
 	printf("s: \"%s\", r: %d\n", str, r);
-	printf("======\n");
-
-	r = ft_str_is_lowercase("");
-	printf("s: \"%s\", r: %d\n", str2, r);
 	printf("======\n");
 
 	return (0);

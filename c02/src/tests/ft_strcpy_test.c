@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_memory_test.c                             :+:      :+:    :+:   */
+/*   ft_strcpy_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 20:44:23 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/14 20:44:24 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/10 17:06:57 by abelov            #+#    #+#             */
+/*   Updated: 2024/12/19 00:57:33 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
+#include "c02.h"
+#include "c02_tests.h"
 
-void	*ft_print_memory(void *addr, unsigned int size);
-
-int	ft_print_memory_test(void)
+int	ft_strcpy_test(void)
 {
-	char src[0xFF + 10];
-	int	i;
+	const char	*src = "Source";
+	char		dest[10];
 
-	i = 0;
-	while (i <= 0xFF)
-	{
-		src[i] = i;
-		i++;
-	}
-	src[i] = 0;
+	ft_print_title("ft_strcpy_test");
+	printf("s: \"%s\"\n", src);
+	printf("d: \"%s\"\n\n", dest);
 
-	i = 0;
-	while (i < 30)
-		ft_print_memory((void *) src, i++);
-	ft_print_memory((void *)src, 0x101);
+	ft_strcpy(dest, src);
+	printf("s: \"%s\"\n", src);
+	printf("d: \"%s\"\n", dest);
 }

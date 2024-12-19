@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <string.h>
 
 /**
  * In this example: `&(char){r + ascii_zero}`,
@@ -20,24 +21,26 @@
  */
 void	ft_putnbr(unsigned int nb)
 {
-	unsigned int	stack[20];
-	int				stack_size;
-	const char		*base = "0123456789";
+	int					sp;
+	unsigned int		stack[20];
+	const char			*base = "0123456789";
+	const unsigned int	radix = strlen(base);
 
-	stack_size = 0;
+	sp = 0;
 	if ((int)nb < 0)
 	{
 		nb *= -1;
 		write(STDOUT_FILENO, "-", 1);
 	}
-	stack[stack_size++] = nb;
-	while (stack_size)
+	stack[sp++] = nb;
+	while (sp)
 	{
-		nb = stack[--stack_size];
-		if (nb >= 10)
+		nb = stack[--sp];
+		stack[sp] = 0;
+		if (nb >= radix)
 		{
-			stack[stack_size++] = nb % 10;
-			stack[stack_size++] = nb / 10;
+			stack[sp++] = nb % radix;
+			stack[sp++] = nb / radix;
 		}
 		else
 			write(STDOUT_FILENO, &base[nb], 1);

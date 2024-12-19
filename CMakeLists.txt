@@ -22,6 +22,7 @@ set(PARENT_PROJECT_NAME "${PROJECT_NAME}")
 
 set(FT_CFLAGS
         -Wall -Wextra -Werror
+        -Wwrite-strings -Wimplicit
         -O0
         -masm=att
         -fno-exceptions

@@ -35,7 +35,9 @@ target_compile_options(${TARGET_LIB_NAME} PRIVATE ${FT_CFLAGS})
 
 set(TEST_TARGET_NAME "${PROJECT_NAME}_test")
 file(GLOB TEST_TARGET_HEADERS "tests/*.h")
-file(GLOB TEST_TARGET_SOURCES "tests/*.c")
+file(GLOB TEST_TARGET_SOURCES "src/tests/*.c")
+file(GLOB UTILS_TARGET_SOURCES "src/utils/*.c")
+list (APPEND TEST_TARGET_SOURCES ${UTILS_TARGET_SOURCES})
 
 set(TEST_TARGET_CFLAGS
         -c -w
@@ -44,7 +46,8 @@ set(TEST_TARGET_LINK_FLAGS -w -lbsd -O0)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 
 find_package (Threads REQUIRED)
-add_executable(${TEST_TARGET_NAME} ${TEST_TARGET_HEADERS} ${TEST_TARGET_SOURCES})
+add_executable(${TEST_TARGET_NAME} ${TEST_TARGET_HEADERS}
+        ${TEST_TARGET_SOURCES} src/main.c)
 target_include_directories(${TEST_TARGET_NAME} PRIVATE include)
 target_compile_options(${TEST_TARGET_NAME} PRIVATE ${TEST_TARGET_CFLAGS})
 target_link_options(${TEST_TARGET_NAME} PRIVATE ${TEST_TARGET_LINK_FLAGS})

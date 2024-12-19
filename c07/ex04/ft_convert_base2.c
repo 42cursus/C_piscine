@@ -53,14 +53,12 @@ int	check_and_skip(char *str, int *i)
 int	get_num(char c, char *base)
 {
 	int			n;
-	const char	null_byte = '\0';
 
-	n = 0;
-	while (base[n] != null_byte)
+	n = -1;
+	while (base[++n] != '\0')
 	{
 		if (c == base[n])
 			return (n);
-		n++;
 	}
 	return (-1);
 }

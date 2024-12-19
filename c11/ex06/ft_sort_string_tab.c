@@ -76,27 +76,29 @@ void ft_sort_string_tab(char **tab)
 	int		j;
 	size_t	size;
 	int		swapped;
-	char	*strs[2] = {"",""};
+	char	*strs[2] = {(char[42]){},(char[42]){}};
 
 	size = 0;
-	if (!tab || !*tab || (*(tab + 1) && ft_string_tab_is_sort(tab, ft_strcmp)))
-		return;
-	while (*tab && ++size)
-		tab++;
-	tab -= size;
-	i = -1;
-	while (++i < (int)(size - 1))
+	if (tab && *tab && !(*(tab + 1)
+		&& ft_string_tab_is_sort(tab, (int (*)(char *, char *)) ft_strcmp)))
 	{
-		swapped = false;
-		j = -1;
-		while (++j < (int) (size - i - 1))
+		while (*tab && ++size)
+			tab++;
+		tab -= size;
+		i = -1;
+		while (++i < (int) (size - 1))
 		{
-			strs[0] = *(tab + j);
-			strs[1] = *(tab + j + 1);
-			if (ft_strcmp(strs[0], strs[1]) > 0)
-				swapped = ft_swap(tab + j, tab + j + 1);
+			swapped = false;
+			j = -1;
+			while (++j < (int) (size - i - 1))
+			{
+				strs[0] = *(tab + j);
+				strs[1] = *(tab + j + 1);
+				if (ft_strcmp(strs[0], strs[1]) > 0)
+					swapped = ft_swap(tab + j, tab + j + 1);
+			}
+			if (!swapped)
+				break;
 		}
-		if (!swapped)
-			break ;
 	}
 }

@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "c02.h"
+#include "c02_tests.h"
 
 int	ft_str_is_printable_test()
 {
@@ -24,6 +25,7 @@ int	ft_str_is_printable_test()
 	const char	str2[] = "";
 	int	r;
 
+	ft_print_title("ft_str_is_printable_test");
 	while (1)
 	{
 		j = 0;
@@ -32,8 +34,7 @@ int	ft_str_is_printable_test()
 			str[j++] = c;
 		str[j] = 0;
 
-		printf("%s-> %s\n\n\n",
-				str, 
+		printf("%s-> %s\n\n\n", str,
 				(ft_str_is_printable(str)) ? 
 				"This string contains only printable chars, or the string is empty" :
 			   	"This string contains non printable chars");

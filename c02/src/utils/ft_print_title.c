@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_print_title.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 01:23:26 by abelov            #+#    #+#             */
-/*   Updated: 2024/12/19 01:28:27 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/27 22:47:51 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/27 22:47:52 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "c02_tests.h"
 
-size_t  ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_print_title(char *title)
 {
-	size_t i;
-
-	if (size && dst)
-	{
-		i = -1;
-		while (++i < size - 1 && src[i] != 0)
-			dst[i] = src[i];
-		dst[i] = 0;
-	}
-	return (strlen(src));
+	printf("--------------------------------------------------\n");
+	printf("> %s%s%s\n", FT_CYAN, title, FT_RESET);
+	printf("--------------------------------------------------\n");
 }

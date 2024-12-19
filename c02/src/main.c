@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <sysexits.h>
-#include "c02_test.h"
+#include "c02_tests.h"
 
 int	main(int argc, char **argv)
 {
