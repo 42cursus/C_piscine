@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelov <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:54:05 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/05 22:39:51 by abelov           ###   ########.fr       */
+/*   Created: 2023/10/08 16:30:44 by abelov            #+#    #+#             */
+/*   Updated: 2023/10/08 17:28:49 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <limits.h>
+#include "c00_tests.h"
 
-void	ft_print_alphabet(void)
+void	ft_putstr(char *str)
 {
-	int			i;
-	char		letter;
-	char		buf[CHAR_MAX];
-	const char	begin = 'a';
-	const char	end = 'z';
-
-	i = 0;
-	letter = begin;
-	while (letter <= end)
-		buf[i++] = letter++;
-	buf[i] = '\0';
-	write(STDOUT_FILENO, buf, i);
+	if (!str)
+		return ;
+	write(STDOUT_FILENO, str, ft_strlen(str));
 }

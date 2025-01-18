@@ -11,38 +11,54 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <string.h>
+#include <sys/types.h>
 
-/**
- * In this example: `&(char){r + ascii_zero}`,
- * we create a "compound literal" `(char){r + ascii_zero}` which creates
- * an "anonymous variable" of type char and `&` is used to get its address.
- * Then we use this address to pass it as an argument to a `write` function.
- */
-void	ft_putnbr(unsigned int nb)
+static inline size_t	ft_strlen(const char *str)
 {
-	int					sp;
-	unsigned int		stack[20];
-	const char			*base = "0123456789";
-	const unsigned int	radix = strlen(base);
+	const char	*ptr;
+
+	ptr = str;
+	while (*ptr)
+		ptr++;
+	return (ptr - str);
+}
+
+void	ft_itoa_buf_base(unsigned int nb, char (*buf)[20], const char *base)
+{
+	int				sp;
+	char			*ptr;
+	u_int			stack[20];
+	const size_t	radix = ft_strlen(base);
 
 	sp = 0;
+	ptr = *buf;
 	if ((int)nb < 0)
 	{
 		nb *= -1;
-		write(STDOUT_FILENO, "-", 1);
+		*ptr++ = '-';
 	}
 	stack[sp++] = nb;
 	while (sp)
 	{
 		nb = stack[--sp];
-		stack[sp] = 0;
 		if (nb >= radix)
 		{
 			stack[sp++] = nb % radix;
 			stack[sp++] = nb / radix;
 		}
 		else
-			write(STDOUT_FILENO, &base[nb], 1);
+			*ptr++ = base[nb];
 	}
+	*ptr = '\0';
+}
+
+/**
+ * using stack with stack-pointer (sp) to traverse the number
+ */
+void	ft_putnbr(unsigned int nb)
+{
+	char	buf[20];
+
+	ft_itoa_buf_base(nb, &buf, "0123456789");
+	write(STDOUT_FILENO, buf, ft_strlen(buf));
 }

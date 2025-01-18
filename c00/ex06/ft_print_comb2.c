@@ -12,13 +12,12 @@
 
 #include <unistd.h>
 
-static const int	g_left_max_value = 98;
-static const int	g_right_max_value = 99;
-
 static void	printout(int i, int j)
 {
-	char		buf[5];
-	const char	*base = "0123456789";
+	char				buf[5];
+	const char			*base = "0123456789";
+	static const int	left_max_value = 98;
+	static const int	right_max_value = 99;
 
 	buf[0] = base[i / 10];
 	buf[1] = base[i % 10];
@@ -26,21 +25,23 @@ static void	printout(int i, int j)
 	buf[3] = base[j / 10];
 	buf[4] = base[j % 10];
 	write(STDOUT_FILENO, &buf, 5);
-	if (i == g_left_max_value && j == g_right_max_value)
+	if (i == left_max_value && j == right_max_value)
 		return ;
 	write(STDOUT_FILENO, ", ", 2);
 }
 
 void	ft_print_comb2(void)
 {
-	int	i;
-	int	j;
+	int					i;
+	int					j;
+	static const int	left_max_value = 98;
+	static const int	right_max_value = 99;
 
 	i = -1;
-	while (i++ < g_left_max_value)
+	while (i++ < left_max_value)
 	{
 		j = i;
-		while (j++ < g_right_max_value)
+		while (j++ < right_max_value)
 			printout(i, j);
 	}
 }

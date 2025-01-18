@@ -42,6 +42,15 @@ static void	printout(const int *curr, const int *max)
 		write(STDOUT_FILENO, ", ", 2);
 }
 
+/**
+ * @see: https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf
+ * 	6.5.2.5 Compound literals
+ *
+ * In example: `&(char){r + ascii_zero}`, we create a "compound literal"
+ * which creates an "anonymous variable" of type char and `&` is used
+ * to get its address.
+ * Then we can use this address to pass it as an argument to a `write` function.
+ */
 void	ft_print_comb(void)
 {
 	int			*curr;

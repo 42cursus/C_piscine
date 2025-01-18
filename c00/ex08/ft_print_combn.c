@@ -72,8 +72,15 @@ int	increment(int *int_array, const int *max_val, int int_array_size)
 }
 
 /**
- * 6.5.2.5 Compound literals
- * https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf
+ * Chapter XI
+ * Exercise 08: ft_print_combn
+ *
+ * Allowed functions : write
+ * Create a function that displays all different combinations of n numbers
+ * by ascending order.
+ *
+ * Constrains:
+ * 	 0 < n < 10
  */
 void	ft_print_combn(const int n)
 {
