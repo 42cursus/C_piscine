@@ -32,7 +32,6 @@ void	check(bool succes)
 
 void	do_init(t_ops *t)
 {
-	size_t		size;
 	static t_test_fun const functions[] = {
 			btree_create_node_test,
 			btree_apply_prefix_test,
@@ -59,5 +58,5 @@ int	main(void)
 	do_init(&test);
 	while (*i < (int) test.size && !error_code)
 		error_code = test.functions[(*i)++]();
-	return (EUSERS);
+	return (EXIT_SUCCESS);
 }

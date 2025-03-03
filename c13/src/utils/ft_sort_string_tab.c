@@ -71,7 +71,8 @@ void	ft_sort_string_tab(char **tab)
 	int			swapped;
 
 	size = 0;
-	if (tab && *tab && !(*(tab + 1) && ft_string_tab_is_sort(tab, ft_strcmp)))
+	if (tab && *tab && !(*(tab + 1)
+		&& ft_string_tab_is_sort(tab, (int (*)(char *, char *)) ft_strcmp)))
 	{
 		while (*tab && ++size)
 			tab++;

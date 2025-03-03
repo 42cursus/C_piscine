@@ -36,14 +36,10 @@ static t_btree	*btree_create_node(void *item)
 void	btree_insert_data(t_btree **root, void *item,
 						  int (*cmpf)(void *, void *))
 {
-	t_btree	*new;
 	t_btree	*node;
 
-	new = btree_create_node(item);
-	if (!new)
-		return ;
 	if (!*root)
-		*root = new;
+		*root = btree_create_node(item);
 	else
 	{
 		node = *root;

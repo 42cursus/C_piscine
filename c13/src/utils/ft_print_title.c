@@ -14,7 +14,7 @@
 
 void	ft_print_title(const char *title)
 {
-	void	(*prnt)(char *str) = ft_putstr;
+	void	(*prnt)(const char *str) = ft_putstr;
 
 	prnt("--------------------------------------------------\n");
 	(prnt("> "FT_CYAN), prnt(title), prnt(FT_RESET"\n"));

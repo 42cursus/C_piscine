@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_tab_size.c                                  :+:      :+:    :+:   */
+/*   btree_destroy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 22:16:45 by abelov            #+#    #+#             */
-/*   Updated: 2024/05/23 05:21:37 by abelov           ###   ########.fr       */
+/*   Created: 2025/03/03 20:16:09 by abelov            #+#    #+#             */
+/*   Updated: 2025/03/03 20:16:09 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c13_tests.h"
 
-size_t ft_get_tab_size(void **tab)
+void	btree_destroy(t_btree *root, void (*f)(void *))
 {
-	u_int	*const size = (u_int[]){0};
+	if (root == NULL) return;
 
-	while (*tab && ++(*size))
-		tab++;
-	return (*size);
+	t_btree	*node;
+	t_btree	*stack[STACK_SIZE];
+	int		stackSize = 0;
+
+	stack[stackSize++] = root;
+	while (stackSize != 0)
+	{
+		node = stack[--stackSize];
+		if (node->right != NULL)
+			stack[stackSize++] = node->right;
+		if (node->left != NULL)
+			stack[stackSize++] = node->left;
+		if (f)
+			f(node->item);
+		free(node);
+	}
 }

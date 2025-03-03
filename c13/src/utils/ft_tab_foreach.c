@@ -18,7 +18,7 @@
  */
 void	ft_tab_foreach(void **tab, size_t tab_size, void (*f)(void *, void *), void *ref)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (!tab || !tab_size)

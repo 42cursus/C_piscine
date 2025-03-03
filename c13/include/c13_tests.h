@@ -18,25 +18,38 @@
 # include <stdbool.h>
 # include <stdlib.h>
 # include <stddef.h>
-
-# ifndef T_UINT
-#  define T_UINT
-/**
- * When an expression contains operands of different built-in types,
- * and no explicit casts are present, the compiler uses built-in standard
- * conversions to convert one of the operands so that the types match.
- *
- * See also:
- *	 https://learn.microsoft.com =>
- *	 	=> /en-us/cpp/cpp/type-conversions-and-type-safety-modern-cpp
- */
-typedef unsigned int	t_uint;
-# endif
+#include <limits.h>
 
 # define FT_RED   "\033[0;31m"
 # define FT_GREEN "\033[0;32m"
 # define FT_CYAN  "\033[36m"
 # define FT_RESET "\e[0m"
+
+# define FT_INT_TO_PTR(i) ((void *)(intptr_t)(i))
+# define FT_PTR_TO_INT(p) ((int)(intptr_t)(p))
+
+# define STACK_SIZE 1024
+# define MAX_STACK_SIZE 8192
+
+enum e_null
+{
+	null = INT_MIN
+};
+
+typedef struct s_input_search
+{
+	int	*nums;
+	int	numsSize;
+	int	val;
+	int	*expected;
+	int	expectedSize;
+}	t_input_search;
+
+typedef struct s_stack_el
+{
+	t_btree *node;
+	int		idx;
+}	t_stack_el;
 
 /* ---------- TESTS -------------------- */
 
@@ -69,8 +82,13 @@ int		btree_apply_by_level_test(void);
 
 /* ---------- UTILS -------------------- */
 
-void	ft_tab_foreach(void **tab, size_t tab_size, void (*f)(void *, void *), void *ref);
+t_btree	*ft_deserialize_level_order(int *arr, int size);
+int		*ft_serialize_level_order(t_btree *root, int *arraySize);
+void	btree_destroy(t_btree *root, void (*f)(void *));
+void	ft_tab_foreach(void **tab, size_t tab_size,
+			void (*f)(void *, void *), void *ref);
 void	ft_print_int_tab(int tab[], size_t size, char *eol);
+void	ft_print_int_tab_null(int tab[], size_t size, int nil, const char *eol);
 void	ft_print_str_tab(char **tab, char *eol);
 void	ft_free_tab(void **tab, size_t size);
 int		*ft_range(int min, int max);
@@ -84,7 +102,9 @@ void	ft_putstr(const char *str);
 void	ft_putstr_eol(char *str, const char *eol);
 char	*ft_empty_string(size_t length);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memset(void *s, int c, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+void	*ft_memmove(void *dest, const void *src, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
 size_t ft_get_tab_size(void **tab);
 void	ft_rev_int_tab(int *tab, int size);
 int		*ft_sort_int_tab(int *tab, int size);

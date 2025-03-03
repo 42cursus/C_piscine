@@ -56,7 +56,7 @@ target_include_directories(${TEST_TARGET_NAME} PRIVATE include)
 target_compile_options(${TEST_TARGET_NAME} PRIVATE ${TEST_TARGET_CFLAGS})
 target_link_options(${TEST_TARGET_NAME} PRIVATE ${TEST_TARGET_LINK_FLAGS})
 target_link_directories(${TEST_TARGET_NAME} PRIVATE "")
-target_link_libraries(${TEST_TARGET_NAME} asan lsan bsd rt ${TARGET_LIB_NAME} Threads::Threads)
+target_link_libraries(${TEST_TARGET_NAME} ${TARGET_LIB_NAME} Threads::Threads)
 
 set_target_properties(${TEST_TARGET_NAME} PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"

@@ -14,7 +14,7 @@
 
 void ft_print_int_tab(int tab[], size_t size, char *eol)
 {
-	int *const pos = (int[]){0};
+	size_t *const pos = (size_t[]){0};
 
 	ft_putstr("[");
 	while (*pos < size) {
@@ -30,3 +30,30 @@ void ft_print_int_tab(int tab[], size_t size, char *eol)
 		ft_putstr(eol);
 	}
 }
+
+void ft_print_int_tab_null(int tab[], size_t size, int nil, const char *eol)
+{
+	size_t pos;
+	int val;
+
+	pos = 0;
+	printf("[");
+	if (pos < size)
+	{
+		val = tab[pos++];
+		if (val == nil)
+			printf("%s", "null");
+		else
+			printf("%d", val);
+	}
+	while (pos < size)
+	{
+		val = tab[pos++];
+		if (val == nil)
+			printf(", %s", "null");
+		else
+			printf(", %d", val);
+	}
+	printf("]%s", (!eol) ? "\n" : eol);
+}
+

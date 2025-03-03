@@ -6,7 +6,7 @@
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 23:05:34 by abelov            #+#    #+#             */
-/*   Updated: 2024/06/17 23:05:34 by abelov           ###   ########.fr       */
+/*   Updated: 2025/03/03 21:11:23 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,27 @@ void	btree_apply_prefix_mod(t_btree *root, void (*applyf)(void *), unsigned int 
 
 int btree_level_count_test(void)
 {
-	t_btree		*tree_temp;
-	int 		levels;
+	t_btree	*root;
+	int		levels;
 
 	ft_print_title("btree_level_count_test");
-	tree_temp = btree_create_node("Menu");
-	tree_temp->left = btree_create_node("Food");
-	tree_temp->right = btree_create_node("Drinks");
+	root = btree_create_node((void  *)"Menu");
+	root->left = btree_create_node((void  *)"Food");
+	root->right = btree_create_node((void  *)"Drinks");
 
-	tree_temp->left->left = btree_create_node("Burger");
-	tree_temp->left->right = btree_create_node("Pizza");
+	root->left->left = btree_create_node((void  *)"Burger");
+	root->left->right = btree_create_node((void  *)"Pizza");
 
-	tree_temp->right->left = btree_create_node("Coffee");
-	tree_temp->right->right = btree_create_node("Tea");
+	root->right->left = btree_create_node((void  *)"Coffee");
+	root->right->right = btree_create_node((void  *)"Tea");
 
-	tree_temp->right->left->left = btree_create_node("Cappuccino");
+	root->right->left->left = btree_create_node((void  *)"Cappuccino");
 
-	tree_temp->right->right->left = btree_create_node("Earl Grey");
-	tree_temp->right->right->right = btree_create_node("Peppermint");
-	btree_apply_prefix_mod(tree_temp, (void *)&ft_putstr, 1);
+	root->right->right->left = btree_create_node((void  *)"Earl Grey");
+	root->right->right->right = btree_create_node((void  *)"Peppermint");
+	levels = btree_level_count(root);
+	btree_apply_prefix_mod(root, (void *)&ft_putstr, 1);
+	check(levels == 4);
+	btree_destroy(root, NULL);
 	return (0);
 }

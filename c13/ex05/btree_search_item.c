@@ -15,10 +15,17 @@
 /**
  * returns the first element related to the reference data given as argument.
  */
-void	*btree_search_item(t_btree *root, void *data_ref,
+void	*btree_search_item(t_btree *ptr, void *data_ref,
 						   int (*cmpf)(void *, void *))
 {
-	(void)data_ref;
-	(void)cmpf;
-	return (root);
+	int	diff;
+
+	while (ptr)
+	{
+		diff = (*cmpf)(ptr->item, data_ref);
+		if (diff == 0) break;
+		if (diff > 0) ptr = ptr->left;
+		else ptr = ptr->right;
+	}
+	return (ptr);
 }
