@@ -23,8 +23,8 @@ int	ft_iterative_power_test(int argc, char **argv)
 {
 //	char	buf[ENOUGH];
 	char	buf[DEST_ARRAY_SIZE];
-	char	*str1 = "";
-	char	*str2 = "";
+	char	*str1 = (char *)"";
+	char	*str2 = (char *)"";
 	int nb;
 	int pow;
 

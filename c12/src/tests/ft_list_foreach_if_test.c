@@ -26,19 +26,21 @@ int	ft_list_foreach_if_test(void)
 	char	**tab;
 	int		l;
 	t_list	*list;
-	t_uint	tab_size;
+	size_t	tab_size;
 	void	(*apply_fun)(void *);
 
 	ft_print_title("ft_list_foreach_if_test");
 	tab = ft_split("alpha BeTa gaMMa deLta", ' ');
-	tab_size = ft_get_tab_size(tab);
+	tab_size = ft_get_tab_size((void **) tab);
 	l = ft_signed_int(tab_size);
 	list = ft_list_push_strs(l, tab);
 	ft_list_reverse(&list);
 	l = 0;
 	apply_fun = ({void __fun(void *data){check(tab[l++] == data);} __fun;});
-	ft_list_foreach_if(list, apply_fun, "alpha", ft_compare);
+	ft_list_foreach_if(list, apply_fun,
+		(void *)"alpha", ft_compare);
 	printf("\n");
-	fflush(stdout);
+	ft_list_clear(list, NULL);
+	ft_free_tab((void **) tab, tab_size);
 	return (0);
 }

@@ -12,7 +12,7 @@
 
 #include "c13_tests.h"
 
-void	ft_free_tab(void **tab, t_uint size)
+void	ft_free_tab(void **tab, size_t size)
 {
 	while (size--)
 		free(tab[size]);

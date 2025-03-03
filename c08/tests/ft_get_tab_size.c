@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_title.c                                   :+:      :+:    :+:   */
+/*   ft_get_tab_size.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/27 22:47:51 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/27 22:47:52 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/26 22:16:45 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/23 05:21:37 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "c02_tests.h"
+#include "c08_tests.h"
 
-void	ft_print_title(const char *title)
+size_t ft_get_tab_size(void **tab)
 {
-	printf("--------------------------------------------------\n");
-	printf("> %s%s%s\n", FT_CYAN, title, FT_RESET);
-	printf("--------------------------------------------------\n");
+	size_t	size;
+
+	size = 0;
+	while (*tab && ++size)
+		tab++;
+	return (size);
 }

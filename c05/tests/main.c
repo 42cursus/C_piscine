@@ -11,18 +11,21 @@
 /* ************************************************************************** */
 
 #include <sysexits.h>
+#include <stdio.h>
 #include "c05_test.h"
 
 int	main(int argc, char **argv)
 {
-//	ft_fibonacci_test(argc, argv);
-//	ft_find_next_prime_test(argc, argv);
-//	ft_is_prime_test(argc, argv);
-//	ft_iterative_factorial_test(argc, argv);
-//	ft_iterative_power_test(argc, argv);
-//	ft_recursive_factorial_test(argc, argv);
-//	ft_recursive_power_test(argc, argv);
-//	ft_sqrt_test(argc, argv);
+	setbuf(stdout, NULL);
+
+	ft_fibonacci_test(argc, argv);
+	ft_find_next_prime_test(argc, argv);
+	ft_is_prime_test(argc, argv);
+	ft_iterative_factorial_test(argc, argv);
+	ft_iterative_power_test(argc, argv);
+	ft_recursive_factorial_test(argc, argv);
+	ft_recursive_power_test(argc, argv);
+	ft_sqrt_test(argc, argv);
 	ft_ten_queens_puzzle_test();
 	return (EX_OK);
 }

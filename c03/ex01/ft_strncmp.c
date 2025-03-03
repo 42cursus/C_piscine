@@ -19,7 +19,7 @@
  * of bytes (both  interpreted as type unsigned char) that differ in the strings
  * being compared.
  */
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
 	int			result;
 	const char	null_byte = '\0';

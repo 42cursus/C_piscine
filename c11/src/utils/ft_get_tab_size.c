@@ -12,7 +12,7 @@
 
 #include "c11_tests.h"
 
-t_uint	ft_get_tab_size(void **tab)
+size_t ft_get_tab_size(void **tab)
 {
 	t_uint	*const size = (t_uint[]){0};
 

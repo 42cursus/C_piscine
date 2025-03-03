@@ -31,6 +31,7 @@ void	check(bool succes)
 
 int	main(void)
 {
+	setbuf(stdout, NULL);
 	signal(SIGSEGV, sigsegv);
 
 	ft_strcmp_test();

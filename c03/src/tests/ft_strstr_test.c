@@ -25,12 +25,12 @@ void	ft_strstr_test1(char *str, char *to_find);
 
 int	ft_strstr_test(void)
 {
-	char *str = "2212";
-	char *tf = "1";
-	char *p;
+	const char	*str = "2212";
+	const char	*tf = "1";
+	char		*p;
 
 	ft_print_title("ft_strstr_test");
-	p = ft_strstr(str, tf);
+	p = ft_strstr((char *)str, (char *)tf);
 
 	printf(" s: \"%s\",\n tf: \"%s\",\n"
 		   " sp: \"%p\",\n p: \"%lu\"\n", str, tf, str, p - str);

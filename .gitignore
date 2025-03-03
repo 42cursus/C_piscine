@@ -16,6 +16,17 @@ gdb.txt
 ft_display_file
 replace-git-emails.sh
 
+c00/c00
+c01/c01
+c02/c02
+c03/c03
+c04/c04
+c05/c05
+c07/c07
+c08/c08
+c11/c11
+c12/c12
+
 # From https://stackoverflow.com/questions/15606955/:
 # If you want to list all the files currently being tracked:
 # `git ls-tree --full-tree --name-only -r HEAD`

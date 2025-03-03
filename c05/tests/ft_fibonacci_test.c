@@ -24,8 +24,8 @@ int	ft_fibonacci(int);
 
 int	ft_fibonacci_test(int argc, char **argv)
 {
-	char	buf[ENOUGH];
-	char	*str = "";
+	char		buf[ENOUGH + 1];
+	const char	*str = "";
 	int nb;
 
 	if ((argc - 1) < 1)
@@ -36,7 +36,7 @@ int	ft_fibonacci_test(int argc, char **argv)
 	else if ((argc - 1) >= 1)
 		str = argv[1];
 
-	memset(buf, 0, sizeof(buf)-1);
+	memset(buf, 0, sizeof(buf));
 
 	nb = atoi(str);
 	sprintf(buf, "%d", nb);

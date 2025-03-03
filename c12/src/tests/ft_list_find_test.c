@@ -26,12 +26,12 @@ int	ft_list_find_test(void)
 	char	**tab;
 	int		length;
 	t_list	*list;
-	t_uint	tab_size;
+	size_t	tab_size;
 	int		(*cmp)(void *, void *);
 
 	ft_print_title("ft_list_find_test");
 	tab = ft_split("alpha BeTa gaMMa deLta", ' ');
-	tab_size = ft_get_tab_size(tab);
+	tab_size = ft_get_tab_size((void **) tab);
 	length = ft_signed_int(tab_size);
 	list = ft_list_push_strs(length, tab);
 	ft_list_reverse(&list);
@@ -40,6 +40,7 @@ int	ft_list_find_test(void)
 	while (length--)
 		check(tab[length] == ft_list_find(list, tab[length], cmp)->data);
 	printf("\n");
-	fflush(stdout);
+	ft_list_clear(list, NULL);
+	ft_free_tab((void **) tab, tab_size);
 	return (0);
 }

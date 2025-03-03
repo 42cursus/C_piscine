@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_title.c                                   :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/27 22:47:51 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/27 22:47:52 by abelov           ###   ########.fr       */
+/*   Created: 2024/03/10 22:42:38 by abelov            #+#    #+#             */
+/*   Updated: 2024/03/10 22:42:40 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "c02_tests.h"
+#include <stddef.h>
 
-void	ft_print_title(const char *title)
+size_t	ft_strlen(const char *str)
 {
-	printf("--------------------------------------------------\n");
-	printf("> %s%s%s\n", FT_CYAN, title, FT_RESET);
-	printf("--------------------------------------------------\n");
+	const char *ptr = str;
+
+	while (*ptr)
+		ptr++;
+	return (ptr - str);
 }

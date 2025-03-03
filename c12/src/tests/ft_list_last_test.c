@@ -25,6 +25,6 @@ int	ft_list_last_test(void)
 	check(ft_list_last(l)->data == (void *)2);
 	check(ft_list_last(l)->next == 0);
 	printf("\n");
-	fflush(stdout);
+	ft_list_clear(l, NULL);
 	return (0);
 }

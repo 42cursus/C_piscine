@@ -36,16 +36,16 @@ int		ft_print_combn_test(void);
 /* ---------- UTILS -------------------- */
 
 void	check(bool succes);
-void	ft_print_title(char *title);
+void	ft_print_title(const char *title);
 
 char	*ft_strdup(char *src);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
-size_t	ft_strlen(char *str);
+size_t	ft_strlen(const char *str);
 
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
-int		ft_strcmp(char *s1, char *s2);
-void	ft_putstr(char *str);
+int		ft_strcmp(const char *s1, const char *s2);
+void	ft_putstr(const char *str);
 
 #endif //C00_TESTS_H

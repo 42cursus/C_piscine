@@ -24,7 +24,7 @@ int	ft_find_next_prime(int);
 int	ft_find_next_prime_test(int argc, char **argv)
 {
 	char	buf[ENOUGH];
-	char	*str = "";
+	char	*str = (char *)"";
 	int nb;
 
 	if ((argc - 1) < 1)

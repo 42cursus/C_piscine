@@ -24,6 +24,6 @@ int	ft_list_size_test(void)
 	ft_list_push_front(&l, (void *)2);
 	check(ft_list_size(l) == 2);
 	printf("\n");
-	fflush(stdout);
+	ft_list_clear(l, NULL);
 	return (0);
 }

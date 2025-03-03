@@ -35,6 +35,6 @@ int	ft_list_push_back_test(void)
 	check(l->next->next->data == (void *)3);
 	check(l->next->next->next->data == (void *)4);
 	check(l->next->next->next->next == 0);
-	(printf("\n") && fflush(stdout));
+	ft_list_clear(l, NULL);
 	return (0);
 }

@@ -12,9 +12,9 @@
 
 #include "c11_tests.h"
 
-void ft_print_int_tab(int tab[], size_t size, char *eol)
+void ft_print_int_tab(int tab[], size_t size, const char *eol)
 {
-	int pos;
+	size_t pos;
 
 	pos = 0;
 	ft_putstr("[");

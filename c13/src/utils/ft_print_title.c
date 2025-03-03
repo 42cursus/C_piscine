@@ -12,7 +12,7 @@
 
 #include "c13_tests.h"
 
-void	ft_print_title(char *title)
+void	ft_print_title(const char *title)
 {
 	void	(*prnt)(char *str) = ft_putstr;
 

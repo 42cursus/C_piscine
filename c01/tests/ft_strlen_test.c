@@ -14,10 +14,10 @@
 
 int	ft_strlen_test(void)
 {
-	char *str;
+	const char	*str;
 	str = "This is the string";
 
 	ft_print_title("ft_strlen_test");
-	printf("Str: %s, len is: %d", str, ft_strlen(str));
+	printf("Str: %s, len is: %lu", str, ft_strlen(str));
 	return (0);
 }

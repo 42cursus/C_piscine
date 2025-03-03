@@ -22,5 +22,7 @@ typedef struct s_pos
 }	t_pos;
 
 void	test1(t_pos	pos);
+void	ft_free_tab(void **tab, size_t size);
+size_t	ft_get_tab_size(void **tab);
 
 #endif //C07_TESTS_H

@@ -42,8 +42,8 @@ int	ft_str_is_printable_test()
 		if (ft_str_is_printable(str) && (strlen(str) > 3)) break;
 	}	
 
-	r = ft_str_is_printable("");
+	r = ft_str_is_printable((char *)"");
 	printf("s: \"%s\", r: %d\n", str2, r);
 	printf("======\n");
-	
+	return (0);
 }

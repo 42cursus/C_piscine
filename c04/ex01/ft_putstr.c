@@ -12,16 +12,16 @@
 
 #include <unistd.h>
 
-static inline int	ft_strlen(char *str)
+static inline size_t	ft_strlen(const char *const str)
 {
-	char *const	ostr = str;
+	const char *s = str;
 
-	while (*str)
-		str++;
-	return (str - ostr);
+	while (*s)
+		s++;
+	return (s - str);
 }
 
-void	ft_putstr(char *str)
+void	ft_putstr(const char *str)
 {
 	write(STDOUT_FILENO, str, ft_strlen(str));
 }

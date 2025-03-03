@@ -18,11 +18,11 @@ int	ft_list_reverse_fun_test(void)
 	int		length;
 	t_list	*list;
 	int		i;
-	t_uint	tab_size;
+	size_t	tab_size;
 
 	ft_print_title("ft_list_reverse_fun_test");
 	tab = ft_split("alpha beta gamma delta zeta theta kappa lambda", ' ');
-	tab_size = ft_get_tab_size(tab);
+	tab_size = ft_get_tab_size((void **) tab);
 	length = ft_signed_int(tab_size);
 	list = ft_list_push_strs(length, tab);
 	i = 0;
@@ -31,8 +31,8 @@ int	ft_list_reverse_fun_test(void)
 	check(tab[i++] == (char *)ft_list_get_next(list)->data);
 	while (i < length)
 		check(tab[i++] == ft_list_get_next(NULL)->data);
-	fflush(stdout);
 	printf("\n");
-	fflush(stdout);
+	ft_list_clear(list, NULL);
+	ft_free_tab((void **) tab, tab_size);
 	return (0);
 }

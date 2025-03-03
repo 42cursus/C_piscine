@@ -37,22 +37,21 @@ int	ft_list_foreach_test(void)
 	char	**tab;
 	int		length;
 	t_list	*list;
-	t_uint	tab_size;
+	size_t	tab_size;
 	void	(*f)(void *);
 
 	ft_print_title("ft_list_foreach_test");
 	tab = ft_split("alpha beta gamma delta", ' ');
-	tab_size = ft_get_tab_size(tab);
+	tab_size = ft_get_tab_size((void **) tab);
 	length = ft_signed_int(tab_size);
 	list = ft_list_push_strs(length, tab);
 	ft_list_reverse(&list);
 	length = 0;
-	f = (void (*)(void *))({
-			void lambda_fun(void *data){check(tab[length++] == data);}
-			lambda_fun;
-	});
+	f = ({ void lambda_fun(void *data){check(tab[length++] == data);}
+		lambda_fun;});
 	ft_list_foreach(list, f);
 	printf("\n");
-	fflush(stdout);
+	ft_list_clear(list, NULL);
+	ft_free_tab((void **) tab, tab_size);
 	return (0);
 }

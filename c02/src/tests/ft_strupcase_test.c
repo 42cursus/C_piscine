@@ -19,24 +19,23 @@ int	ft_strupcase_test(void)
 {
 	char	str1[50];
 	char	str2[50];
-	char	*str;
 
 	ft_print_title("ft_strupcase_test");
 	strcpy(str1,"uifhesfuieseufhi");
 	strcpy(str2,str1);
-	str = ft_strupcase(str2);
+	ft_strupcase(str2);
 	printf("s: %s, r: %s\n", str1, str2);
 	printf("======\n");
 
 	strcpy(str1,"uifha31323FSF13123sFSSufhi");
 	strcpy(str2,str1);
-	str = ft_strupcase(str2);
+	ft_strupcase(str2);
 	printf("s: %s, r: %s\n", str1, str2);
 	printf("======\n");
 
 	strcpy(str1,"IUHIAUWDHIUDHIAWDH");
 	strcpy(str2,str1);
-	str = ft_strupcase(str2);
+	ft_strupcase(str2);
 	printf("s: %s, r: %s\n", str1, str2);
 	printf("======\n");
 	

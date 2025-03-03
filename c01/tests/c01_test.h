@@ -20,7 +20,7 @@
 # define FT_CYAN  "\033[36m"
 # define FT_RESET "\e[0m"
 
-void ft_print_title(char *title);
+void ft_print_title(const char *title);
 int	ft_ft_test(void);
 int ft_ultimate_ft_test(void);
 int ft_swap_test(void);

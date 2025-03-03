@@ -18,9 +18,9 @@
 int	ft_strcapitalize_test(int argc, char **argv)
 {
 
-	char	buf[250] = {0};
-	char	*str = "";
-	char	*str1 = "";
+	char		buf[250] = {0};
+	const char	*str = "";
+	const char	*str1 = "";
 	if ((argc - 1) >= 1)
 		str = argv[1];
 	if ((argc - 1) >= 2)

@@ -31,7 +31,6 @@ int	ft_foreach_test(void)
 	ft_foreach(tab, length, &ft_int_print);
 	ft_putstr("]\n");
 	ft_putstr("\n");
-	fflush(stdout);
 	free(tab);
 	return (0);
 }

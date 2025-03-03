@@ -15,8 +15,20 @@
 int	ft_strs_to_tab_test(void)
 {
 	t_stock_str	*stock_str;
+	int			ac;
+	const char	*strs[] = {
+		"hey!",
+		"ho!",
+		"lets",
+		"go!"
+	};
 
-	stock_str = ft_strs_to_tab(10, NULL);
-	ft_show_tab(stock_str);
+	ac = sizeof(strs) / sizeof(strs[0]);
+	stock_str = ft_strs_to_tab(ac, (char **) strs);
+	if (stock_str)
+	{
+		ft_show_tab(stock_str);
+		ft_free_stock_tab(stock_str, ac);
+	}
 	return (0);
 }

@@ -22,8 +22,8 @@ int	ft_is_prime(int);
 
 int	ft_is_prime_test(int argc, char **argv)
 {
-	char	buf[ENOUGH];
-	char	*str = "";
+	char		buf[ENOUGH];
+	const char	*str = "";
 	int nb;
 
 	if ((argc - 1) < 1)

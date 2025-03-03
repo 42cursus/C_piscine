@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb);
-int		ft_atoi_base(char *str, char *base);
+int		ft_atoi_base(const char *str, const char *base);
 
 static inline int	ft_strlen(char *str)
 {
@@ -32,7 +32,7 @@ static inline int	ft_strlen(char *str)
  *
  * Returns a pointer to the resulting string dest.
  */
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, const char *src)
 {
 	char *const	save = dest;
 	const char	null_byte = '\0';

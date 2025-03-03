@@ -25,7 +25,7 @@ void	ft_list_remove_if(t_list **list, void *data_ref,
 	t_list	*current;
 	t_list	*next;
 
-	if (!list || !del_fun)
+	if (!list)
 		return ;
 	prev = *list;
 	current = *list;
@@ -34,7 +34,8 @@ void	ft_list_remove_if(t_list **list, void *data_ref,
 		next = current->next;
 		if (!(*cmp)(current->data, data_ref))
 		{
-			del_fun(current->data);
+			if (del_fun)
+				del_fun(current->data);
 			if (prev == *list)
 				*list = next;
 			else

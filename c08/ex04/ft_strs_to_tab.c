@@ -51,10 +51,10 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	int			i;
 	t_stock_str	*stock;
 
-	i = 0;
 	stock = (t_stock_str *) malloc(sizeof(t_stock_str) * (ac + 1));
 	if (!stock)
 		return (NULL);
+	i = 0;
 	while (i < ac)
 	{
 		stock[i] = (t_stock_str){

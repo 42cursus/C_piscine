@@ -56,6 +56,6 @@ void	*ft_memset(void *s, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	check(bool succes);
-void	ft_print_title(char *title);
+void	ft_print_title(const char *title);
 
 #endif //C03_TESTS_H

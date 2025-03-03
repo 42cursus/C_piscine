@@ -18,7 +18,7 @@
  *
  * Returns a pointer to the resulting string dest.
  */
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, const char *src)
 {
 	char *const	save = dest;
 	const char	null_byte = '\0';

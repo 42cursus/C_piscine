@@ -12,7 +12,7 @@
 
 #include <unistd.h>
 
-#define BUF_SIZE 75
+#define BUF_SIZE 81
 #define BYTES_PER_LINE 16
 
 typedef struct s_mem {
@@ -37,9 +37,9 @@ t_mem	pad_spaces(t_mem *mem, char *buf, size_t offset1, size_t offset2)
 	{
 		while (offset1 < 58)
 			buf[offset1++] = ' ';
-		buf[offset2++] = '\n';
-		buf[offset2++] = '\0';
 	}
+	buf[offset2++] = '\n';
+	buf[offset2] = '\0';
 	return (*mem);
 }
 
@@ -88,6 +88,7 @@ t_mem	ft_put_string(t_mem mem, char *buf)
 			buf[offset1++] = ' ';
 		if (!pad_spaces(&mem, buf, offset1, offset2).size)
 			break ;
+
 		n++;
 	}
 	return (mem);

@@ -43,30 +43,30 @@ static ssize_t run_on_pipe(char *buf, int nbr)
 	return (bytes_read);
 }
 
-void run_print_combn_test(int nbr, char *(*test_data)[9])
+void run_print_combn_test(int nbr, const char *(*test_data)[9])
 {
 	int		check_val;
 	char	buf[BUFSIZE + 1] = {0};
 	char	checkbuf[BUFSIZE] = {0};
 	ssize_t bytes_read;
 
-	char *src = (*test_data)[nbr - 1];
+	const char *src = (*test_data)[nbr - 1];
 	snprintf(checkbuf, BUFSIZE, "%s", src);
 
 	bytes_read = run_on_pipe(buf, nbr);
 
-	check_val = (bytes_read == ft_strlen(checkbuf));
+	check_val = (bytes_read == (ssize_t)ft_strlen(checkbuf));
 	if (!check_val)
 	{
 		fprintf(stdout, "bytes_read doesn't match expected value\n");
-		fprintf(stdout, "got return size \"%d\" whilst [\"%d\"] was to be expected\n",
+		fprintf(stdout, "got return size \"%zd\" whilst [\"%zu\"] was to be expected\n",
 				bytes_read, ft_strlen(checkbuf));
 	}
 	else if (bytes_read > 0)
 	{
 		check_val = !ft_strcmp(buf, checkbuf);
 		if (!check_val)
-			fprintf(stdout, "got \"%.*s\" whilst \"%s\" was to be expected\n", bytes_read, buf, checkbuf);
+			fprintf(stdout, "got \"%.*s\" whilst \"%s\" was to be expected\n", (int)bytes_read, buf, checkbuf);
 	}
 	check(check_val);
 }
@@ -86,7 +86,7 @@ int ft_print_combn_test(void)
 {
 	int i;
 
-	static char *test_data[9] = {
+	static const char *test_data[9] = {
 		COMBN_TEST_DATA_ONE,
 		COMBN_TEST_DATA_TWO,
 		COMBN_TEST_DATA_THREE,
@@ -102,6 +102,6 @@ int ft_print_combn_test(void)
 
 	i = 0;
 	while (++i < 10)
-		run_print_combn_test(i, test_data);
+		run_print_combn_test(i, &test_data);
 	return (0);
 }

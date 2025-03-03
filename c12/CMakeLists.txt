@@ -15,13 +15,9 @@ cmake_minimum_required(VERSION 3.8.2)
 cmake_policy(SET CMP0128 NEW) # CMAKE_C_EXTENSIONS_DEFAULT
 message(STATUS "CMAKE_C_EXTENSIONS_DEFAULT: ${CMAKE_C_EXTENSIONS_DEFAULT}")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-narrowing")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-narrowing -Wno-pedantic")
-
 cmake_policy(SET CMP0048 NEW) # PROJECT_VERSION
 
-
-project(C12 VERSION 0.1.0 LANGUAGES C CXX ASM)
+project(c12 VERSION 0.1.0 LANGUAGES C CXX ASM)
 
 include_directories(include)
 
@@ -43,10 +39,8 @@ file(GLOB TEST_TARGET_SOURCES "src/tests/*.c")
 file(GLOB UTILS_TARGET_SOURCES "src/utils/*.c")
 list (APPEND TEST_TARGET_SOURCES ${UTILS_TARGET_SOURCES})
 
-set(TEST_TARGET_CFLAGS
-        -c -w
-        "${FT_CFLAGS}")
-set(TEST_TARGET_LINK_FLAGS -w -lbsd -O0)
+set(TEST_TARGET_CFLAGS "${FT_CFLAGS}")
+set(TEST_TARGET_LINK_FLAGS ${COMMON_LDFLAGS})
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 
 find_package (Threads REQUIRED)
@@ -56,4 +50,8 @@ add_executable(${TEST_TARGET_NAME}
 target_include_directories(${TEST_TARGET_NAME} PRIVATE include)
 target_compile_options(${TEST_TARGET_NAME} PRIVATE ${TEST_TARGET_CFLAGS})
 target_link_options(${TEST_TARGET_NAME} PRIVATE ${TEST_TARGET_LINK_FLAGS})
-target_link_libraries(${TEST_TARGET_NAME} bsd rt ${TARGET_LIB_NAME} Threads::Threads)
+target_link_libraries(${TEST_TARGET_NAME} ${TARGET_LIB_NAME} Threads::Threads)
+
+set_target_properties(${TEST_TARGET_NAME} PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"
+        OUTPUT_NAME "${PROJECT_NAME}")

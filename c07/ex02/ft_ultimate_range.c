@@ -59,7 +59,7 @@ int	ft_ultimate_range(int **range, int min, int max)
 		return (0);
 	}
 	*range = ft_range(min, max);
-	if (range == NULL)
+	if (*range == NULL)
 		return (-1);
 	return (size);
 }

@@ -15,11 +15,11 @@
 # include <stdlib.h>
 # include <string.h>
 
-char			*ft_strjoin(int size, char **strs, char *sep);
+char			*ft_strjoin(int size, const char **strs, const char *sep);
 int				ft_ultimate_range(int **range, int min, int max);
 unsigned int	ft_range_array_size(int start, int end);
 int				*ft_range(int min, int max);
-int				ft_strlen(char *str);
+size_t			ft_strlen(const char *str);
 char			*ft_strcpy(char *dest, char *src);
 char			*ft_strdup(char *src);
 char			**ft_split(char *str, char *charset);

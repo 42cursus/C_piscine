@@ -22,7 +22,7 @@ int	ft_sqrt(int);
 int	ft_sqrt_test(int argc, char **argv)
 {
 	char	buf[ENOUGH];
-	char	*str = "";
+	char	*str = (char *)"";
 	int nb;
 
 	if ((argc - 1) < 1)

@@ -22,14 +22,13 @@ int	ft_count_if_test(void)
 	ft_print_title("ft_count_if");
 	otab = ft_split("hey ho Lets go !", ' ');
 	tab = otab;
-	length = (int)ft_get_tab_size(tab);
+	length = (int)ft_get_tab_size((void **) tab);
 	ft_putstr("the array is: ");
 	ft_print_str_tab(tab, NULL);
 	i = ft_count_if(otab, length, &ft_str_is_alpha);
 	(ft_putstr("There are "), ft_putnbr(i));
 	ft_putstr(" fully alphabetical words\n");
 	ft_putstr("\n");
-	fflush(stdout);
 	while (length--)
 		free(otab[length]);
 	free(otab);

@@ -28,7 +28,7 @@
  * 		the last compared byte in s2 from the last compared byte in s1.
  * 		(If the two characters are equal, this difference is 0.)
  */
-static int	ft_strcmp(char *s1, char *s2)
+static int	ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 == *s2++)
 		if (*s1++ == 0)
@@ -38,13 +38,20 @@ static int	ft_strcmp(char *s1, char *s2)
 
 static int ft_string_tab_is_sort(char **tab, int(*f)(char *, char *))
 {
+	char	*p;
+	char	*q;
+
 	if(!tab || !*tab)
 		return (true);
 	if(!f)
 		return (false);
-	while(*++tab)
-		if(f(*tab - 1, *tab) > 0)
+	while (*++tab)
+	{
+		p = *(tab - 1);
+		q = *tab;
+		if (f(p, q) > 0)
 			return (false);
+	}
 	return (true);
 }
 

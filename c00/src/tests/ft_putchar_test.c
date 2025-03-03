@@ -58,14 +58,14 @@ void	run_putchar_test(char c)
 	if (!check_val)
 	{
 		fprintf(stdout, "bytes_read doesn't match expected value\n");
-		fprintf(stdout, "got return size \"%d\" whilst [\"%d\"] was to be expected\n",
+		fprintf(stdout, "got return size \"%zd\" whilst [\"%d\"] was to be expected\n",
 				bytes_read, 1);
 	}
 	else if (bytes_read > 0)
 	{
 		check_val = !ft_strcmp(buf, checkbuf);
 		if (!check_val)
-			fprintf(stdout, "got \"%.*s\" whilst \"%s\" was to be expected\n", bytes_read, buf,checkbuf);
+			fprintf(stdout, "got \"%.*s\" whilst \"%s\" was to be expected\n", (int)bytes_read, buf,checkbuf);
 	}
 	check(check_val);
 }

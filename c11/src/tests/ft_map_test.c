@@ -32,7 +32,6 @@ int	ft_map_test(void)
 	tab = ft_map(tab, length, &ft_int_increment);
 	ft_print_int_tab(tab, length, NULL);
 	ft_putstr("\n");
-	fflush(stdout);
 	free(tab);
 	free(otab);
 	return (0);

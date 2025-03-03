@@ -23,22 +23,22 @@ int	ft_str_is_lowercase_test(void)
 
 	ft_print_title("ft_str_is_lowercase_test");
 	str = "uifhesfuieseufhi";
-	r = ft_str_is_lowercase(str);
+	r = ft_str_is_lowercase((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
 	str = "FEUUISEFuifhesfuieseufhi";
-	r = ft_str_is_lowercase(str);
+	r = ft_str_is_lowercase((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
 	str = "11165465465";
-	r = ft_str_is_lowercase(str);
+	r = ft_str_is_lowercase((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
 	str = "";
-	r = ft_str_is_lowercase(str);
+	r = ft_str_is_lowercase((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 

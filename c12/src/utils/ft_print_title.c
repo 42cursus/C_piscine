@@ -12,9 +12,9 @@
 
 #include "c12_tests.h"
 
-void	ft_print_title(char *title)
+void	ft_print_title(const char *title)
 {
 	printf("--------------------------------------------------\n");
 	printf("> %s%s%s\n", FT_CYAN, title, FT_RESET);
-	printf("--------------------------------------------------\n");
+	printf("--------------------------------------------------\n\n");
 }

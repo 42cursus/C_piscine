@@ -17,10 +17,10 @@
 # include <unistd.h>
 # include <limits.h>
 
-void ft_print_title(char *title);
-int	ft_putstr_test(int argc, char **argv);
-int	ft_putnbr_test(int argc, char **argv);
-int	ft_atoi_test(int argc, char **argv);
+void ft_print_title(const char *title);
+int	ft_putstr_test(void);
+int ft_putnbr_test();
+int ft_atoi_test();
 int	ft_putnbr_base_test(void);
 int	ft_atoi_base_test(void);
 

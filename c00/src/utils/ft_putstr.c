@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include "c00_tests.h"
 
-void	ft_putstr(char *str)
+void	ft_putstr(const char *str)
 {
 	if (!str)
 		return ;

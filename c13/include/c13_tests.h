@@ -41,7 +41,7 @@ typedef unsigned int	t_uint;
 /* ---------- TESTS -------------------- */
 
 void	check(bool succes);
-void	ft_print_title(char *title);
+void	ft_print_title(const char *title);
 
 typedef struct s_cont	t_cont;
 struct s_cont
@@ -70,28 +70,28 @@ int		btree_apply_by_level_test(void);
 /* ---------- UTILS -------------------- */
 
 void	ft_tab_foreach(void **tab, size_t tab_size, void (*f)(void *, void *), void *ref);
-void	ft_print_int_tab(int tab[], t_uint size, char *eol);
+void	ft_print_int_tab(int tab[], size_t size, char *eol);
 void	ft_print_str_tab(char **tab, char *eol);
-void	ft_free_tab(void **tab, t_uint size);
+void	ft_free_tab(void **tab, size_t size);
 int		*ft_range(int min, int max);
 char	**ft_split(char const *s, char c);
 char	*ft_strdup(char *src);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
-int		ft_strlen(char *str);
+size_t ft_strlen(const char *str);
 void	ft_putnbr(int nb);
-void	ft_putstr(char *str);
-void	ft_putstr_eol(char *str, char *eol);
+void	ft_putstr(const char *str);
+void	ft_putstr_eol(char *str, const char *eol);
 char	*ft_empty_string(size_t length);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
-t_uint	ft_get_tab_size(void **tab);
+size_t ft_get_tab_size(void **tab);
 void	ft_rev_int_tab(int *tab, int size);
 int		*ft_sort_int_tab(int *tab, int size);
 void	ft_sort_string_tab(char **tab);
 int		ft_string_tab_is_sort(char **tab, int (*f)(char *, char *));
 void	ft_sort_string_tab_fun(char **tab, int (*cmp)(char *, char *));
-int		ft_strcmp(char *s1, char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
 size_t	ft_strlcat(char *dest, char *src, unsigned int size);
 int		ft_str_is_alpha(char *str);
 int		ft_str_is_numeric(char *str);

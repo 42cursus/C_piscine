@@ -21,27 +21,18 @@
 
 void ft_putnbr(int);
 
-int	ft_putnbr_test(int argc, char **argv)
+int ft_putnbr_test()
 {
-	char	buf[ENOUGH];
-	char	*str = "";
+	char		buf[ENOUGH + 1];
+	const char	*str = "123";
 	int nb;
 
 	ft_print_title("ft_putnbr_test");
-	if ((argc - 1) < 1)
-	{
-		fprintf(stderr, "Usage: %s <str1>\n", argv[0]);
-		exit(EXIT_FAILURE);
-	}
-	else if ((argc - 1) >= 1)
-		str = argv[1];
-	memset(buf, 0, sizeof(buf)-1);
+	memset(buf, 0, sizeof(buf));
 	nb = atoi(str);
 	sprintf(buf, "%d", nb);
 	printf("s: \"%s\", nbr: ", buf);
-	fflush(stdout);
 	ft_putnbr(nb);
 	printf("\n");
-	fflush(stdout);
 	return (EXIT_SUCCESS);
 }

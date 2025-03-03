@@ -12,9 +12,9 @@
 
 #include "c12_tests.h"
 
-t_uint	ft_get_tab_size(void **tab)
+size_t ft_get_tab_size(void **tab)
 {
-	t_uint	size;
+	size_t	size;
 
 	size = 0;
 	while (*tab && ++size)

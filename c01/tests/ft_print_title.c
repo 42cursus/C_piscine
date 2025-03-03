@@ -12,7 +12,7 @@
 
 #include "c01_test.h"
 
-void ft_print_title(char *title)
+void ft_print_title(const char *title)
 {
 	printf("--------------------------------------------------\n");
 	printf("> %s%s%s\n", FT_CYAN, title, FT_RESET);

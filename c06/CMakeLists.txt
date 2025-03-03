@@ -5,7 +5,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-narrowing")
 
 cmake_policy(SET CMP0048 NEW) # PROJECT_VERSION
 
-project(C06 VERSION 0.1.0 LANGUAGES C CXX ASM)
+project(c06 VERSION 0.1.0 LANGUAGES C CXX ASM)
 
 include_directories(include)
 
@@ -13,16 +13,10 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_REQUIRED_LIBRARIES "-lbsd")
 
 find_package (Threads REQUIRED)
-set(TARGET_CFLAGS
-        -c -w
-        -g3 -gdwarf-3
-        -fno-exceptions
-        -ffunction-sections
-        -fdata-sections
-        -fno-threadsafe-statics
-        -O0)
-set(TARGET_LINK_FLAGS -w -lbsd -O0)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
+
+set(TEST_TARGET_CFLAGS "${FT_CFLAGS}")
+set(TEST_TARGET_LINK_FLAGS ${COMMON_LDFLAGS})
 
 # ================= ex00 ================= #
 set(TARGET_NAME "${PROJECT_NAME}_ex00")

@@ -15,6 +15,7 @@
 
 int main(void)
 {
+	setbuf(stdout, NULL);
 	ft_ft_test();
 	ft_ultimate_ft_test();
 	ft_swap_test();

@@ -19,9 +19,9 @@ int ft_int_cmp(int x, int y)
 
 int	ft_is_sort_test(void)
 {
-	int		*tab;
-	int		length;
-	char 	*not = "";
+	int			*tab;
+	int			length;
+	const char	*not = "";
 
 	ft_print_title("ft_is_sort_test");
 	length = 5;
@@ -38,7 +38,6 @@ int	ft_is_sort_test(void)
 		not = FT_RED" NOT"FT_RESET;
 	(ft_putstr("is"), ft_putstr(not), ft_putstr(" sorted\n"));
 	ft_putstr("\n");
-	fflush(stdout);
 	free(tab);
 	return (0);
 }

@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include "c13_tests.h"
 
-void	ft_putstr_eol(char *str, char *eol)
+void	ft_putstr_eol(char *str, const char *eol)
 {
 	if (!str)
 		return ;

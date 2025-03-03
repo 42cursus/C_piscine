@@ -15,6 +15,7 @@
 
 int	main(int argc, char **argv)
 {
+	setbuf(stdout, NULL);
 	ft_str_is_alpha_test();
 	ft_str_is_lowercase_test();
 	ft_str_is_numeric_test();
@@ -22,7 +23,7 @@ int	main(int argc, char **argv)
 	ft_str_is_uppercase_test();
 	ft_strcapitalize_test(argc, argv);
 	ft_strcpy_test();
-	ft_strlcpy_test(argc, argv);
+	ft_strlcpy_test();
 	ft_strlowcase_test();
 	ft_strncpy_test(argc, argv);
 	ft_strupcase_test();

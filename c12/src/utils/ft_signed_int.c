@@ -12,7 +12,7 @@
 
 #include "c12_tests.h"
 
-int	ft_signed_int(t_uint value)
+int	ft_signed_int(size_t value)
 {
 	if (value <= INT_MAX)
 		return ((int)value);

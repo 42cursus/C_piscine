@@ -21,6 +21,6 @@ int	ft_create_elem_test(void)
 	check(l->data == (void *)42);
 	check(l->next == 0);
 	printf("\n");
-	fflush(stdout);
+	ft_list_clear(l, NULL);
 	return (0);
 }

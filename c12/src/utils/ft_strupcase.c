@@ -32,7 +32,8 @@ char	*ft_strupcase(char *str)
 {
 	char *const	save = str;
 
-	while (*str)
-		*str = ft_toupper(*str++);
+	str--;
+	while (*(++str))
+		*str = ft_toupper(*str);
 	return (save);
 }

@@ -22,17 +22,17 @@ int	ft_str_is_alpha_test(void)
 
 	ft_print_title("ft_str_is_alpha_test");
 	str = "Heloooo!!";
-	r = ft_str_is_alpha(str);
+	r = ft_str_is_alpha((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
 	str = "This is a string!";
-	r = ft_str_is_alpha(str);
+	r = ft_str_is_alpha((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
 	str ="";
-	r = ft_str_is_alpha("");
+	r = ft_str_is_alpha((char *)"");
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 

@@ -28,8 +28,8 @@ extern t_op g_op_symbols[];
 typedef int	(*t_op_fun)(void);
 extern t_op_fun op_funs[];
 
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
+void	ft_putstr(const char *str);
+size_t ft_strlen(const char *str);
 
 
 

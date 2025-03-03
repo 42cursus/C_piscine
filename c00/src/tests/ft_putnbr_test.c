@@ -59,18 +59,18 @@ void run_putnbr_test(t_input *test_data)
 
 	bytes_read = run_on_pipe(buf, test_data->nbr);
 
-	check_val = (bytes_read == ft_strlen(checkbuf));
+	check_val = (bytes_read == (ssize_t)ft_strlen(checkbuf));
 	if (!check_val)
 	{
 		fprintf(stdout, "bytes_read doesn't match expected value\n");
-		fprintf(stdout, "got return size \"%d\" whilst [\"%d\"] was to be expected\n",
+		fprintf(stdout, "got return size \"%zd\" whilst [\"%zu\"] was to be expected\n",
 				bytes_read, ft_strlen(checkbuf));
 	}
 	if (bytes_read > 0)
 	{
 		check_val = !ft_strcmp(buf, checkbuf);
 		if (!check_val)
-			fprintf(stdout, "got \"%.*s\" whilst \"%s\" was to be expected\n", bytes_read, buf, checkbuf);
+			fprintf(stdout, "got \"%.*s\" whilst \"%s\" was to be expected\n", (int)bytes_read, buf, checkbuf);
 	}
 	check(check_val);
 }
@@ -88,7 +88,7 @@ void run_putnbr_test(t_input *test_data)
 int	ft_putnbr_test(void)
 {
 	int i;
-	static const t_input	test_data[] = {
+	static t_input	test_data[] = {
 		{42, "42"},
 		{-100, "-100"},
 		{INT_MIN, "-2147483648"},
@@ -98,7 +98,7 @@ int	ft_putnbr_test(void)
 	ft_print_title("ft_putnbr_test");
 
 	i = -1;
-	while (++i < sizeof(test_data) / sizeof(test_data[0]))
+	while (++i < (int) (sizeof(test_data) / sizeof(test_data[0])))
 		run_putnbr_test(&test_data[i]);
 	return (0);
 }

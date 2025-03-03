@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include <limits.h>
 #include <stdbool.h>
+#include <sys/types.h>
 
 typedef unsigned int	t_uint;
 
@@ -55,14 +56,14 @@ static t_uint	check_base_valid(char *base)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	t_uint		radix;
-	t_uint		whole_nbr;
+	u_int		radix;
+	u_int		whole_nbr;
 	int const	mask = nbr >> (sizeof(int) * CHAR_BIT - 1);
 
 	radix = check_base_valid(base);
 	if (radix < 2)
 		return ;
-	whole_nbr = (nbr + mask) ^ mask;
+	whole_nbr = ((u_int)nbr + mask) ^ mask;
 	if (nbr < 0)
 		write(STDOUT_FILENO, "-", 1);
 	if (whole_nbr >= radix)

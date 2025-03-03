@@ -13,10 +13,11 @@
 #include "c08_tests.h"
 #include "ft_boolean.h"
 
-static void	ft_putstr(char *str)
+static void	ft_putstr(const char *str)
 {
-	while (*str)
-		write(1, str++, 1);
+	if (!str)
+		return ;
+	write(STDOUT_FILENO, str, ft_strlen(str));
 }
 
 t_bool	ft_is_even(int nbr)

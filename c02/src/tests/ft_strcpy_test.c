@@ -23,7 +23,8 @@ int	ft_strcpy_test(void)
 	printf("s: \"%s\"\n", src);
 	printf("d: \"%s\"\n\n", dest);
 
-	ft_strcpy(dest, src);
+	ft_strcpy(dest, (char *)src);
 	printf("s: \"%s\"\n", src);
 	printf("d: \"%s\"\n", dest);
+	return (0);
 }

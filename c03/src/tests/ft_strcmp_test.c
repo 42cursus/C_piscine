@@ -14,13 +14,13 @@
 
 #define DEST_ARRAY_SIZE (256)
 
-int	ft_strcmp(char *s1, char *s2);
+int	ft_strcmp(const char *s1, const char *s2);
 
 int	ft_strcmp_test(void)
 {
-	char	buf[DEST_ARRAY_SIZE];
-	char	*str1 = "ABC";
-	char	*str2 = "ABD";
+	char		buf[DEST_ARRAY_SIZE];
+	const char	*str1 = "ABC";
+	const char	*str2 = "ABD";
 	unsigned char	res;
 
 	ft_print_title("ft_strcmp_test");

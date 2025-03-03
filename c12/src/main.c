@@ -34,7 +34,8 @@ void	check(bool succes)
  * pointers to char", but strcmp(3) arguments are "pointers
  * to char", hence the following cast plus dereference
  */
-static int	cmpstringp(const void *p1, const void *p2)
+__attribute__((unused)) static
+int	cmpstringp(const void *p1, const void *p2)
 {
 	return (ft_strcmp(*(char *const *) p1, *(char *const *) p2));
 }
@@ -78,6 +79,7 @@ int	main(void)
 	int i;
 	t_ops	t;
 
+	setbuf(stdout, NULL);
 	do_init(&t);
 	i = 0;
 	while (i < (int) t.size)

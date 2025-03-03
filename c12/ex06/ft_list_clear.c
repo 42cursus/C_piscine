@@ -26,13 +26,14 @@ void	ft_list_clear(t_list *list, void (*del_fun)(void *))
 	t_list	*current;
 	t_list	*next;
 
-	if (!list || !del_fun)
+	if (!list)
 		return ;
 	current = list;
 	while (current)
 	{
 		next = current->next;
-		del_fun(current->data);
+		if(del_fun)
+			del_fun(current->data);
 		free(current);
 		current = next;
 	}

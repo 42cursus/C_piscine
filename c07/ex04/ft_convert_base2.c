@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_base_valid(char *base)
+int	is_base_valid(const char *base)
 {
 	int	i;
 	int	j;
@@ -34,7 +34,7 @@ int	is_base_valid(char *base)
 	return (i);
 }
 
-int	check_and_skip(char *str, int *i)
+int	check_and_skip(const char *str, int *i)
 {
 	int	is_negative;
 
@@ -50,7 +50,7 @@ int	check_and_skip(char *str, int *i)
 	return (is_negative);
 }
 
-int	get_num(char c, char *base)
+int	get_num(char c, const char *base)
 {
 	int			n;
 
@@ -89,7 +89,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	return (save_pointer);
 }
 
-int	ft_atoi_base(char *str, char *base)
+int	ft_atoi_base(const char *str, const char *base)
 {
 	int	i;
 	int	is_negative;

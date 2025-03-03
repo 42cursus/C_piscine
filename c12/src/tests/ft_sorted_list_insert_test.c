@@ -16,6 +16,5 @@ int	ft_sorted_list_insert_test(void)
 {
 	ft_print_title("ft_sorted_list_insert_test");
 	printf("\n");
-	fflush(stdout);
 	return (0);
 }

@@ -26,22 +26,25 @@ int	ft_list_remove_if_test(void)
 	char	**tab;
 	int		l;
 	t_list	*list;
-	t_uint	tab_size;
+	size_t	tab_size;
 	void	(*apply_fun)(void *);
 
 	ft_print_title("ft_list_remove_if_test");
 	tab = ft_split("alpha BeTa gaMMa deLta", ' ');
-	tab_size = ft_get_tab_size(tab);
+	tab_size = ft_get_tab_size((void **) tab);
 	l = ft_signed_int(tab_size);
 	list = ft_list_push_strs(l, tab);
 	ft_list_reverse(&list);
-	ft_list_remove_if(&list, "gaMMa", ft_compare, free);
+	ft_list_remove_if(&list, (void *)"gaMMa",
+					  ft_compare, free);
+	tab = (free(tab), NULL);
 	l = 0;
 	tab = ft_split("alpha BeTa deLta", ' ');
 	apply_fun = ({void __fun(void *data)
 		{check(!ft_strcmp(tab[l++], data));} __fun;});
 	ft_list_foreach(list, apply_fun);
 	printf("\n");
-	fflush(stdout);
+	ft_list_clear(list, free);
+	ft_free_tab((void **) tab, tab_size);
 	return (0);
 }

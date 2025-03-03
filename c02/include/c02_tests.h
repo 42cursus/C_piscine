@@ -48,7 +48,7 @@ int	ft_str_is_printable_test(void);
 int	ft_str_is_uppercase_test(void);
 int	ft_strcapitalize_test(int argc, char **argv);
 int	ft_strcpy_test(void);
-int	ft_strlcpy_test(int argc, char **argv);
+int	ft_strlcpy_test(void);
 int	ft_strlowcase_test(void);
 int	ft_strncpy_test(int argc, char **argv);
 int	ft_strupcase_test(void);
@@ -57,6 +57,6 @@ int	ft_print_memory_test(void);
 /* ---------- UTILS -------------------- */
 
 void	check(bool succes);
-void	ft_print_title(char *title);
+void	ft_print_title(const char *title);
 
 #endif //C12_TESTS_H

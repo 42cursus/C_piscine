@@ -15,26 +15,13 @@
 #include <string.h>
 #include "c04_test.h"
 
-#define DEST_ARRAY_SIZE (255)
+void ft_putstr(const char *str);
 
-void ft_putstr(char *str);
-
-int	ft_putstr_test(int argc, char **argv)
+int	ft_putstr_test(void)
 {
-	char		buf[DEST_ARRAY_SIZE];
-	const char	*str = "";
-
+	const char	*str = "str1";
 	ft_print_title("ft_putstr_test");
-	if ((argc - 1) < 1)
-	{
-		fprintf(stderr, "Usage: %s <str1>\n", argv[0]);
-		exit(EXIT_FAILURE);
-	}
-	else if ((argc - 1) >= 1)
-		str = argv[1];
-	memset(buf, 0, sizeof(buf));
 	ft_putstr(str);
 	printf("\n");
-	fflush(stdout);
 	return (EXIT_SUCCESS);
 }

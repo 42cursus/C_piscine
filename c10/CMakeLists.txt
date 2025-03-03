@@ -14,6 +14,6 @@ cmake_minimum_required(VERSION 3.8.2)
 
 cmake_policy(SET CMP0048 NEW) # PROJECT_VERSION
 
-project(C10 VERSION 0.1.0 LANGUAGES C CXX ASM)
+project(c10 VERSION 0.1.0 LANGUAGES C CXX ASM)
 
 add_subdirectory(ex00)

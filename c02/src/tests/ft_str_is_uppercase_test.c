@@ -22,27 +22,27 @@ int	ft_str_is_uppercase_test(void)
 
 	ft_print_title("ft_str_is_uppercase_test");
 	str = "ADUWHKWDHUWAI";
-	r = ft_str_is_uppercase(str);
+	r = ft_str_is_uppercase((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
 	str="uifhesfuieseufhi";
-	r = ft_str_is_uppercase(str);
+	r = ft_str_is_uppercase((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
 	str="FEUUISEFuifhesfuieseufhi";
-	r = ft_str_is_uppercase(str);
+	r = ft_str_is_uppercase((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
 	str="11165465465ADWAWDBHJjhbjdawb";
-	r = ft_str_is_uppercase(str);
+	r = ft_str_is_uppercase((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
 	str="";
-	r = ft_str_is_uppercase(str);
+	r = ft_str_is_uppercase((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 

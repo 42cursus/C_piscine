@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include "do-op.h"
 
-void	ft_putstr(char *str)
+void	ft_putstr(const char *str)
 {
 	write(STDOUT_FILENO, str, ft_strlen(str));
 }

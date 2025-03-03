@@ -16,11 +16,11 @@
 
 int	ft_strncmp_test(void)
 {
-	char	buf[DEST_ARRAY_SIZE];
-	char	*str1 = "ABC";
-	char	*str2 = "ABD";
-	int		len = 0;
-	int		res = 0;
+	char		buf[DEST_ARRAY_SIZE];
+	const char	*str1 = "ABC";
+	const char	*str2 = "ABD";
+	int			len = 0;
+	int			res = 0;
 
 	ft_print_title("ft_strncmp_test");
 

@@ -43,9 +43,9 @@ static inline bool	ft_is_space(char c)
 		|| (c == '\n') || (c == '\v') || (c == '\f') || (c == '\r'));
 }
 
-static t_uint	check_base_valid(char *base)
+static t_uint	check_base_valid(const char *base)
 {
-	char		*ptr;
+	const char	*ptr;
 	t_uint		ret;
 	char const	*save = base;
 
@@ -65,9 +65,9 @@ static t_uint	check_base_valid(char *base)
 	return (ret);
 }
 
-int	ft_atoi_base(char *str, char *base)
+int	ft_atoi_base(const char *str, const char *base)
 {
-	int		integer;
+	long	integer;
 	int		neg;
 	int		digit;
 	t_uint	radix;
@@ -89,5 +89,5 @@ int	ft_atoi_base(char *str, char *base)
 		digit = ft_strchr(base, *str++) - base;
 		integer = digit + (integer * radix);
 	}
-	return (integer * neg);
+	return ((int)(integer * neg));
 }

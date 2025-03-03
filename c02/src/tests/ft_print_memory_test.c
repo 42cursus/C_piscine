@@ -14,17 +14,18 @@
 
 int	ft_print_memory_test(void)
 {
-	char src[0xFF + 10];
-	int	i;
+	int		i;
+	char	src[0xFF + 10];
 
 	ft_print_title("ft_print_memory_test");
 	i = -1;
 	while (++i <= 0xFF)
-		src[i] = i;
+		src[i] = (char)i;
 	src[i] = 0;
 
 	i = 0;
 	while (i < 30)
 		ft_print_memory((void *) src, i++);
 	ft_print_memory((void *)src, 0x101);
+	return (0);
 }

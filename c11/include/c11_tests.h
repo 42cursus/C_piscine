@@ -70,23 +70,23 @@ int		ft_advanced_sort_string_tab_test(void);
 
 /* ---------- UTILS -------------------- */
 
-void	ft_print_int_tab(int tab[], size_t size, char *eol);
+void	ft_print_int_tab(int tab[], size_t size, const char *eol);
 void	ft_print_str_tab(char **tab, char *eol);
-void	ft_free_tab(void **tab, t_uint size);
+void	ft_free_tab(void **tab, size_t size);
 int		*ft_range(int min, int max);
 char	**ft_split(char const *s, char c);
 char	*ft_strdup(char *src);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
-int		ft_strlen(char *str);
+size_t ft_strlen(const char *str);
 void	ft_putnbr(int nb);
-void	ft_putstr(char *str);
-void	ft_print_title(char *title);
+void	ft_putstr(const char *str);
+void	ft_print_title(const char *title);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
-t_uint	ft_get_tab_size(void **tab);
+size_t ft_get_tab_size(void **tab);
 void	ft_rev_int_tab(int *tab, int size);
-int		ft_strcmp(char *s1, char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
 int		ft_str_is_alpha(char *str);
 int		ft_str_is_numeric(char *str);
 int		ft_str_is_lowercase(char *str);

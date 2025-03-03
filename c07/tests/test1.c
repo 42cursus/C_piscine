@@ -16,7 +16,7 @@ void	test1(t_pos	pos)
 {
 	char	*ptr;
 	char	**new;
-	int		size;
+	size_t	size;
 	long	i;
 	int		*array;
 
@@ -25,18 +25,17 @@ void	test1(t_pos	pos)
 	size = ft_range_array_size(pos.min, pos.max);
 	while (i < 5 && array)
 		printf("%d,", array[i++]);
-	printf("\n\"%d\"\n", size);
+	printf("\n\"%zu\"\n", size);
 	printf("\n=============\n");
-	if (array)
-		memset(array, 0, size);
-	i = 0;
-	size = 0;
+	free(array);
 	size = ft_ultimate_range(&array, pos.min, pos.max);
+	i = 0;
 	while (i < 5 && array)
 		printf("%d,", array[i++]);
-	printf("\n\"%d\"\n", size);
+	printf("\n\"%zu\"\n", size);
 	printf("\n=============\n");
-	ptr = "this*is**my***string";
-	new = ft_split(ptr, "*");
+	ptr = (char *)"this*is**my***string";
+	new = ft_split(ptr, (char *)"*");
 	printf("%s\n%s\n%s\n", new[0], new[1], new[3]);
+	ft_free_tab((void **) new, ft_get_tab_size((void **) new));
 }

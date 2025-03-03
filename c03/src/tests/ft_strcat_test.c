@@ -32,5 +32,6 @@ int ft_strcat_test(void)
 		ft_strcat(p, "a");
 		j++;
 	}
+	return (0);
 }
 

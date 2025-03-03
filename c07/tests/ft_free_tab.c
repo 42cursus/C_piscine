@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_title.c                                   :+:      :+:    :+:   */
+/*   ft_free_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/27 22:47:51 by abelov            #+#    #+#             */
-/*   Updated: 2024/03/27 22:47:52 by abelov           ###   ########.fr       */
+/*   Created: 2024/05/23 19:41:33 by abelov            #+#    #+#             */
+/*   Updated: 2024/05/23 19:41:34 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "c02_tests.h"
+#include "c07_tests.h"
 
-void	ft_print_title(const char *title)
+void	ft_free_tab(void **tab, size_t size)
 {
-	printf("--------------------------------------------------\n");
-	printf("> %s%s%s\n", FT_CYAN, title, FT_RESET);
-	printf("--------------------------------------------------\n");
+	while (size--)
+		free(tab[size]);
+	free(tab);
 }

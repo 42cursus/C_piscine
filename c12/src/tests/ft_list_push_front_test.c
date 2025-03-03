@@ -26,6 +26,6 @@ int	ft_list_push_front_test(void)
 	check(((t_list *)l->next)->data == (void *)1);
 	check(((t_list *)l->next)->next == 0);
 	printf("\n");
-	fflush(stdout);
+	ft_list_clear(l, NULL);
 	return (0);
 }

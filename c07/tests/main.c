@@ -19,7 +19,8 @@ int	main(void)
 	const t_pos	pos = {.min = INT_MIN, . max = INT_MAX};
 	const char	*strs[3] = {"one", "", "three"};
 
-	str = ft_strjoin(3, strs, ",");
+	setbuf(stdout, NULL);
+	str = ft_strjoin(3, strs, (char *)",");
 	printf(" \"%s\"\n", str);
 	test1(pos);
 	return (0);

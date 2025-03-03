@@ -21,7 +21,7 @@ static int	ft_strlen(char *str)
 	return (str - ostr);
 }
 
-void	ft_putstr(char *str)
+void	ft_putstr(const char *str)
 {
 	write(STDOUT_FILENO, str, ft_strlen(str));
 }

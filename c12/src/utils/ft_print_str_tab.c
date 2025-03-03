@@ -17,7 +17,7 @@ void ft_print_str_tab(char **tab, char *eol)
 	int 		size;
 	int *const	pos = (int[]){0};
 
-	size = (int)ft_get_tab_size(tab);
+	size = (int)ft_get_tab_size((void **) tab);
 	ft_putstr("[");
 	while (*pos < size) {
 		ft_putstr("'");

@@ -22,11 +22,11 @@ int	ft_list_sort_test(void)
 	char	**tab;
 	int		tab_size;
 	t_list	*list;
-	void	(*f)(void *);
+	int		(*f)(void *, void *);
 
 	ft_print_title("ft_list_sort_test");
 	tab = ft_split("alpha beta gamma delta zeta iota lambda theta", ' ');
-	tab_size = (int)ft_get_tab_size(tab);
+	tab_size = (int)ft_get_tab_size((void **) tab);
 	ft_putstr("the original array is: \n\t");
 	ft_print_str_tab(tab, NULL);
 
@@ -35,23 +35,19 @@ int	ft_list_sort_test(void)
 	ft_putstr("the original list is: \n\t");
 	ft_list_foreach(list, lambda_fun);
 	ft_putstr("\n");
-
-	ft_list_sort(&list, (int (*)(void *, void *)) ft_strcmp);
+	f = (int (*)(void *, void *)) ft_strcmp;
+	ft_list_sort(&list, f);
 
 	ft_putstr("the result list is: \n\t");
 	ft_list_foreach(list, lambda_fun);
 	ft_putstr("\n");
 
-	ft_sort_string_tab_fun(tab, ft_strcmp);
+	ft_sort_string_tab_fun(tab, (int (*)(char *, char *)) ft_strcmp);
 	ft_putstr("the sorted array is: \n\t");
 	ft_print_str_tab(tab, NULL);
 	ft_putstr("\n");
 
-	fflush(stdout);
-	ft_free_tab(tab, tab_size);
-	fflush(stdout);
-
-	ft_sort_string_tab_fun(tab, ft_strcmp);
-
+	ft_list_clear(list, NULL);
+	ft_free_tab((void **) tab, tab_size);
 	return (0);
 }

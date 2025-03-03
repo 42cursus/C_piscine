@@ -12,16 +12,16 @@
 
 #include <unistd.h>
 
-int	ft_strlen(char *str)
+size_t ft_strlen(const char *str)
 {
-	char *const	ostr = str;
+	const char *const	ostr = str;
 
 	while (*str)
 		str++;
 	return (str - ostr);
 }
 
-void	ft_putstr(char *str)
+void	ft_putstr(const char *str)
 {
 	if (!str)
 		return ;

@@ -22,17 +22,17 @@ int	ft_str_is_numeric_test(void)
 
 	ft_print_title("ft_str_is_numeric_test");
 	str = "Heloooo!!";
-	r = ft_str_is_numeric(str);
+	r = ft_str_is_numeric((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
 	str = "11165465465!!";
-	r = ft_str_is_numeric(str);
+	r = ft_str_is_numeric((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 
 	str = "";
-	r = ft_str_is_numeric(str);
+	r = ft_str_is_numeric((char *)str);
 	printf("s: \"%s\", r: %d\n", str, r);
 	printf("======\n");
 

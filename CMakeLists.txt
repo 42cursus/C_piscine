@@ -17,21 +17,36 @@ cmake_minimum_required(VERSION 3.8.2)
 project(c_piscine LANGUAGES C CXX ASM)
 set(PARENT_PROJECT_NAME "${PROJECT_NAME}")
 
-#set(CMAKE_CXX_STANDARD 98)
-#set(CMAKE_C_STANDARD 99)
+set(CMAKE_CXX_STANDARD 98)
+set(CMAKE_C_STANDARD 99)
+
+set(COMMON_LDFLAGS
+        -fsanitize=address
+        -fsanitize=undefined
+        -fno-sanitize-recover
+        -fsanitize=float-divide-by-zero
+        -fsanitize=float-cast-overflow)
 
 set(FT_CFLAGS
         -Wall -Wextra -Werror
-        -Wwrite-strings -Wimplicit
+        -Wwrite-strings
+        -Wimplicit -Wnarrowing
         -O0
         -masm=att
         -fno-exceptions
         -ffunction-sections
         -fdata-sections
-        -fomit-frame-pointer
-        -fno-dwarf2-cfi-asm
-        -fno-asynchronous-unwind-tables
-        -g3 -gdwarf-3)
+        -fno-omit-frame-pointer
+        -fdwarf2-cfi-asm
+        -fcf-protection=none
+        -mmanual-endbr
+        -g3 -gdwarf-3
+        -fasynchronous-unwind-tables
+        -fsanitize=address
+        -fsanitize=undefined
+        -fno-sanitize-recover
+        -fsanitize=float-divide-by-zero
+        -fsanitize=float-cast-overflow)
 
 add_subdirectory(c00)
 add_subdirectory(c01)

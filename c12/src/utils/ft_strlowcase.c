@@ -35,7 +35,8 @@ char	*ft_strlowcase(char *str)
 {
 	char *const	save = str;
 
-	while (*str)
-		*str = ft_tolower(*str++);
+	str--;
+	while (*(++str))
+		*str = (char)ft_tolower(*str);
 	return (save);
 }

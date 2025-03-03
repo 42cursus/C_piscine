@@ -20,7 +20,7 @@
  *
  * Returns a pointer to the resulting string dest.
  */
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, const char *src)
 {
 	char *const	save = dest;
 	const char	null_byte = '\0';
@@ -33,7 +33,7 @@ char	*ft_strcat(char *dest, char *src)
 	return (save);
 }
 
-static inline int	ft_strlen(char *str)
+static inline size_t	ft_strlen(const char *str)
 {
 	const char	*ostr = str;
 
@@ -56,7 +56,7 @@ static inline char	*ft_empty_string(int length)
 	return (new);
 }
 
-static inline int	ft_strlen_all(char **strs, size_t size)
+static inline int	ft_strlen_all(const char **strs, size_t size)
 {
 	size_t	i;
 	size_t	counter;
@@ -73,7 +73,7 @@ static inline int	ft_strlen_all(char **strs, size_t size)
  * size is the number of strings in strs.
  * if size is 0, returns an empty string that you can free().
  */
-char	*ft_strjoin(int size, char **strs, char *sep)
+char	*ft_strjoin(int size, const char **strs, const char *sep)
 {
 	char	*new;
 	int		i;

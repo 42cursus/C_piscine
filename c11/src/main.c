@@ -32,7 +32,6 @@ void	check(bool succes)
 
 void	do_init(t_ops *t)
 {
-	size_t		size;
 	static t_test_fun const functions[] = {
 		ft_foreach_test,
 		ft_map_test,

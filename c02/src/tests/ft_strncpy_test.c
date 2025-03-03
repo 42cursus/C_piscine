@@ -23,14 +23,14 @@
  */
 int	ft_strncpy_test(int argc, char **argv)
 {
-	char	str1[DEST_ARRAY_SIZE];
-	char	str2[3];
-	char	buf[DEST_ARRAY_SIZE];
-	char	*str = "";
-	char	*res;
+	char		str1[DEST_ARRAY_SIZE];
+	char		str2[4];
+	char		buf[DEST_ARRAY_SIZE];
+	const char	*str = "";
+	char		*res;
+
 	if ((argc - 1) >= 1)
 		str = argv[1];
-
 	ft_print_title("ft_strncpy_test");
 	memset(buf, 0, sizeof(buf));
 	memset(str1, 0, sizeof(str1));
@@ -38,7 +38,7 @@ int	ft_strncpy_test(int argc, char **argv)
 	printf("s: \"%s\",\nb: \"%s\", r: %p\n", "", buf, res);
 	memset(buf, 0, sizeof(buf));
 	memset(str1, 0, sizeof(str1));
-	res = ft_strncpy(buf,"", 1);
+	res = ft_strncpy(buf,(char *)"", 1);
 	printf("s: \"%s\",\nb: \"%s\", r: %p\n", "", buf, res);
 	printf("======\n");
 
@@ -48,7 +48,7 @@ int	ft_strncpy_test(int argc, char **argv)
 	printf("s: \"%s\",\nb: \"%s\", r: %p\n", "", buf, res);
 	memset(buf, 0, sizeof(buf));
 	memset(str1, 0, sizeof(str1));
-	res = ft_strncpy(buf,"", sizeof(buf) - 1);
+	res = ft_strncpy(buf,(char *)"", sizeof(buf) - 1);
 	printf("s: \"%s\",\nb: \"%s\", r: %p\n", "", buf, res);
 	printf("======\n");
 
