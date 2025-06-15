@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static void	ft_swap(int *a, int *b)
+static inline __attribute__((always_inline))
+void	ft_swap(int *const a, int *const b)
 {
-	int	temp;
+	register const int	temp = *b;
 
-	temp = *b;
 	*b = *a;
 	*a = temp;
 }
@@ -32,17 +32,16 @@ void	ft_rev_int_tab(int *tab, int size)
 
 void	ft_rev_int_tab2(int *tab, int size)
 {
-	int	i;
-	int	tmp;
-	int	half_size;
+	int			i;
+	int			tmp;
+	const int	half_size = size / 2;
+	const int	last = size - 1;
 
-	half_size = size / 2;
-	i = 0;
-	while (i < half_size)
+	i = -1;
+	while (++i < half_size)
 	{
 		tmp = tab[i];
 		tab[i] = tab[size - i - 1];
-		tab[size - i - 1] = tmp;
-		i++;
+		tab[last - i] = tmp;
 	}
 }

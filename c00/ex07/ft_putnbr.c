@@ -23,20 +23,13 @@ static inline size_t	ft_strlen(const char *str)
 	return (ptr - str);
 }
 
-void	ft_itoa_buf_base(unsigned int nb, char (*buf)[20], const char *base)
+void	ft_uitoa_buf_base(unsigned int nb, char *buf, const char *base)
 {
 	int				sp;
-	char			*ptr;
 	u_int			stack[20];
 	const size_t	radix = ft_strlen(base);
 
 	sp = 0;
-	ptr = *buf;
-	if ((int)nb < 0)
-	{
-		nb *= -1;
-		*ptr++ = '-';
-	}
 	stack[sp++] = nb;
 	while (sp)
 	{
@@ -47,9 +40,9 @@ void	ft_itoa_buf_base(unsigned int nb, char (*buf)[20], const char *base)
 			stack[sp++] = nb / radix;
 		}
 		else
-			*ptr++ = base[nb];
+			*buf++ = base[nb];
 	}
-	*ptr = '\0';
+	*buf = '\0';
 }
 
 /**
@@ -57,8 +50,11 @@ void	ft_itoa_buf_base(unsigned int nb, char (*buf)[20], const char *base)
  */
 void	ft_putnbr(unsigned int nb)
 {
-	char	buf[20];
+	char		buf[20];
+	const int	neg = ((int)nb < 0);
 
-	ft_itoa_buf_base(nb, &buf, "0123456789");
+	*buf = '-';
+	nb *= 1 - 2 * (neg);
+	ft_uitoa_buf_base(nb, &buf[neg], "0123456789");
 	write(STDOUT_FILENO, buf, ft_strlen(buf));
 }
