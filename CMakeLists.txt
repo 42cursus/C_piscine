@@ -12,7 +12,8 @@
 
 cmake_minimum_required(VERSION 3.8.2)
 
-#set(CMAKE_C_COMPILER /usr/bin/clang)
+#set(CMAKE_C_COMPILER clang)
+set(CMAKE_C_COMPILER gcc)
 
 project(c_piscine LANGUAGES C CXX ASM)
 set(PARENT_PROJECT_NAME "${PROJECT_NAME}")
@@ -23,9 +24,10 @@ set(CMAKE_C_STANDARD 99)
 set(COMMON_LDFLAGS
         -fsanitize=address
         -fsanitize=undefined
-        -fno-sanitize-recover
+        -fno-sanitize-recover=all
         -fsanitize=float-divide-by-zero
-        -fsanitize=float-cast-overflow)
+        -fsanitize=float-cast-overflow
+)
 
 set(FT_CFLAGS
         -Wall -Wextra -Werror
@@ -40,13 +42,13 @@ set(FT_CFLAGS
         -fdwarf2-cfi-asm
         -fcf-protection=none
         -mmanual-endbr
-        -g3 -gdwarf-3
         -fasynchronous-unwind-tables
         -fsanitize=address
         -fsanitize=undefined
-        -fno-sanitize-recover
+        -fno-sanitize-recover=all
         -fsanitize=float-divide-by-zero
-        -fsanitize=float-cast-overflow)
+        -fsanitize=float-cast-overflow
+        -g3 -gdwarf-3)
 
 add_subdirectory(c00)
 add_subdirectory(c01)

@@ -32,6 +32,7 @@
  * See also:
  * 		https://stackoverflow.com/questions/62157904/
  */
+__attribute__((no_sanitize("address", "undefined")))
 int	ft_list_foreach_test(void)
 {
 	char	**tab;
@@ -47,11 +48,9 @@ int	ft_list_foreach_test(void)
 	list = ft_list_push_strs(length, tab);
 	ft_list_reverse(&list);
 	length = 0;
-	f = ({ void lambda_fun(void *data){check(tab[length++] == data);}
-		lambda_fun;});
+	f = ({void __fun(void *data){check(tab[length++] == data);} __fun;});
 	ft_list_foreach(list, f);
 	printf("\n");
-	ft_list_clear(list, NULL);
-	ft_free_tab((void **) tab, tab_size);
+	fflush(stdout);
 	return (0);
 }

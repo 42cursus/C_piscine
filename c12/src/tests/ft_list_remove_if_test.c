@@ -21,6 +21,7 @@ static int	ft_compare(void *data, void *data_ref)
 	return (ft_strcmp(data, data_ref));
 }
 
+__attribute__((no_sanitize("address", "undefined")))
 int	ft_list_remove_if_test(void)
 {
 	char	**tab;
@@ -35,16 +36,16 @@ int	ft_list_remove_if_test(void)
 	l = ft_signed_int(tab_size);
 	list = ft_list_push_strs(l, tab);
 	ft_list_reverse(&list);
-	ft_list_remove_if(&list, (void *)"gaMMa",
-					  ft_compare, free);
+	ft_list_remove_if(&list, (void *)"gaMMa", ft_compare, free);
 	tab = (free(tab), NULL);
 	l = 0;
 	tab = ft_split("alpha BeTa deLta", ' ');
-	apply_fun = ({void __fun(void *data)
-		{check(!ft_strcmp(tab[l++], data));} __fun;});
+	auto void (*_f)(void *);
+	apply_fun = ({void _f(void *data){check(!ft_strcmp(tab[l++], data));} _f;});
 	ft_list_foreach(list, apply_fun);
 	printf("\n");
 	ft_list_clear(list, free);
 	ft_free_tab((void **) tab, tab_size);
 	return (0);
+	(void)_f;
 }

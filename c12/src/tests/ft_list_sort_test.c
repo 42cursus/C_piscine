@@ -29,7 +29,6 @@ int	ft_list_sort_test(void)
 	tab_size = (int)ft_get_tab_size((void **) tab);
 	ft_putstr("the original array is: \n\t");
 	ft_print_str_tab(tab, NULL);
-
 	list = ft_list_push_strs(tab_size, tab);
 	ft_list_reverse(&list);
 	ft_putstr("the original list is: \n\t");
@@ -37,16 +36,13 @@ int	ft_list_sort_test(void)
 	ft_putstr("\n");
 	f = (int (*)(void *, void *)) ft_strcmp;
 	ft_list_sort(&list, f);
-
 	ft_putstr("the result list is: \n\t");
 	ft_list_foreach(list, lambda_fun);
 	ft_putstr("\n");
-
 	ft_sort_string_tab_fun(tab, (int (*)(char *, char *)) ft_strcmp);
 	ft_putstr("the sorted array is: \n\t");
 	ft_print_str_tab(tab, NULL);
 	ft_putstr("\n");
-
 	ft_list_clear(list, NULL);
 	ft_free_tab((void **) tab, tab_size);
 	return (0);

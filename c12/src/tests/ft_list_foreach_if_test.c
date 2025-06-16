@@ -21,13 +21,18 @@ static int	ft_compare(void *data, void *data_ref)
 	return (ft_strcmp((char *)data, (char *)data_ref));
 }
 
+/**
+ * Make use of executable stack trampolines
+ * @return
+ */
+__attribute__((no_sanitize("address", "undefined")))
 int	ft_list_foreach_if_test(void)
 {
 	char	**tab;
 	int		l;
 	t_list	*list;
 	size_t	tab_size;
-	void	(*apply_fun)(void *);
+	void	(*apply)(void *);
 
 	ft_print_title("ft_list_foreach_if_test");
 	tab = ft_split("alpha BeTa gaMMa deLta", ' ');
@@ -36,11 +41,12 @@ int	ft_list_foreach_if_test(void)
 	list = ft_list_push_strs(l, tab);
 	ft_list_reverse(&list);
 	l = 0;
-	apply_fun = ({void __fun(void *data){check(tab[l++] == data);} __fun;});
-	ft_list_foreach_if(list, apply_fun,
-		(void *)"alpha", ft_compare);
+	auto void (*__fun)(void *);
+	apply = ({void __fun(void *data){check(tab[l++] == data);} __fun;});
+	ft_list_foreach_if(list, apply, (void *)"alpha", ft_compare);
 	printf("\n");
 	ft_list_clear(list, NULL);
 	ft_free_tab((void **) tab, tab_size);
 	return (0);
+	(void)__fun;
 }
