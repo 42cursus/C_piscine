@@ -13,33 +13,16 @@
 #include <unistd.h>
 #include <stdbool.h>
 
-#define ARRAY_SIZE 3
+#define DELIMITER ", "
 
-static bool	ft_arrcmp(const int *curr, const int *max, int array_size)
+static
+void	printout(int i, int j, int k)
 {
-	int	i;
-
-	i = -1;
-	while (i++ < (array_size - 1))
-		if (curr[i] != max[i])
-			return (false);
-	return (true);
-}
-
-/**
- * how-to-access-members-of-a-struct-according-to-a-variable-integer-in-c:
- * https://stackoverflow.com/questions/887852/
- */
-static void	printout(const int *curr, const int *max)
-{
-	int			i;
 	const char	*base = "0123456789";
 
-	i = -1;
-	while (i++ < 2)
-		write(STDOUT_FILENO, &base[curr[i]], 1);
-	if (!ft_arrcmp(curr, max, ARRAY_SIZE))
-		write(STDOUT_FILENO, ", ", 2);
+	write(STDOUT_FILENO, &base[i], 1);
+	write(STDOUT_FILENO, &base[j], 1);
+	write(STDOUT_FILENO, &base[k], 1);
 }
 
 /**
@@ -53,19 +36,24 @@ static void	printout(const int *curr, const int *max)
  */
 void	ft_print_comb(void)
 {
-	int			*curr;
+	int			i;
+	int			j;
+	int			k;
 	int const	*max = (int []){7, 8, 9};
 
-	curr = (int [ARRAY_SIZE]){0};
-	curr[0] = -1;
-	while (curr[0]++ < max[0])
+	i = -1;
+	while (i++ < max[0])
 	{
-		curr[1] = curr[0];
-		while (curr[1]++ < max[1])
+		j = i;
+		while (j++ < max[1])
 		{
-			curr[2] = curr[1];
-			while (curr[2]++ < max[2])
-				printout(curr, max);
+			k = j;
+			while (k++ < max[2])
+			{
+				printout(i, j, k);
+				if (!(i == max[0] && j == max[1] && k == max[2]))
+					write(STDOUT_FILENO, DELIMITER, sizeof(DELIMITER) - 1);
+			}
 		}
 	}
 }
