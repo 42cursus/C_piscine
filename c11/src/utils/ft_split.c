@@ -47,13 +47,13 @@ static char	**ft_free_words(char **words, size_t i)
 {
 	while (i--)
 	{
-		if (&(words[i]) && *&(words[i]))
+		if (words[i])
 		{
-			free(*&(words[i]));
-			*&(words[i]) = NULL;
+			free(words[i]);
+			words[i] = NULL;
 		}
 	}
-	free(*words);
+	free(words);
 	return (NULL);
 }
 
