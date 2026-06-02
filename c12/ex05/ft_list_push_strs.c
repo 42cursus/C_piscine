@@ -25,7 +25,7 @@ static void	ft_list_push_front(t_list **list, void *data)
 }
 
 /**
- * Creates a new list that includes all string pointed by the element in strs.
+ * Creates a new list that includes all strings pointed by the elements in strs.
  * The first element should be at the end of the list.
  */
 t_list	*ft_list_push_strs(int size, char **strs)
