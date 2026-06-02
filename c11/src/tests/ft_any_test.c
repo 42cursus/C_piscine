@@ -15,20 +15,23 @@
 int	ft_any_test(void)
 {
 	char		**tab;
-	int			length;
+	size_t		length;
+	int			res;
 	const char	*some = "some";
 
 	ft_print_title("ft_any_test");
 	tab = ft_split("hey ho !", ' ');
-	length = (int)ft_get_tab_size((void **) tab);
+	length = ft_get_tab_size((void **) tab);
 	ft_putstr("the array is: ");
 	ft_print_str_tab(tab, NULL);
-	if (!ft_any(tab, &ft_str_is_alpha))
+	res = ft_any(tab, &ft_str_is_alpha);
+	if (!res)
 		some = "no";
-	(ft_putstr("There are "), ft_putstr(some), ft_putstr(" non-alphabetical words\n"));
+	(ft_putstr("There are "), ft_putstr(some),
+		ft_putstr(" non-alphabetical words\n"));
+	check(res == 1);
+	check(ft_any(NULL, &ft_str_is_alpha) == 0);
 	ft_putstr("\n");
-	while (length--)
-		free(tab[length]);
-	free(tab);
+	ft_free_tab((void **) tab, length);
 	return (0);
 }

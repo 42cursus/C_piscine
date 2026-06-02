@@ -68,6 +68,8 @@ int		ft_is_sort_test(void);
 int		ft_sort_string_tab_test(void);
 int		ft_advanced_sort_string_tab_test(void);
 
+void	check(bool success);
+
 /* ---------- UTILS -------------------- */
 
 void	ft_print_int_tab(int tab[], size_t size, const char *eol);

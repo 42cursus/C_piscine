@@ -15,19 +15,19 @@
 int	ft_sort_string_tab_test(void)
 {
 	char	**tab;
-	char	**otab;
-	int		length;
+	size_t	length;
 
 	ft_print_title("ft_sort_string_tab_test");
-	otab = ft_split("gamma delta beta alpha", ' ');
-	tab = otab;
-	length = (int)ft_get_tab_size((void **) tab);
+	tab = ft_split("gamma delta beta alpha", ' ');
+	length = ft_get_tab_size((void **) tab);
 	ft_putstr("the original array is: \n\t");
 	ft_print_str_tab(tab, NULL);
 	ft_sort_string_tab(tab);
 	ft_putstr("the sorted array is: \n\t");
 	ft_print_str_tab(tab, NULL);
+	check(ft_strcmp(tab[0], "alpha") == 0);
+	check(ft_strcmp(tab[length - 1], "gamma") == 0);
 	ft_putstr("\n");
-	ft_free_tab((void **) otab, length);
+	ft_free_tab((void **) tab, length);
 	return (0);
 }
