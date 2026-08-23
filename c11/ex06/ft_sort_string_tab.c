@@ -28,31 +28,13 @@
  * 		the last compared byte in s2 from the last compared byte in s1.
  * 		(If the two characters are equal, this difference is 0.)
  */
-static int	ft_strcmp(const char *s1, const char *s2)
+static
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 == *s2++)
 		if (*s1++ == 0)
 			return (0);
-	return (*(unsigned char *)s1 - *(unsigned char *)--s2);
-}
-
-static int ft_string_tab_is_sort(char **tab, int(*f)(char *, char *))
-{
-	char	*p;
-	char	*q;
-
-	if(!tab || !*tab)
-		return (true);
-	if(!f)
-		return (false);
-	while (*++tab)
-	{
-		p = *(tab - 1);
-		q = *tab;
-		if (f(p, q) > 0)
-			return (false);
-	}
-	return (true);
+	return (*(const unsigned char *)s1 - *(const unsigned char *)--s2);
 }
 
 /**
@@ -62,50 +44,45 @@ static int ft_string_tab_is_sort(char **tab, int(*f)(char *, char *))
  * 	https://stackoverflow.com/questions/75204302/
  * See also:
  * 	https://en.wikipedia.org/wiki/XOR_swap_algorithm
- * 	https://chipsandcheese.com/2021/12/21/gracemont-revenge-of-the-atom-cores/
  */
-static inline int	ft_swap(char **a, char **b)
+static inline
+void	ft_swap(char **a, char **b)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = *b;
 	*b = *a;
 	*a = tmp;
-	return (true);
 }
 
 /**
  * Bubble sort
  */
-void ft_sort_string_tab(char **tab)
+void	ft_sort_string_tab(char **tab)
 {
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 	size_t	size;
 	int		swapped;
-	char	*strs[2] = {(char[42]){},(char[42]){}};
 
+	if (!tab || !*tab)
+		return ;
 	size = 0;
-	if (tab && *tab && !(*(tab + 1)
-		&& ft_string_tab_is_sort(tab, (int (*)(char *, char *)) ft_strcmp)))
+	while (tab[size])
+		size++;
+	i = (size_t)(-1);
+	while (++i + 1 < size)
 	{
-		while (*tab && ++size)
-			tab++;
-		tab -= size;
-		i = -1;
-		while (++i < (int) (size - 1))
+		swapped = false;
+		j = (size_t)(-1);
+		while (++j + 1 < (size - i))
 		{
-			swapped = false;
-			j = -1;
-			while (++j < (int) (size - i - 1))
-			{
-				strs[0] = *(tab + j);
-				strs[1] = *(tab + j + 1);
-				if (ft_strcmp(strs[0], strs[1]) > 0)
-					swapped = ft_swap(tab + j, tab + j + 1);
-			}
-			if (!swapped)
-				break;
+			if (ft_strcmp(*(tab + j), *(tab + j + 1)) <= 0)
+				continue ;
+			ft_swap(tab + j, tab + j + 1);
+			swapped = true;
 		}
+		if (!swapped)
+			break ;
 	}
 }
