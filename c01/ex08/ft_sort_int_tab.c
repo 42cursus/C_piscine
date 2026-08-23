@@ -21,14 +21,14 @@
  * 	https://en.wikipedia.org/wiki/XOR_swap_algorithm
  * 	https://chipsandcheese.com/2021/12/21/gracemont-revenge-of-the-atom-cores/
  */
-static inline int	ft_swap(int *a, int *b)
+static inline
+void	ft_swap(int *a, int *b)
 {
-	int	temp;
+	int	tmp;
 
-	temp = *b;
+	tmp = *b;
 	*b = *a;
-	*a = temp;
-	return (true);
+	*a = tmp;
 }
 
 /**
@@ -46,8 +46,12 @@ void	ft_sort_int_tab(int *array, int size)
 		swapped = false;
 		j = -1;
 		while (++j < size - i - 1)
-			if (array[j] > array[j + 1])
-				swapped = ft_swap(&array[j], &array[j + 1]);
+		{
+			if (array[j] <= array[j + 1])
+				continue ;
+			ft_swap(&array[j], &array[j + 1]);
+			swapped = true;
+		}
 		if (!swapped)
 			break ;
 	}
