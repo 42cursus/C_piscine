@@ -6,38 +6,79 @@
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:46:32 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/09 20:28:20 by abelov           ###   ########.fr       */
+/*   Updated: 2026/08/24 17:32:25 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include <limits.h>
+#include <string.h>
 #include "c01_test.h"
-#define ARRAY_SIZE (4)
 
-static void printarray1(int *array, int size, int pos)
+struct s_input
 {
-    if(pos < size)
+	int *nums;
+	int numsSize;
+	int *expected;
+};
+
+int ft_do_test(struct s_input	*input)
+{
+	int				check_val;
+
+	ft_print_int_tab(input->nums, input->numsSize, NULL);
+	ft_sort_int_tab(input->nums, input->numsSize);
+	check_val = memcmp(input->nums, input->expected,
+			(sizeof(int) * input->numsSize));
+	if (check_val)
 	{
-		printarray1(array, size, pos + 1);
-		printf("%d%s", array[size - pos - 1], pos ? " ": "");
+		printf("got ");
+		ft_print_int_tab(input->nums, input->numsSize, " whilst ");
+		ft_print_int_tab(input->expected, input->numsSize, "");
+		printf(" was to be expected \n");
 	}
-}
-
-static void printarray(int *array, int size)
-{
-    printf("[");
-	printarray1(array, size, 0);
-	printf("]");
+	check(!check_val);
+	return (0);
 }
 
 int	ft_sort_int_tab_test(void)
 {
-	int	size = ARRAY_SIZE;
-	int	tab[ARRAY_SIZE] = {9, 3 ,7, 1};
+	int				i;
+	struct s_input	inputs[] = {
+		{
+			.nums = (int[]) {42},
+			.numsSize = 0,
+			.expected = (int[]) {42}
+		},
+		{
+			.nums = (int[]) {42},
+			.numsSize = 1,
+			.expected = (int[]) {42}
+		},
+		{
+			.nums = (int[]) {-2, -1, 0, 1, 2},
+			.numsSize = 5,
+			.expected = (int[]) {-2, -1, 0, 1, 2}
+		},
+		{
+			.nums = (int[]) {2, 1, 0, -1, -2},
+			.numsSize = 5,
+			.expected = (int[]) {-2, -1, 0, 1, 2}
+		},
+		{
+			.nums = (int[]) {3, -1, 3, 0, -1, 3},
+			.numsSize = 6,
+			.expected = (int[]) {-1, -1, 0, 3, 3, 3}
+		},
+		{
+			.nums = (int[]) {INT_MAX, 0, INT_MIN, -1, INT_MAX},
+			.numsSize = 5,
+			.expected = (int[]) {INT_MIN, -1, 0, INT_MAX, INT_MAX}
+		}
+	};
 
 	ft_print_title("ft_sort_int_tab_test");
-	printarray(tab, size);
-	ft_sort_int_tab(tab, size);
-	printarray(tab, size);
+	i = -1;
+	while (++i < (int) (sizeof(inputs) / sizeof(inputs[0])))
+		ft_do_test(&inputs[i]);
 	return (0);
 }

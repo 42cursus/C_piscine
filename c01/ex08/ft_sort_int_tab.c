@@ -6,30 +6,9 @@
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 20:07:27 by abelov            #+#    #+#             */
-/*   Updated: 2023/10/19 20:41:48 by abelov           ###   ########.fr       */
+/*   Updated: 2026/08/24 17:32:25 by abelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdbool.h>
-
-/**
- * difference-between-always-inline-and-inline:
- * 	https://stackoverflow.com/questions/20995309/
- * How do `move elimination` slots work in Intel CPU:
- * 	https://stackoverflow.com/questions/75204302/
- * See also:
- * 	https://en.wikipedia.org/wiki/XOR_swap_algorithm
- * 	https://chipsandcheese.com/2021/12/21/gracemont-revenge-of-the-atom-cores/
- */
-static inline
-void	ft_swap(int *a, int *b)
-{
-	int	tmp;
-
-	tmp = *b;
-	*b = *a;
-	*a = tmp;
-}
 
 /**
  * Bubble sort
@@ -37,22 +16,25 @@ void	ft_swap(int *a, int *b)
 void	ft_sort_int_tab(int *array, int size)
 {
 	int	i;
-	int	j;
-	int	swapped;
+	int	tmp;
+	int	end;
+	int	last_swap_pos;
 
-	i = -1;
-	while (++i < size - 1)
+	end = size - 1;
+	while (end > 0)
 	{
-		swapped = false;
-		j = -1;
-		while (++j < size - i - 1)
+		last_swap_pos = 0;
+		i = -1;
+		while (++i < end)
 		{
-			if (array[j] <= array[j + 1])
-				continue ;
-			ft_swap(&array[j], &array[j + 1]);
-			swapped = true;
+			if (array[i] > array[i + 1])
+			{
+				tmp = array[i];
+				array[i] = array[i + 1];
+				array[i + 1] = tmp;
+				last_swap_pos = i;
+			}
 		}
-		if (!swapped)
-			break ;
+		end = last_swap_pos;
 	}
 }
