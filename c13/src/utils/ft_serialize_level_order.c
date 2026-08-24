@@ -12,23 +12,23 @@
 
 #include "c13_tests.h"
 
-int *ft_serialize_level_order(t_btree *root, int *arraySize)
+int	*ft_serialize_level_order(t_btree *root, int *arraySize)
 {
-	t_btree *node;
-	t_btree *queue[MAX_STACK_SIZE];
-	int		front = 0, rear = 0;
+	t_btree	*node;
+	t_btree	*queue[MAX_STACK_SIZE];
+	int		rear = 0;
+	int		front = 0;
 	int		*result = NULL;
 	int		stack[MAX_STACK_SIZE * 2];
-	int 	sp = 0;
+	int		sp = 0;
 
 	if (arraySize == NULL)
-		return NULL;
+		return (NULL);
 	if (root)
 		queue[rear++] = root;
-	while (rear > front) // Start from the second element in the array
+	while (rear > front)
 	{
 		node = queue[front++];
-
 		if (node)
 		{
 			stack[sp++] = FT_PTR_TO_INT(node->item);

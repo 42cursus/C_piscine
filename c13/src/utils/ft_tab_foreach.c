@@ -16,7 +16,8 @@
  * Function ft_foreach applies a function on all elements of the given array.
  * This function will be applied following the array’s order.
  */
-void	ft_tab_foreach(void **tab, size_t tab_size, void (*f)(void *, void *), void *ref)
+void	ft_tab_foreach(void **tab, size_t tab_size,
+						void (*f)(void *, void *), void *ref)
 {
 	size_t	i;
 

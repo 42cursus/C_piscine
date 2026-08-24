@@ -12,9 +12,9 @@
 
 #include "c13_tests.h"
 
-size_t ft_get_tab_size(void **tab)
+size_t	ft_get_tab_size(void **tab)
 {
-	u_int	*const size = (u_int[]){0};
+	u_int *const	size = (u_int[]){0};
 
 	while (*tab && ++(*size))
 		tab++;

@@ -12,12 +12,13 @@
 
 #include "c13_tests.h"
 
-void ft_print_int_tab(int tab[], size_t size, char *eol)
+void	ft_print_int_tab(int tab[], size_t size, char *eol)
 {
-	size_t *const pos = (size_t[]){0};
+	size_t *const	pos = (size_t[]){0};
 
 	ft_putstr("[");
-	while (*pos < size) {
+	while (*pos < size)
+	{
 		ft_putnbr(tab[(*pos)++]);
 		if (*pos != size)
 			ft_putstr(", ");
@@ -31,10 +32,10 @@ void ft_print_int_tab(int tab[], size_t size, char *eol)
 	}
 }
 
-void ft_print_int_tab_null(int tab[], size_t size, int nil, const char *eol)
+void	ft_print_int_tab_null(int tab[], size_t size, int nil, const char *eol)
 {
-	size_t pos;
-	int val;
+	size_t	pos;
+	int		val;
 
 	pos = 0;
 	printf("[");
@@ -54,6 +55,7 @@ void ft_print_int_tab_null(int tab[], size_t size, int nil, const char *eol)
 		else
 			printf(", %d", val);
 	}
-	printf("]%s", (!eol) ? "\n" : eol);
+	if (!eol)
+		eol = "\n";
+	printf("]%s", eol);
 }
-
