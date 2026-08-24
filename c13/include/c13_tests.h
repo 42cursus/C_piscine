@@ -108,7 +108,6 @@ size_t ft_get_tab_size(void **tab);
 void	ft_rev_int_tab(int *tab, int size);
 void	ft_sort_int_tab(int *tab, int size);
 void	ft_sort_string_tab(char **tab);
-int		ft_string_tab_is_sort(char **tab, int (*f)(char *, char *));
 void	ft_sort_string_tab_fun(char **tab, int (*cmp)(char *, char *));
 char	*ft_strdup(char *src);
 char	*ft_strndup(const char *src, unsigned int nb);
