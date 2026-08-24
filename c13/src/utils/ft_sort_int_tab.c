@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-
 /**
  * difference-between-always-inline-and-inline:
  * 	https://stackoverflow.com/questions/20995309/
@@ -21,35 +19,38 @@
  * 	https://en.wikipedia.org/wiki/XOR_swap_algorithm
  * 	https://chipsandcheese.com/2021/12/21/gracemont-revenge-of-the-atom-cores/
  */
-static inline int	ft_swap(int *a, int *b)
+static inline
+void	ft_swap(int *a, int *b)
 {
 	int	temp;
 
 	temp = *b;
 	*b = *a;
 	*a = temp;
-	return (true);
 }
 
 /**
  * Bubble sort
  */
-int	*ft_sort_int_tab(int *tab, int size)
+void	ft_sort_int_tab(int *array, int size)
 {
 	int	i;
-	int	j;
-	int	swapped;
+	int	end;
+	int	last_swap_pos;
 
-	i = -1;
-	while (++i < size - 1)
+	end = size - 1;
+	while (end > 0)
 	{
-		swapped = false;
-		j = -1;
-		while (++j < size - i - 1)
-			if (tab[j] > tab[j + 1])
-				swapped = ft_swap(&tab[j], &tab[j + 1]);
-		if (!swapped)
-			break ;
+		last_swap_pos = 0;
+		i = -1;
+		while (++i < end)
+		{
+			if (array[i] > array[i + 1])
+			{
+				ft_swap(&array[i], &array[i + 1]);
+				last_swap_pos = i;
+			}
+		}
+		end = last_swap_pos;
 	}
-	return (tab);
 }
