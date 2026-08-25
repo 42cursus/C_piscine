@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do-op.h                                            :+:      :+:    :+:   */
+/*   do_op.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelov <abelov@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -20,19 +20,9 @@ typedef enum e_op
 	ft_div = '/',
 	ft_mul = '*',
 	ft_mod = '%'
-}			t_op;
-
-
-extern t_op g_op_symbols[];
-
-typedef int	(*t_op_fun)(void);
-extern t_op_fun op_funs[];
+}	t_op;
 
 void	ft_putstr(const char *str);
-size_t ft_strlen(const char *str);
-
-
-
-
+size_t	ft_strlen(const char *str);
 
 #endif //DO_OP_H

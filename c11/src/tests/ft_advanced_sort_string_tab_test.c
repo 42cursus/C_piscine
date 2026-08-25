@@ -31,4 +31,3 @@ int	ft_advanced_sort_string_tab_test(void)
 	ft_free_tab((void **) tab, length);
 	return (0);
 }
-

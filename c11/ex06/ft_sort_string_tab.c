@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
 #include <stddef.h>
 
 /**
@@ -37,14 +36,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (*(const unsigned char *)s1 - *(const unsigned char *)--s2);
 }
 
-/**
- * difference-between-always-inline-and-inline:
- * 	https://stackoverflow.com/questions/20995309/
- * how-do-move-elimination-slots-work-in-intel-cpu:
- * 	https://stackoverflow.com/questions/75204302/
- * See also:
- * 	https://en.wikipedia.org/wiki/XOR_swap_algorithm
- */
 static inline
 void	ft_swap(char **a, char **b)
 {
@@ -58,31 +49,35 @@ void	ft_swap(char **a, char **b)
 /**
  * Bubble sort
  */
-void	ft_sort_string_tab(char **tab)
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
-	size_t	i;
 	size_t	j;
 	size_t	size;
-	int		swapped;
+	size_t	end;
+	size_t	last_swap_pos;
 
-	if (!tab || !*tab)
+	if (!tab || !*tab || !cmp)
 		return ;
 	size = 0;
 	while (tab[size])
 		size++;
-	i = (size_t)(-1);
-	while (++i + 1 < size)
+	end = size - 1;
+	while (end > 0)
 	{
-		swapped = false;
+		last_swap_pos = 0;
 		j = (size_t)(-1);
-		while (++j + 1 < (size - i))
+		while (++j < end)
 		{
-			if (ft_strcmp(*(tab + j), *(tab + j + 1)) <= 0)
+			if (cmp(tab[j], tab[j + 1]) <= 0)
 				continue ;
 			ft_swap(tab + j, tab + j + 1);
-			swapped = true;
+			last_swap_pos = j;
 		}
-		if (!swapped)
-			break ;
+		end = last_swap_pos;
 	}
+}
+
+void	ft_sort_string_tab(char **tab)
+{
+	ft_advanced_sort_string_tab(tab, (int (*)(char *, char *)) ft_strcmp);
 }

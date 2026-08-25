@@ -15,11 +15,11 @@
 /**
  * returns 1 if the array is sorted and 0 if it isn't
  */
-int ft_is_sort(int *tab, int length, int(*f)(int, int))
+int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
-	if(!tab || !length)
+	if (!tab || !length)
 		return (true);
-	if(!f)
+	if (!f)
 		return (false);
 	while (--length)
 		if (f(tab[length - 1], tab[length]) > 0)

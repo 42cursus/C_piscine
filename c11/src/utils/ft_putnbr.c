@@ -12,17 +12,7 @@
 
 #include <unistd.h>
 #include <limits.h>
-
-/**
- * When an expression contains operands of different built-in types,
- * and no explicit casts are present, the compiler uses built-in standard
- * conversions to convert one of the operands so that the types match.
- *
- * See also:
- *	 https://learn.microsoft.com =>
- *	 	=> /en-us/cpp/cpp/type-conversions-and-type-safety-modern-cpp
- */
-typedef unsigned int	t_uint;
+#include <sys/types.h>
 
 /**
  * In this example: `&(char){r + ascii_zero}`,
@@ -32,9 +22,9 @@ typedef unsigned int	t_uint;
  */
 void	ft_putnbr(int nb)
 {
-	t_uint			r;
+	u_int			r;
 	const char		*base = "0123456789";
-	const t_uint	decimal_radix = 10;
+	const u_int		decimal_radix = 10;
 	int const		mask = nb >> (sizeof(int) * CHAR_BIT - 1);
 
 	r = (nb + mask) ^ mask;

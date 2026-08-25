@@ -12,13 +12,14 @@
 
 #include "c11_tests.h"
 
-void ft_print_int_tab(int tab[], size_t size, const char *eol)
+void	ft_print_int_tab(int tab[], size_t size, const char *eol)
 {
-	size_t pos;
+	size_t	pos;
 
 	pos = 0;
 	ft_putstr("[");
-	while (pos < size) {
+	while (pos < size)
+	{
 		ft_putnbr(tab[pos++]);
 		if (pos != size)
 			ft_putstr(", ");

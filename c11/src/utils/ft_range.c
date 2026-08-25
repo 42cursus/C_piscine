@@ -33,7 +33,7 @@ int	*ft_range(int min, int max)
 	int_array = (int *)malloc (sizeof(int) * ary_size);
 	if (!int_array)
 		return (NULL);
-	while (i < max)
+	while (i < ary_size)
 		int_array[i++] = min++;
 	return (int_array);
 }

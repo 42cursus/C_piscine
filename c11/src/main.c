@@ -32,7 +32,7 @@ void	check(bool succes)
 
 void	do_init(t_ops *t)
 {
-	static t_test_fun const functions[] = {
+	static t_test_fun const	functions[] = {
 		ft_foreach_test,
 		ft_map_test,
 		ft_any_test,
@@ -49,8 +49,8 @@ void	do_init(t_ops *t)
 
 int	main(void)
 {
-	int *const i = (int[]){0};
-	t_ops	test;
+	int *const	i = (int []){0};
+	t_ops		test;
 
 	do_init(&test);
 	while (*i < (int) test.size)

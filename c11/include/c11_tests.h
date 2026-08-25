@@ -19,20 +19,6 @@
 # include <stdlib.h>
 # include <stddef.h>
 
-# ifndef T_UINT
-#  define T_UINT
-/**
- * When an expression contains operands of different built-in types,
- * and no explicit casts are present, the compiler uses built-in standard
- * conversions to convert one of the operands so that the types match.
- *
- * See also:
- *	 https://learn.microsoft.com =>
- *	 	=> /en-us/cpp/cpp/type-conversions-and-type-safety-modern-cpp
- */
-typedef unsigned int	t_uint;
-# endif
-
 # define FT_RED   "\033[0;31m"
 # define FT_GREEN "\033[0;32m"
 # define FT_CYAN  "\033[36m"
@@ -41,6 +27,14 @@ typedef unsigned int	t_uint;
 /* ---------- TESTS -------------------- */
 
 typedef int	(*t_test_fun)(void);
+
+typedef struct s_is_sort_input
+{
+	int	*nums;
+	int	nums_size;
+	int	expected;
+	int	(*cmp)(int, int);
+}	t_is_sort_input;
 
 /**
  * We can use a `flexible array member` as per
@@ -56,9 +50,9 @@ typedef int	(*t_test_fun)(void);
  */
 typedef struct s_ops
 {
-	size_t size;
-	const t_test_fun *functions;
-} t_ops;
+	size_t				size;
+	const t_test_fun	*functions;
+}	t_ops;
 
 int		ft_foreach_test(void);
 int		ft_map_test(void);
@@ -80,13 +74,13 @@ char	**ft_split(char const *s, char c);
 char	*ft_strdup(char *src);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
-size_t ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
 void	ft_putnbr(int nb);
 void	ft_putstr(const char *str);
 void	ft_print_title(const char *title);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
-size_t ft_get_tab_size(void **tab);
+size_t	ft_get_tab_size(void **tab);
 void	ft_rev_int_tab(int *tab, int size);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_str_is_alpha(char *str);
